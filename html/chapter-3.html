@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/style.css?t=a44c9e9d">
+    <script src="assets/script.js?t=820b7ffa"></script>
+    <title>Structuring Machine Learning Projects</title>
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body class="-menu-visible">
+    <div class="doc-layout">
+      <div class="toggle menu-toggle js-menu-toggle"></div>
+      <div class="body page-chapter-3">
+        <div class="header-nav">
+          <div class="right">
+          </div>
+        </div>
+        <div class="markdown-body"><h1 id="structuring-machine-learning-projects">Structuring Machine Learning Projects</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#table-of-contents">Table of contents</a></li>
+<li><a href="#note">Note</a></li>
+<li><a href="#ml-strategy-1">ML Strategy 1</a>
+<ul>
+<li><a href="#why-ml-strategy">Why ML Strategy</a></li>
+<li><a href="#orthogonalization">Orthogonalization</a></li>
+<li><a href="#single-number-evaluation-metric">Single number evaluation metric</a></li>
+<li><a href="#satisfying-and-optimizing-metric">Satisfying and Optimizing metric</a></li>
+<li><a href="#traindevtest-distributions">Train/Dev/Test distributions</a></li>
+<li><a href="#size-of-the-dev-and-test-sets">Size of the Dev and Test sets</a></li>
+<li><a href="#when-to-change-devtest-sets-and-metrics">When to change Dev/Test sets and metrics</a></li>
+<li><a href="#why-human-level-performance">Why human-level performance?</a></li>
+<li><a href="#avoidable-bias">Avoidable bias</a></li>
+<li><a href="#understanding-human-level-performance">Understanding human-level performance</a></li>
+<li><a href="#surpassing-human-level-performance">Surpassing human-level performance</a></li>
+<li><a href="#improving-your-model-performance">Improving your model performance</a></li>
+</ul>
+</li>
+<li><a href="#ml-strategy-2">ML Strategy 2</a>
+<ul>
+<li><a href="#carrying-out-error-analysis">Carrying out error analysis</a></li>
+<li><a href="#cleaning-up-incorrectly-labeled-data">Cleaning up incorrectly labeled data</a></li>
+<li><a href="#build-your-first-system-quickly-then-iterate">Build your first system quickly, then iterate</a></li>
+<li><a href="#training-and-testing-on-different-distributions">Training and testing on different distributions</a></li>
+<li><a href="#bias-and-variance-with-mismatched-data-distributions">Bias and Variance with mismatched data distributions</a></li>
+<li><a href="#addressing-data-mismatch">Addressing data mismatch</a></li>
+<li><a href="#transfer-learning">Transfer learning</a></li>
+<li><a href="#multi-task-learning">Multi-task learning</a></li>
+<li><a href="#what-is-end-to-end-deep-learning">What is end-to-end deep learning?</a></li>
+<li><a href="#whether-to-use-end-to-end-deep-learning">Whether to use end-to-end deep learning</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="note">Note</h2>
+<blockquote>
+<p>How to build a successful machine learning project. How to set direction for team&apos;s work.</p>
+<ul>
+<li>Understand how to diagnose errors in a machine learning system.</li>
+<li>Be able to prioritize the most promising directions for reducing error.</li>
+<li>Understand complex ML settings, such as mismatched training/test sets, and comparing to and/or surpassing human-level performance.</li>
+<li>Know how to apply end-to-end learning, transfer learning, and multi-task learning.</li>
+</ul>
+</blockquote>
+<h2 id="ml-strategy-1">ML Strategy 1</h2>
+<h3 id="why-ml-strategy">Why ML Strategy</h3>
+<ul>
+<li>Lot of ideas to improve the accuracy of deep learning system:
+<ul>
+<li>Collect more data.</li>
+<li>Collect more diverse training set.</li>
+<li>Train gradient decent longer.</li>
+<li>Try bigger network.</li>
+<li>Try smaller network.</li>
+<li>Try dropout</li>
+<li>Add L2 regularization</li>
+<li>Try different optimization algorithm &quot;ex. Adam&quot;</li>
+<li>Activation functions.</li>
+</ul>
+</li>
+</ul>
+<h3 id="orthogonalization">Orthogonalization</h3>
+<ul>
+<li>Some deep learning developers knows exactly what hyperparameter to tune to achieve a specific task. This is called Orthogonalization.</li>
+<li>In Orthogonalization you have some controls, but each control does a specific task and doesn&apos;t effect other controls.</li>
+<li>Chain of assumptions in machine learning:
+<ol>
+<li>You&apos;ll have to fit training set well on cost function. (Near human level performance if possible)
+<ul>
+<li>If its not achieved you could try: bigger network - other optimization algorithm...</li>
+</ul>
+</li>
+<li>Fit Dev set well on cost function.
+<ul>
+<li>If its not achieved you could try: regularization - Bigger training set ...</li>
+</ul>
+</li>
+<li>Fit test set well on cost function.
+<ul>
+<li>If its not achieved you could try: Bigger Dev. set ...</li>
+</ul>
+</li>
+<li>Performs well in real world.
+<ul>
+<li>If its not achieved you could try: change dev. set - change cost function..</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="single-number-evaluation-metric">Single number evaluation metric</h3>
+<ul>
+<li>
+<p>Its better and faster to set a Single number evaluation metric to your project before you start it.</p>
+</li>
+<li>
+<p>Difference between precision and recall (In cat classification example):</p>
+<ul>
+<li>
+<p>Suppose we run the classifier on 10 images which are 5 cats and 5 non-cats. The classifier identifies that there are 4 cats. but he identified 1 wrong cat.</p>
+</li>
+<li>
+<p>Confusion matrix:</p>
+<ul>
+<li>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Cat</th>
+<th>Non-Cat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cat</strong></td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Non-Cat</strong></td>
+<td>1</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Precision</strong>: percentage of true cats in the recognized result. per = 3/4</p>
+</li>
+<li>
+<p><strong>Recall</strong>: percentage of true recognition in the whole dataset. rec = 3/5</p>
+</li>
+<li>
+<p><strong>Accuracy</strong>= 3/10</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Using a precision/recall for evaluation is good in a lot of cases they doesn&apos;t tell you which is better. Ex:</p>
+<table>
+<thead>
+<tr>
+<th>Classifier</th>
+<th>Precision</th>
+<th>Recall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>95%</td>
+<td>90%</td>
+</tr>
+<tr>
+<td>B</td>
+<td>98%</td>
+<td>85%</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>A better thing is to merge precision and Recall together. There a something called <code>F1</code> score</p>
+<ul>
+<li>You can think of <code>F1</code> score as average of Precision and Recall
+<code>F1 = 2/ ((1/Per) + (1/Rec))</code></li>
+</ul>
+</li>
+<li>
+<p>IF you have a lot of value as your metric  you should take the average.</p>
+</li>
+</ul>
+<h3 id="satisfying-and-optimizing-metric">Satisfying and Optimizing metric</h3>
+<ul>
+<li>
+<p>Its hard sometimes to get a single number evaluation metric. Ex:</p>
+<table>
+<thead>
+<tr>
+<th>Classifier</th>
+<th>F1</th>
+<th>Running time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>90%</td>
+<td>80 ms</td>
+</tr>
+<tr>
+<td>B</td>
+<td>92%</td>
+<td>95 ms</td>
+</tr>
+<tr>
+<td>C</td>
+<td>92%</td>
+<td>1,500 ms</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>In this case we can solve that by Satisfying and Optimizing metric. Ex:</p>
+<pre><code>Maximize 		  F1						  # Optimizing metric
+subject to 		Running time &lt; 100ms		# Satisficing metric
+</code></pre>
+</li>
+<li>
+<p>So as a general rule:</p>
+<pre><code>Maximize 		1					#Optimizing metric (One optimizing metric)
+subject to 		N-1					#Satisficing metric (N-1 Satisficing metric)
+</code></pre>
+</li>
+</ul>
+<h3 id="traindevtest-distributions">Train/Dev/Test distributions</h3>
+<ul>
+<li>Dev/Test set has to come from the same distribution.</li>
+<li>Choose Dev/Test sets to reflect data you expect to get in the future and consider important to do well on.</li>
+</ul>
+<h3 id="size-of-the-dev-and-test-sets">Size of the Dev and Test sets</h3>
+<ul>
+<li>Old way of splitting was 70% training, 30% test.</li>
+<li>Old way of splitting was 60% training, 20% Dev, 20% test.</li>
+<li>The old way was valid for ranges 1000 --&gt; 100000</li>
+<li>In the modern deep learning you have if you have a million or more
+<ul>
+<li>98% Training, 1% Dev, 1% Test</li>
+</ul>
+</li>
+</ul>
+<h3 id="when-to-change-devtest-sets-and-metrics">When to change Dev/Test sets and metrics</h3>
+<ul>
+<li>
+<p>Lets take an example. In a cat classification example we have these metric results:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Classification error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Algorithm A</td>
+<td>3% error (But a lot of porn images is treated as cat images here)</td>
+</tr>
+<tr>
+<td>Algorithm B</td>
+<td>5% error</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>In the last example if we choose the best algorithm by metric it would be &quot;A&quot;, but if the users decide it will be &quot;B&quot;</p>
+</li>
+<li>
+<p>Thus here we want to change out metric.</p>
+</li>
+<li>
+<p><code>OldMetric = (1/m) * sum(y_pred[i] != y[i] ,m)</code></p>
+<ul>
+<li>Where m is the number of Dev set items.</li>
+</ul>
+</li>
+<li>
+<p><code>NewMetric = (1/sum(w[i])) * sum( w[i] * (y_pred[i] != y[i]) ,m)</code></p>
+<ul>
+<li>where:
+<ul>
+<li><code>w[i] = 1 if x[i] is not porn</code></li>
+<li><code>w[i] = 10 if x[i] is porn</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Conclusion: If doing well on your metric + Dev/test set doesn&apos;t correspond to doing well in your application, change your metric and/or Dev/test set.</p>
+</li>
+</ul>
+<h3 id="why-human-level-performance">Why human-level performance?</h3>
+<ul>
+<li>We compare to human-level performance because a lot of deep learning algorithms in the recent days are a lot better than human level.</li>
+<li>After an algorithm reaches the human level performance it doesn&apos;t get better much.
+<ul>
+<li><img src="images/03/01-_Why_human-level_performance.png" alt="01- Why human-level performance"></li>
+</ul>
+</li>
+<li>You won&apos;t surpass an error that&apos;s called &quot;Bayes optimal error&quot;</li>
+<li>There aren&apos;t much error range between human-level error and Bayes optimal error.</li>
+<li>Humans are quite good at lot of tasks. So as long as Machine learning is worse than humans, you can:
+<ul>
+<li>Get labeled data from humans.</li>
+<li>Gain insight from manual error analysis. (Why did a person get it right?)</li>
+<li>Better analysis of bias/variance</li>
+</ul>
+</li>
+</ul>
+<h3 id="avoidable-bias">Avoidable bias</h3>
+<ul>
+<li>
+<p>Suppose that the cat classification algorithm gives these percentages:</p>
+<table>
+<thead>
+<tr>
+<th>Humans</th>
+<th>1%</th>
+<th>7.5%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Training error</strong></td>
+<td>8%</td>
+<td>8%</td>
+</tr>
+<tr>
+<td><strong>Dev Error</strong></td>
+<td>10%</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>In the left example, if the human level error is 1% then we have to focus on the <strong>bias</strong>.</li>
+<li>In the right example, if the human level error is 7.5% then we have to focus on the <strong>variance</strong>.</li>
+<li>In the latest examples we have used the human level as a proxy form Bayes optimal error because humans vision is too good.</li>
+</ul>
+</li>
+</ul>
+<h3 id="understanding-human-level-performance">Understanding human-level performance</h3>
+<ul>
+<li>When choosing human-level performance, it has to be choose in the terms of what you want to achieve with the system.</li>
+<li>You might have multiple human-level performance based on the human experience. Then the system you are trying to build will choose from these human levels as set it as proxy for Bayes error.</li>
+<li>Improving deep learning algorithms is harder once you reach a human level performance.</li>
+<li>Summary of bias/variance with human-level performance:
+<ol>
+<li>human level error (Proxy for Bayes error)
+<ul>
+<li>Calculate <code>training error - human level error</code></li>
+<li>If difference is bigger then its <strong>Avoidable bias</strong> then you should use a strategy for <strong>bias</strong>.</li>
+</ul>
+</li>
+<li>Training error
+<ul>
+<li>Calculate <code>dev error - training error</code></li>
+<li>If difference is bigger then its <strong>Variance</strong> then you should use a strategy for <strong>Variance</strong>.</li>
+</ul>
+</li>
+<li>Dev error</li>
+</ol>
+</li>
+<li>In a lot of problems Bayes error isn&apos;t zero that&apos;s why we need human level performance comparing.</li>
+</ul>
+<h3 id="surpassing-human-level-performance">Surpassing human-level performance</h3>
+<ul>
+<li>In some problems, deep learning has surpassed human level performance. Like:
+<ul>
+<li>Online advertising.</li>
+<li>Product recommendation.</li>
+<li>Loan approval.</li>
+</ul>
+</li>
+<li>The last examples are non natural perception task. Humans are far better in natural perception task like computer vision and speech recognition.</li>
+<li>Its harder for machines to surpass human level in natural perception task.</li>
+</ul>
+<h3 id="improving-your-model-performance">Improving your model performance</h3>
+<ul>
+<li>To improve your deep learning supervised system follow these guideline:
+<ol>
+<li>Look at the difference between human level error and the training error.  <strong><em>Avoidable bias</em></strong></li>
+<li>Look at the difference between the training error and the Test/Dev set. <strong><em>Variance</em></strong></li>
+<li>If number 1 difference is large you have these options:
+<ul>
+<li>Train bigger model.</li>
+<li>Train longer/better optimization algorithm (Adam).</li>
+<li>NN architecture/hyperparameters search.</li>
+<li>Bigger training data.</li>
+</ul>
+</li>
+<li>If number 2 difference is large you have these options:
+<ul>
+<li>Get more training data.</li>
+<li>Regularization.</li>
+<li>NN architecture/hyperparameters search.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="ml-strategy-2">ML Strategy 2</h2>
+<h3 id="carrying-out-error-analysis">Carrying out error analysis</h3>
+<ul>
+<li>
+<p>Error analysis is to analysis why the accuracy of the system is like that. Example:</p>
+<ul>
+<li>In the cat classification example, if you have 10% error on your Dev set and you want to solve the error.</li>
+<li>If you discovered that some of the mislabeled data are dog pictures that looks like cats, should you try to make your cat classifier do better on dogs? this could take some weeks.</li>
+<li>Error analysis approach (To take a decision):
+<ul>
+<li>Get 100 mislabeled Dev set examples at random.</li>
+<li>Count up how many are dogs.</li>
+<li>if there are 5/100 is dogs then it doesn&apos;t count to train your classifier to dogs.</li>
+<li>if there are 50/100 is dogs then you should work in that.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Based on the last example, error analysis helps you to analyze the error before taking an action that could take lot of time with no need.</p>
+</li>
+<li>
+<p>You can evaluate multiple ideas -Error analysis ideas- in parallel and choose the best idea. create an excel shape to do that and decide Ex:</p>
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Dog</th>
+<th>Great Cats</th>
+<th>blurry</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>&#x2713;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>&#x2713;</td>
+<td></td>
+<td>&#x2713;</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td>&#x2713;</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>....</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>% totals</strong></td>
+<td><strong>8%</strong></td>
+<td><strong>43%</strong></td>
+<td><strong>61%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>In the last example you will decide to work on great cats or blurry images to improve your performance.</p>
+</li>
+</ul>
+<h3 id="cleaning-up-incorrectly-labeled-data">Cleaning up incorrectly labeled data</h3>
+<ul>
+<li>
+<p>Labeled data is incorrect when y of x is incorrect.</p>
+</li>
+<li>
+<p>If the incorrect labeled data is in the training set, Deep learning are quite robust to random error (Not systematic error). But its OK to go and fix these labels if you can.</p>
+</li>
+<li>
+<p>If you want to check for mislabeled data in Dev/test set, you should also try error analysis with mislabeled column. Ex:</p>
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Dog</th>
+<th>Great Cats</th>
+<th>blurry</th>
+<th>Mislabeled</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>&#x2713;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>&#x2713;</td>
+<td></td>
+<td>&#x2713;</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td>&#x2713;</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>....</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>% totals</strong></td>
+<td><strong>8%</strong></td>
+<td><strong>43%</strong></td>
+<td><strong>61%</strong></td>
+<td><strong>6%</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Then:
+<ul>
+<li>If Overall Dev set error: 		10%
+<ul>
+<li>Then Errors due incorrect data: 0.6%
+<ul>
+<li>Then Errors due other causes:9.4%</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Then you should focus on the 9.4% error rather than the incorrect data.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Consider these while correcting the Dev/test mislabeled:</p>
+<ul>
+<li>Apply same process to your Dev and test sets to make sure they continue to come from the same distribution.</li>
+<li>Consider examining examples your algorithm got right as well as ones it got wrong. (Not always done if you reached a good accuracy)</li>
+<li>Train and (Dev/Test) data may now come from slightly different distributions</li>
+</ul>
+</li>
+</ul>
+<h3 id="build-your-first-system-quickly-then-iterate">Build your first system quickly, then iterate</h3>
+<ul>
+<li>The steps you take to make your deep learning project:
+<ul>
+<li>Setup Dev/test set and metric</li>
+<li>Build initial system quickly
+<ul>
+<li>Using the training data.</li>
+</ul>
+</li>
+<li>Use Bias/Variance analysis &amp; Error analysis to prioritize next steps.</li>
+</ul>
+</li>
+</ul>
+<h3 id="training-and-testing-on-different-distributions">Training and testing on different distributions</h3>
+<ul>
+<li>A lot of teams are working with deep learning applications that has training sets that are different from the Dev/test sets due to the hanger of deep learning to data.</li>
+<li>There are some strategies to follow up when training set distribution differs from Dev/test sets distribution.
+<ul>
+<li>Option one (Not recommended): shuffle are the data together and extract randomly training and Dev/test sets.
+<ul>
+<li>Advantages:   All the sets now are from the same distribution.</li>
+<li>Disadvantages: The other distribution that was in the Dev/test sets will occur less in the new Dev/test sets and that might not what you want to achieve.</li>
+</ul>
+</li>
+<li>Option two: Take some of the Dev/test set examples and put them with the training distribution.
+<ul>
+<li>Advantages: The distribution you care about is your target now.</li>
+<li>Disadvantage: the distributions are different. but you will get a better performance over a long time.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="bias-and-variance-with-mismatched-data-distributions">Bias and Variance with mismatched data distributions</h3>
+<ul>
+<li>Bias and Variance analysis changes when training and Dev/test set is from different distribution.</li>
+<li>Example: Assume the cat classification example. Suppose you&apos;ve worked in the example and reached this
+<ul>
+<li>Human error:  0%</li>
+<li>Training error: 1%</li>
+<li>Dev error:  10%</li>
+</ul>
+</li>
+<li>In the last example you&apos;ll think that this is a variance problem, but because the distributions aren&apos;t the same you cant judge this.</li>
+<li>Imagine if we created a new set called training-Dev set as a random subset of the training distribution. and we run error analysis and it came as follows:
+<ul>
+<li>Human error:  0%</li>
+<li>Training error: 1%</li>
+<li>TrainingDev error:  8%</li>
+<li>Dev error:  10%</li>
+</ul>
+</li>
+<li>Now you are sure this is a variance error.</li>
+<li>Suppose you have a different situation:
+<ul>
+<li>Human error:  0%</li>
+<li>Training error: 1%</li>
+<li>TrainingDev error:  1.5%</li>
+<li>Dev error:  10%</li>
+</ul>
+</li>
+<li>In this case you have something called <em>Data mismatch</em> problem.</li>
+<li>To conclude, first you&apos;ll have a new set called training-Dev set which has the same distribution as training set. Then follow this:
+<ol>
+<li>human level error (Proxy for Bayes error)
+<ul>
+<li>Calculate <code>training error - human level error</code></li>
+<li>If difference is bigger then its <strong>Avoidable bias</strong> then you should use a strategy for <strong>bias</strong>.</li>
+</ul>
+</li>
+<li>Training error
+<ul>
+<li>Calculate <code>Training-Dev error - training error</code></li>
+<li>If difference is bigger then its <strong>Variance</strong> then you should use a strategy for <strong>Variance</strong>.</li>
+</ul>
+</li>
+<li>Training-Dev error
+<ul>
+<li>Calculate <code>dev error - training-dev error</code></li>
+<li>If difference is bigger then its <strong>Data mismatch</strong> then you should use a strategy for <strong>Data mismatch</strong>.</li>
+</ul>
+</li>
+<li>Dev error
+<ul>
+<li>Calculate <code>test error - dev error</code></li>
+<li>Is the degree of overfitting to Dev set</li>
+</ul>
+</li>
+<li>Test error</li>
+</ol>
+</li>
+<li>Unfortunately there aren&apos;t much systematic ways to deal with Data mismatch but the next section will try to give us some insights.</li>
+</ul>
+<h3 id="addressing-data-mismatch">Addressing data mismatch</h3>
+<ul>
+<li>Carry out manual error analysis to try to understand difference between training and Dev/test sets.</li>
+<li>Make training data more similar; or collect more data similar to Dev/test sets.
+<ul>
+<li>There are something called <strong>Artificial data synthesis</strong> that can help you Make more training data.
+<ul>
+<li>Combine some of your training data with something that can convert it to the Dev/test set distribution.
+<ul>
+<li>Ex. Generate cars using 3D in a car classification example.</li>
+</ul>
+</li>
+<li>Be careful with &quot;Artificial data synthesis&quot; because your NN might overfit these generated data.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="transfer-learning">Transfer learning</h3>
+<ul>
+<li>Apply the knowledge you took in a task and apply it in another task.</li>
+<li>For example You have trained a cat classifier with a lot of data, you can use all the learning data or part of it to solve x-ray classification problem.</li>
+<li>To do transfer learning, delete the weights of the last layer of the NN and keep all the other weights as a fixed weights. Initialize the new weights and feed the new data to the NN and learn the new weights. Thats if you have a small data set, but if you have enough data you can retrain all the weights again this is called <strong>fine tuning</strong>.</li>
+<li>You can create a several new layers not just one layer to original NN.</li>
+<li>When transfer learning make sense:
+<ul>
+<li>When you have a lot of data for the problem you are transferring from and relatively less data for the problem your transferring to.</li>
+<li>Task A and B has the same input X.   (Same type as input ex. image, audio)</li>
+<li>Low level features from A could be helpful for learning B</li>
+</ul>
+</li>
+</ul>
+<h3 id="multi-task-learning">Multi-task learning</h3>
+<ul>
+<li>
+<p>One NN do some tasks in the same time, and tasks can help each others.</p>
+</li>
+<li>
+<p>Example:</p>
+<ul>
+<li>You want to build an object recognition system that detects cars, stop signs, and traffic lights. (Image has a multiple labels.)</li>
+<li>Then Y shape will be <code>(3,m)</code> because we have 3 classification and each one is a binary one.</li>
+<li>Then <code>Loss = (1/m) sum(sum(L(Y_dash[i], Y[i]),3) ,m)</code></li>
+</ul>
+</li>
+<li>
+<p>In the last example you could have train 3 neural network to get the same results, but if you suspect that the earlier layers has the same features then this will be faster.</p>
+</li>
+<li>
+<p>This will also work if y isn&apos;t complete for some labels. For example:</p>
+<pre><code>Y = [1	?	1	..]
+    [0	0	1	..]
+    [?	1	?	..]
+</code></pre>
+<ul>
+<li>And in this case it will do good with the missing data. but the loss function will be different:
+<ul>
+<li><code>Loss = (1/m) sum(sum(L(Y_dash[i], Y[i]),for all i which Y[i] != ?) ,m)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>When Multi-task learning make sense:
+<ul>
+<li>Training on a set of tasks that could benefit from having shared lower-level features.</li>
+<li>Usually amount of data you have for each task is quite similar.</li>
+<li>Can train a big enough network to do well on all the tasks.</li>
+</ul>
+</li>
+<li>If you have a big enough NN, the performance of the Multi-task learning compared to splitting the tasks is better.</li>
+<li>Today Transfer learning is used more than Multi-task learning.</li>
+</ul>
+<h3 id="what-is-end-to-end-deep-learning">What is end-to-end deep learning?</h3>
+<ul>
+<li>Some systems has multiple stages to implement. An end to end deep learning implements all these stages with a single NN.</li>
+<li>Example:
+<ul>
+<li>
+<p>Suppose you have a speech recognition system:</p>
+<pre><code>Audio ---&gt; Features --&gt; Phonemes --&gt; Words --&gt; Transcript			# System
+Audio ---------------------------------------&gt; Transcript			# End to end
+</code></pre>
+</li>
+<li>
+<p>End to end deep learning gives data more freedom, it might not use phonemes when training!</p>
+</li>
+</ul>
+</li>
+<li>To build and end to end deep learning system that works well, we need a big dataset. If you have a small dataset the ordinary implementation of each stage is just fine.</li>
+<li>Another example:
+<ul>
+<li>
+<p>Suppose you want to build a face recognition system:</p>
+<pre><code>Image-&gt;Image adjustments-&gt;Face detection-&gt;Face recognition-&gt;Matching	# System.
+Image -----------------------------------&gt;Face recognition-&gt;Matching  # End to end
+Image-&gt;Image adjustments-&gt;Face detection-------------------&gt;Matching  # Best imp for now
+</code></pre>
+</li>
+<li>
+<p>Best in practice now is the third approach.</p>
+</li>
+<li>
+<p>In the third implementation its a two steps approach where part is manually implemented and the other is using deep learning.</p>
+</li>
+<li>
+<p>Its working well because its harder to get a lot of pictures with people in front of the camera than getting faces of people and compare them.</p>
+</li>
+<li>
+<p>In the third implementation the NN takes two faces as an input and outputs if the two faces are the same or not.</p>
+</li>
+</ul>
+</li>
+<li>Another example:
+<ul>
+<li>
+<p>Suppose you want to build a machine translation system:</p>
+<pre><code>English --&gt; Text analysis --&gt; ......................... --&gt; Fresh		# System.
+English --------------------------------------------------&gt; Fresh		# End to end
+</code></pre>
+</li>
+<li>
+<p>Here end to end deep leaning system works well because we have enough data to build it.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="whether-to-use-end-to-end-deep-learning">Whether to use end-to-end deep learning</h3>
+<ul>
+<li>Here are some guidelines on Whether to use end-to-end deep learning.</li>
+<li>Pros of end to end deep learning:
+<ul>
+<li>Let the data speak.</li>
+<li>Less hand designing of components needed.</li>
+</ul>
+</li>
+<li>Cons of end to end deep learning:
+<ul>
+<li>May need large amount of data.</li>
+<li>Excludes potentially useful hand design components. (It helps more on small dataset)</li>
+</ul>
+</li>
+<li>Applying end to end deep learning:
+<ul>
+<li>Do you have sufficient data to learn a function of the <strong><em>complexity</em></strong> needed to map x to y?</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <div class="footer-nav">
+          <div class="left"><a href="chapter-2.html"><span class="title">Improving Deep Neural Networks</span></a></div>
+          <div class="right"><a href="chapter-4.html"><span class="label">Next: </span><span class="title">Convolutional Neural Networks</span></a></div>
+        </div>
+      </div>
+      <div class="menu toc-menu">
+        <li class="menu-item -level-0 -parent">
+          <ul class="submenu">
+            <li class="menu-item -level-1"><a href="index.html" class="link title  link-index">Home</a>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Chapter 1</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a href="chapter-1.html" class="link title  link-chapter-1">Neural Networks &amp; Deep Learning</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Chapter 2</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a href="chapter-2.html" class="link title  link-chapter-2">Improving Deep Neural Networks</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Chapter 3</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a href="chapter-3.html" class="link title -active link-chapter-3">Structuring Machine Learning Projects</a>
+                  <ul class="headings heading-list">
+                    <li class="heading-item -depth-2"><a href="#table-of-contents" class="hlink link-table-of-contents">Table of contents</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#note" class="hlink link-note">Note</a>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#ml-strategy-1" class="hlink link-ml-strategy-1">ML Strategy 1</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a href="#why-ml-strategy" class="hlink link-why-ml-strategy">Why ML Strategy</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#orthogonalization" class="hlink link-orthogonalization">Orthogonalization</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#single-number-evaluation-metric" class="hlink link-single-number-evaluation-metric">Single number evaluation metric</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#satisfying-and-optimizing-metric" class="hlink link-satisfying-and-optimizing-metric">Satisfying and Optimizing metric</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#traindevtest-distributions" class="hlink link-traindevtest-distributions">Train/Dev/Test distributions</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#size-of-the-dev-and-test-sets" class="hlink link-size-of-the-dev-and-test-sets">Size of the Dev and Test sets</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#when-to-change-devtest-sets-and-metrics" class="hlink link-when-to-change-devtest-sets-and-metrics">When to change Dev/Test sets and metrics</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#why-human-level-performance" class="hlink link-why-human-level-performance">Why human-level performance?</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#avoidable-bias" class="hlink link-avoidable-bias">Avoidable bias</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#understanding-human-level-performance" class="hlink link-understanding-human-level-performance">Understanding human-level performance</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#surpassing-human-level-performance" class="hlink link-surpassing-human-level-performance">Surpassing human-level performance</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#improving-your-model-performance" class="hlink link-improving-your-model-performance">Improving your model performance</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="heading-item -depth-2"><a href="#ml-strategy-2" class="hlink link-ml-strategy-2">ML Strategy 2</a>
+                      <ul class="heading-list -depth-2">
+                        <li class="heading-item -depth-3"><a href="#carrying-out-error-analysis" class="hlink link-carrying-out-error-analysis">Carrying out error analysis</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#cleaning-up-incorrectly-labeled-data" class="hlink link-cleaning-up-incorrectly-labeled-data">Cleaning up incorrectly labeled data</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#build-your-first-system-quickly-then-iterate" class="hlink link-build-your-first-system-quickly-then-iterate">Build your first system quickly, then iterate</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#training-and-testing-on-different-distributions" class="hlink link-training-and-testing-on-different-distributions">Training and testing on different distributions</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#bias-and-variance-with-mismatched-data-distributions" class="hlink link-bias-and-variance-with-mismatched-data-distributions">Bias and Variance with mismatched data distributions</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#addressing-data-mismatch" class="hlink link-addressing-data-mismatch">Addressing data mismatch</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#transfer-learning" class="hlink link-transfer-learning">Transfer learning</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#multi-task-learning" class="hlink link-multi-task-learning">Multi-task learning</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#what-is-end-to-end-deep-learning" class="hlink link-what-is-end-to-end-deep-learning">What is end-to-end deep learning?</a>
+                        </li>
+                        <li class="heading-item -depth-3"><a href="#whether-to-use-end-to-end-deep-learning" class="hlink link-whether-to-use-end-to-end-deep-learning">Whether to use end-to-end deep learning</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Chapter 4</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a href="chapter-4.html" class="link title  link-chapter-4">Convolutional Neural Networks</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item -level-1 -parent"><span class="title">Chapter 5</span>
+              <ul class="submenu">
+                <li class="menu-item -level-2"><a href="chapter-5.html" class="link title  link-chapter-5">Sequence Models</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </body>
+</html>
