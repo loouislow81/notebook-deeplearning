@@ -1,48 +1,48 @@
 # Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
 
-## Table of contents
+## Table of Contents
 
-* [Table of contents](#table-of-contents)
-* [Note](#note)
-* [Practical aspects of Deep Learning](#practical-aspects-of-deep-learning)
+* [Table of Contents](#table-of-contents)
+* [Summary](#summary)
+* [Practical Aspects of Deep Learning](#practical-aspects-of-deep-learning)
   * [Train / Dev / Test sets](#train--dev--test-sets)
   * [Bias / Variance](#bias--variance)
   * [Basic Recipe for Machine Learning](#basic-recipe-for-machine-learning)
   * [Regularization](#regularization)
   * [Dropout Regularization](#dropout-regularization)
   * [Understanding Dropout](#understanding-dropout)
-  * [Other regularization methods](#other-regularization-methods)
-  * [Normalizing inputs](#normalizing-inputs)
-  * [Vanishing / Exploding gradients](#vanishing--exploding-gradients)
+  * [Other Regularization Methods](#other-regularization-methods)
+  * [Normalizing Inputs](#normalizing-inputs)
+  * [Vanishing / Exploding Gradients](#vanishing--exploding-gradients)
   * [Weight Initialization for Deep Networks](#weight-initialization-for-deep-networks)
-  * [Numerical approximation of gradients](#numerical-approximation-of-gradients)
-  * [Gradient checking implementation notes](#gradient-checking-implementation-notes)
-* [Optimization algorithms](#optimization-algorithms)
-  * [Mini-batch gradient descent](#mini-batch-gradient-descent)
-  * [Understanding mini-batch gradient descent](#understanding-mini-batch-gradient-descent)
-  * [Exponentially weighted averages](#exponentially-weighted-averages)
-  * [Understanding exponentially weighted averages](#understanding-exponentially-weighted-averages)
-  * [Bias correction in exponentially weighted averages](#bias-correction-in-exponentially-weighted-averages)
-  * [Gradient descent with momentum](#gradient-descent-with-momentum)
+  * [Numerical Approximation of Gradients](#numerical-approximation-of-gradients)
+  * [Gradient Checking Implementation Notes](#gradient-checking-implementation-notes)
+* [Optimization Algorithms](#optimization-algorithms)
+  * [Mini-batch Gradient Descent](#mini-batch-gradient-descent)
+  * [Understanding Mini-batch Gradient Descent](#understanding-mini-batch-gradient-descent)
+  * [Exponentially Weighted Averages](#exponentially-weighted-averages)
+  * [Understanding Exponentially Weighted Averages](#understanding-exponentially-weighted-averages)
+  * [Bias Correction in Exponentially Weighted Averages](#bias-correction-in-exponentially-weighted-averages)
+  * [Gradient Descent with Momentum](#gradient-descent-with-momentum)
   * [RMSprop](#rmsprop)
-  * [Adam optimization algorithm](#adam-optimization-algorithm)
-  * [Learning rate decay](#learning-rate-decay)
-  * [The problem of local optima](#the-problem-of-local-optima)
-* [Hyperparameter tuning, Batch Normalization and Programming Frameworks](#hyperparameter-tuning-batch-normalization-and-programming-frameworks)
-  * [Tuning process](#tuning-process)
-  * [Using an appropriate scale to pick hyperparameters](#using-an-appropriate-scale-to-pick-hyperparameters)
-  * [Hyperparameters tuning in practice: Pandas vs. Caviar](#hyperparameters-tuning-in-practice-pandas-vs-caviar)
-  * [Normalizing activations in a network](#normalizing-activations-in-a-network)
-  * [Fitting Batch Normalization into a neural network](#fitting-batch-normalization-into-a-neural-network)
-  * [Why does Batch normalization work](#why-does-batch-normalization-work)
+  * [Adam Optimization Algorithm](#adam-optimization-algorithm)
+  * [Learning Rate Decay](#learning-rate-decay)
+  * [The Problem of Local Optima](#the-problem-of-local-optima)
+* [Hyperparameter Tuning, Batch Normalization and Programming Frameworks](#hyperparameter-tuning-batch-normalization-and-programming-frameworks)
+  * [Tuning Process](#tuning-process)
+  * [Using An Appropriate Scale To Pick Hyperparameters](#using-an-appropriate-scale-to-pick-hyperparameters)
+  * [Hyperparameters Tuning in Practice: Pandas vs. Caviar](#hyperparameters-tuning-in-practice-pandas-vs-caviar)
+  * [Normalizing Activations in a Network](#normalizing-activations-in-a-network)
+  * [Fitting Batch Normalization into a Neural Network](#fitting-batch-normalization-into-a-neural-network)
+  * [Why Does Batch Normalization Work](#why-does-batch-normalization-work)
   * [Batch normalization at test time](#batch-normalization-at-test-time)
   * [Softmax Regression](#softmax-regression)
-  * [Training a Softmax classifier](#training-a-softmax-classifier)
-  * [Deep learning frameworks](#deep-learning-frameworks)
+  * [Training a Softmax Classifier](#training-a-softmax-classifier)
+  * [Deep Learning Frameworks](#deep-learning-frameworks)
   * [TensorFlow](#tensorflow)
 * [Extra Notes](#extra-notes)
 
-## Note
+## Summary
 
 > The "magic" of getting deep learning to work well. Rather than the deep learning process being a black box, understand what drives performance, and be able to more systematically get good results. Learn TensorFlow.
 >
@@ -52,7 +52,7 @@
 > - Understand new best-practices for the deep learning era of how to set up train/dev/test sets and analyze bias/variance
 > - Be able to implement a neural network in TensorFlow.
 
-## Practical aspects of Deep Learning
+## Practical Aspects of Deep Learning
 
 ### Train / Dev / Test sets
 
@@ -102,13 +102,13 @@
 
 - If your algorithm has a high bias:
   - Try to make your NN bigger (Size of Hidden units, Number of layers)
-  - Try a different model that are suitable for your data.
-  - Try to run it longer.
-  - Different optimization algorithm.
+  - Try a different model that are suitable for your data
+  - Try to run it longer
+  - Different optimization algorithm
 - If your algorithm has a high variance:
-  - More data.
-  - Try regularization.
-  - Try a different model that are suitable for your data.
+  - More data
+  - Try regularization
+  - Try a different model that are suitable for your data
 - You should try the previous two points until you have a low bias / low variance.
 - In the older days before deep learning there was a "Bias / variance trade off". But because now you have more options on solving the bias of variance problem its really helpful to use deep learning.
 - Training a bigger neural network never hurt.
@@ -117,9 +117,9 @@
 
 - Adding Regularization to NN will help it reduce variance (Overfitting)
 - L1 matrix Norm:
-  - `||W|| = Sum(|W[i,j]|)		# Sum of all Ws with abs `
+  - `||W|| = Sum(|W[i,j]|)  # Sum of all Ws with abs `
 - L2 matrix Norm sometimes its called Frobenius norm:
-  - `||W||2 = Sum(|W[i,j]|^2)	#Sum of all Ws squared`
+  - `||W||2 = Sum(|W[i,j]|^2) #Sum of all Ws squared`
   - Also can be calculated using`||W||2 = W.T * W `
 - Regularization For logistic regression:
   - The normal cost function that we want to minimize is:
@@ -131,8 +131,6 @@
   - The L1 Regularization version makes a lot of w values become zeros, which makes the model size is small.
   - L2 Regularization is being used much often.
   - `Lmda` here is the Regularization parameter (Hyperparameter)
-
-
 - Regularization For NN:
   - The normal cost function that we want to minimize is:
     `J(W1,b1...,WL,bL) = (1/m) * Sum(L(y(i),y'(i)))`
@@ -165,7 +163,7 @@
 
   ```
   keep_prob = 0.8
-  l = 3          # This code will work only on layer 3
+  l = 3     # This code will work only on layer 3
 
   # the generated number that are less than 0.8 will be dropped. 80% stay, 20% dropped
   d3 = np.random.randn(a[l].shape[0], a[l].shape[1]) < keep_prob
@@ -175,7 +173,7 @@
   # Maximize a3 again to gain the loss (The expected value of a3 is the same) - To solve the
 
   # scaling problem
-  a3 = a3 / keep_prob       
+  a3 = a3 / keep_prob
   ```
 
 - At test time we don't run the "Inverse dropout"
@@ -189,19 +187,19 @@
 - Downside of dropout is that the loss function is not well defined and it will be hard to debug.
   - To solve that you'll need to set all the dropouts by 1 and then check your cost graph if its going well set the dropouts again.
 
-### Other regularization methods
+### Other Regularization Methods
 
-- **Data augmentation**:
+- **Data Augmentation**:
   - For example in a computer vision data:
     - You can flip all your pictures horizontally this will give you m more data.
     - You could also take a random position and rotation in an image to get more data.
   - For example in OCR, you'll need to distort the digits.
   - This technique's new data aren't good as the real independent data, but still can be used as a Regularization technique.
-- **Early stopping**:
+- **Early Stopping**:
   - In this technique we plot the training data and the Dev data cost together. In some steps the Dev data cost will stay still.
   - We will pick the point at which the training data graph and Dev data graph are best at.
   - We will take these parameters as the best parameters.
-    - ![](images/02/02-_Early_stopping.png)
+    ![](images/02/02-_Early_stopping.png)
   - This technique is not recommended because it makes us think about something else more than optimize W's and b's.
   - But its advantage is that you don't need to modify a Hyperparameter like in Regularization.
 - **Model Ensembles**:
@@ -212,7 +210,7 @@
   - It reduces the generalization error.
   - You can use some snapshots of your NN at the training ensembles them and take the results.
 
-### Normalizing inputs
+### Normalizing Inputs
 
 - If you normalize your inputs this will speed up the training process a lot.
 - Normalization are going on these steps:
@@ -226,7 +224,7 @@
   - If we don't normalize the inputs our loss function will be deep and its shape is inconsistent then optimizing it will take a long time.
   - But if we normalize it the opposite will occur. the shape of the function will be consistent and the optimizing will be easier.
 
-### Vanishing / Exploding gradients
+### Vanishing / Exploding Gradients
 
 - The Vanishing / Exploding gradients occurs when your derivatives become very small or very big.
 - To understand the problem, suppose that we have a deep neural network with number of layers L, and all the activation functions are **linear** and each `b = 0`
@@ -261,23 +259,23 @@
 - So lets say when we initialize `W`'s we initialize like this (For Tanh its better to use this):
 
   ```
-  np.random.rand(shape)*np.sqrt(1/n[l-1])               #n[l-1] In the multiple layers.
+  np.random.rand(shape)*np.sqrt(1/n[l-1])     #n[l-1] In the multiple layers.
   ```
 
 - Setting this to `2/n[l-1]` especially for RELU is better:
 
   ```
-  np.random.rand(shape)*np.sqrt(2/n[l-1])               #n[l-1] In the multiple layers.
+  np.random.rand(shape)*np.sqrt(2/n[l-1])     #n[l-1] In the multiple layers.
   ```
 
 - This is the best way to solve Vanishing / Exploding gradients (RELU + Weight Initialization with variance)
 - The initialization in this video is called "He Initialization / Xavier Initialization" and has been published in 2015 paper.
 
-### Numerical approximation of gradients
+### Numerical Approximation of Gradients
 
 - There is an implementation called gradient check which tells if your implementation of back prob. is right.
 - There's a numerical way to calculate the derivative
-  - ![](images/02/03-_Numerical_approximation_of_gradients.png)
+  ![](images/02/03-_Numerical_approximation_of_gradients.png)
 - This checking is so helpful at finding the errors in your back prob. algorithm but its slower than gradient descent.
 - Implementation of this is so simple.
 - Gradient checking:
@@ -295,7 +293,7 @@
   - Finally we check this formula  `(||d_ceta_calc - d_ceta||) / (||d_ceta_calc||+||d_ceta||)`
     - The `||` is the Euclidean distance.
 
-### Gradient checking implementation notes
+### Gradient Checking Implementation Notes
 
 - Don't use the gradient-checking algorithm for all the calculation because its a much slow algorithm
 - The gradient-checking is for debugging.
@@ -305,9 +303,9 @@
   - because J is not consistent.
 - Run gradient checking at random initialization and train the network for a while maybe there's a bug that are not on the first iteration.
 
-## Optimization algorithms
+## Optimization Algorithms
 
-### Mini-batch gradient descent
+### Mini-batch Gradient Descent
 
 - Training NN with a large data is slow. So to find an optimization algorithm that runs faster is a good idea.
 - Suppose we have `m = 50 million.` To train this data it will take a huge processing time for one step.
@@ -325,7 +323,7 @@
 - Mini-Batch algorithm pseudo code:
 
   ```
-  for t = 1:No_of_batches                                     #This is called on epoch
+  for t = 1:No_of_batches     #This is called on epoch
   	AL, caches = forward_prop(X{t}, Y{t})
   	Cost = compute_cost(AL, Y{t})
   	grads = backward_prop(AL, caches)
@@ -335,15 +333,15 @@
 - The code inside an epoch should be vectorized.
 - This works much faster in the large datasets.
 
-### Understanding mini-batch gradient descent
+### Understanding Mini-batch Gradient Descent
 
 - In mini batch algorithm, the cost won't go down with each step as batch algorithm do. It could contain some ups and downs but at whole it has to go down.
-  - ![](images/02/04-_batch_vs_mini_batch_cost.png)
+  ![](images/02/04-_batch_vs_mini_batch_cost.png)
 - Choosing mini-batch size
-  - If (`mini batch size = m`)     ==>    Batch gradient descent
-    - If (`mini batch size = 1`)  ==>    Stochastic gradient descent
+  - If (`mini batch size = m`)  ==> Batch gradient descent
+    - If (`mini batch size = 1`)  ==> Stochastic gradient descent
     - Might be faster than standard in big data `> 10^7`
-    - If (`mini batch size = between 1 and m`) ==>    Mini Batch gradient descent
+    - If (`mini batch size = between 1 and m`) ==>  Mini Batch gradient descent
 - In Stochastic gradient descent is so noisy regarding cost minimization and won't reach the minimum cost. Also you lose vectorization advantage.
 - In mini batch gradient descent is so noisy regarding cost minimization and won't reach the minimum cost. But you have the vectorization advantage and you can look at the costs when the code is running to see if its right. To help with the noisy cost minimization you should reduce the learning rate.
 - Guidelines for using mini batch:
@@ -352,7 +350,7 @@
   - Make sure mini-batch fits in CPU/GPU
 - Mini batch size is a Hyperparameter.
 
-### Exponentially weighted averages
+### Exponentially Weighted Averages
 
 - There are optimization algorithms that are better than **gradient descent**. but you should first learn about Exponentially weighted averages.
 - If we have data like the temperature of day through the year it could be like this:
@@ -379,7 +377,7 @@
 
 - If we plot this it will represent averages.
 - Another imagery example:
-  - ![](images/02/Nasdaq1_small.png)
+  ![](images/02/Nasdaq1_small.png)
 - General equation
 
   ```
@@ -392,10 +390,10 @@
     - beta = 0.5 will average last 2 entries.
 - Best beta average for our case is between 0.9 and 0.98
 
-### Understanding exponentially weighted averages
+### Understanding Exponentially Weighted Averages
 
 - Intuitions:
-  - ![](images/02/05-_exponentially_weighted_averages_intuitions.png)
+  ![](images/02/05-_exponentially_weighted_averages_intuitions.png)
 - We can implement this algorithm with more accurate results if we make a moving window. But the code is more efficient and faster using the exponentially weighted averages algorithm.
 
 - Algorithm is so simple:
@@ -409,7 +407,7 @@
   }
   ```
 
-### Bias correction in exponentially weighted averages
+### Bias Correction in Exponentially Weighted Averages
 
 - The bias correction helps making the exponentially weighted averages more accurate.
 - Because `V(0) = 0`, the bias of the weighted averages is shifted and the accuracy suffers.
@@ -421,7 +419,7 @@
 
 - As you see the as t became larger the `(1 - beta^t)` became `1`
 
-### Gradient descent with momentum
+### Gradient Descent with Momentum
 
 - The momentum algorithm works faster than standard Gradient descent.
 - The simple idea is to calculate the exponentially weighted averages for your gradients and then updates your weights with the new values.
@@ -466,13 +464,13 @@
   ```
 
 - This algorithm will make the cost function move on the vertical direction slow and the horizontal direction fast.
-  - ![](images/02/06-_RMSprop.png)
+  ![](images/02/06-_RMSprop.png)
 
 - Ensure that `SdW` is not zero by adding a small value to it epsilon
    `W = W - learning_rate * dW/(sqrt(SdW) + epsilon)`
 - With this algorithm you can increase your learning rate.
 
-### Adam optimization algorithm
+### Adam Optimization Algorithm
 
 - Stands for **Adaptive Momentum Estimation**.
 - Adam optimization and RMSprop are among the optimization algorithms that worked very well with a lot of NN architectures.
@@ -508,7 +506,7 @@
   - `Beta2`. Parameter of the RMSprop. `0.999` is recommended by default.
   - `epsilon`. `10^-8` is recommended by default.
 
-### Learning rate decay
+### Learning Rate Decay
 
 - Slowly reduce learning rate.
 - In mini batch algorithm, we said that the minimization of the cost won't reach optimum point. But by making the learning rate decays with iterations it will reach it as the steps beside the optimum is small.
@@ -520,7 +518,7 @@
 - Some people is making changing the learning rate manually.
 - Learning rate decay has less priority
 
-### The problem of local optima
+### The Problem of Local Optima
 
 - The normal local optima is not likely to appear in a deep neural network.
 - You are unlikely to get stuck in a bad local optima in high dimensions.
@@ -528,11 +526,9 @@
   - Plateaus is an area of fairly level high ground.
   - This is where algorithms like momentum and Adam helps.
 
+## Hyperparameter Tuning, Batch Normalization and Programming Frameworks
 
-
-## Hyperparameter tuning, Batch Normalization and Programming Frameworks
-
-### Tuning process
+### Tuning Process
 
 - We need some steps to tune our Hyperparameters to get the best out of them.
 - So far the Hyperparameters importance are:
@@ -551,11 +547,11 @@
   - Then if you find some values that gives you a better values. Zoom into the box.
 - This methods can be automated!
 
-### Using an appropriate scale to pick hyperparameters
+### Using an appropriate scale to pick Hyperparameters
 
 - If you have a specific range for a hyper parameter lets say from "a" to "b". Lets demonstrate the logarithmic scale, this will give you a good random points:
-  - Calculate: `aLog = log(a)`                   `# Ex. a = 0.0001 then aLog = -4`
-    - Calculate: `bLog = log(b)`                 `# Ex. b = 1  then bLog = 0`
+  - Calculate: `aLog = log(a)`      `# Ex. a = 0.0001 then aLog = -4`
+    - Calculate: `bLog = log(b)`      `# Ex. b = 1  then bLog = 0`
   - Then: write this code:
 
     ```
@@ -569,7 +565,7 @@
   - You should scale this to `1-Beta = 0.001 to 0.1` and the use `a = 0.001` and `b = 0.1`
   - And remember to subtract 1 from the resulted random value.
 
-### Hyperparameters tuning in practice: Pandas vs. Caviar
+### Hyperparameters Tuning in Practice: Pandas vs. Caviar
 
 - If you don't have a much computational resources you will go thought "The baby sit model"
   - Run the model with different hyperparameters day by day.
@@ -579,7 +575,7 @@
 - If you have computational resources, you can run some models in parallel and at the end of the day(s) you check the results.
   - Called Caviar model.
 
-### Normalizing activations in a network
+### Normalizing Activations in a Network
 
 - In the current evolution of deep learning an algorithm called **Batch Normalization** is so important.
   - Made by Sergey Ioffe and Christian Szegedy.
@@ -597,10 +593,10 @@
     - alpha and beta are learnable parameters.
     - Making the NN learn the distribution of the outputs.
 
-### Fitting Batch Normalization into a neural network
+### Fitting Batch Normalization into a Neural Network
 
 - Using batch norm in 3 hidden layers NN:
-  - ![](images/02/bn.png)
+  ![](images/02/bn.png)
 - Our NN parameters will be:
   - `W[1]`, `b[1]`, `W[2]`, `b[2]`, `W[3]`, `b[3]`, `beta[1]`, `alpha[1]`, `beta[2]`, `alpha[2]`, `beta[3]`, `alpha[3]`
 - If you are using a deep learning framework, You won't have to implement batch norm yourself.
@@ -612,11 +608,11 @@
 - So if you are using batch normalization, you can remove b[l] or make it always zero.
 - So the parameter will be Ws, betas, and alphas.
 - Shapes:
-  - `Z[l]`				`#(n[l], m)`
-    - `alpha[l]`      	        `#(n[l], m)`
-    - `beta[l]`                `#(n[l], m)`
+  - `Z[l]`      `#(n[l], m)`
+    - `alpha[l]`      `#(n[l], m)`
+    - `beta[l]`     `#(n[l], m)`
 
-### Why does Batch normalization work
+### Why Does Batch Normalization Work
 
 - The first reason is the same reason as why we normalize X.
 - The second reason is that batch normalization reduces the problem of input values changing.
@@ -627,7 +623,7 @@
 - To reduce this regularization effect you can make your mini batch bigger.
 - If you need regularization you cant just relay on that slight regularization you'll need to add your regularization (L2 or dropout)
 
-### Batch normalization at test time
+### Batch Normalization at Test Time
 
 - When we train a NN with Batch normalization, we compute the mean and the variance of the size of mini-batch.
 - In testing we have to test one by one example. The mean and the variance of one example doesn't make sense!
@@ -661,7 +657,7 @@
   A[L] = e^(Z[L]) / sum(t, C)       # shape(C, m)
   ```
 
-### Training a Softmax classifier
+### Training a Softmax Classifier
 
 - There's an activation which is called hard max, which gets 1 for the maximum value and zeros for the others.
   - If you are using NumPy, its `np.max` over the vertical axis.
@@ -692,9 +688,9 @@
   ```
 
 - Example:
-  - ![](images/02/07-_softmax.png)
+  ![](images/02/07-_softmax.png)
 
-### Deep learning frameworks
+### Deep Learning Frameworks
 
 - Its not practical to implement everything from scratch. Out last implementations was to know how NN works.
 - There are many good deep learning frameworks.

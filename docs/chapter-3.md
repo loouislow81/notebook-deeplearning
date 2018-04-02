@@ -1,35 +1,35 @@
 # Structuring Machine Learning Projects
 
-## Table of contents
+## Table of Contents
 
-* [Table of contents](#table-of-contents)
-* [Note](#note)
+* [Table of Contents](#table-of-contents)
+* [Summary](#summary)
 * [ML Strategy 1](#ml-strategy-1)
   * [Why ML Strategy](#why-ml-strategy)
   * [Orthogonalization](#orthogonalization)
-  * [Single number evaluation metric](#single-number-evaluation-metric)
-  * [Satisfying and Optimizing metric](#satisfying-and-optimizing-metric)
-  * [Train/Dev/Test distributions](#traindevtest-distributions)
+  * [Single Number Evaluation Metric](#single-number-evaluation-metric)
+  * [Satisfying and Optimizing Metric](#satisfying-and-optimizing-metric)
+  * [Train/Dev/Test Distributions](#traindevtest-distributions)
   * [Size of the Dev and Test sets](#size-of-the-dev-and-test-sets)
-  * [When to change Dev/Test sets and metrics](#when-to-change-devtest-sets-and-metrics)
-  * [Why human-level performance?](#why-human-level-performance)
-  * [Avoidable bias](#avoidable-bias)
-  * [Understanding human-level performance](#understanding-human-level-performance)
-  * [Surpassing human-level performance](#surpassing-human-level-performance)
-  * [Improving your model performance](#improving-your-model-performance)
+  * [When to change Dev/Test sets and Metrics](#when-to-change-devtest-sets-and-metrics)
+  * [Why Human-level Performance?](#why-human-level-performance)
+  * [Avoidable Bias](#avoidable-bias)
+  * [Understanding Human-level Performance](#understanding-human-level-performance)
+  * [Surpassing Human-level Performance](#surpassing-human-level-performance)
+  * [Improving Your Model Performance](#improving-your-model-performance)
 * [ML Strategy 2](#ml-strategy-2)
-  * [Carrying out error analysis](#carrying-out-error-analysis)
-  * [Cleaning up incorrectly labeled data](#cleaning-up-incorrectly-labeled-data)
-  * [Build your first system quickly, then iterate](#build-your-first-system-quickly-then-iterate)
-  * [Training and testing on different distributions](#training-and-testing-on-different-distributions)
-  * [Bias and Variance with mismatched data distributions](#bias-and-variance-with-mismatched-data-distributions)
-  * [Addressing data mismatch](#addressing-data-mismatch)
-  * [Transfer learning](#transfer-learning)
-  * [Multi-task learning](#multi-task-learning)
-  * [What is end-to-end deep learning?](#what-is-end-to-end-deep-learning)
-  * [Whether to use end-to-end deep learning](#whether-to-use-end-to-end-deep-learning)
+  * [Carrying Out Error Analysis](#carrying-out-error-analysis)
+  * [Cleaning Up Incorrectly Labeled Data](#cleaning-up-incorrectly-labeled-data)
+  * [Build Your First System Quickly, Then Iterate](#build-your-first-system-quickly-then-iterate)
+  * [Training and Testing on Different Distributions](#training-and-testing-on-different-distributions)
+  * [Bias and Variance with Mismatched Data Distributions](#bias-and-variance-with-mismatched-data-distributions)
+  * [Addressing Data Mismatch](#addressing-data-mismatch)
+  * [Transfer Learning](#transfer-learning)
+  * [Multi-task Learning](#multi-task-learning)
+  * [What is End-to-end Deep Learning?](#what-is-end-to-end-deep-learning)
+  * [Whether to use End-to-end Deep Learning](#whether-to-use-end-to-end-deep-learning)
 
-## Note
+## Summary
 
 > How to build a successful machine learning project. How to set direction for team's work.
 >
@@ -67,23 +67,20 @@
   4. Performs well in real world.
      - If its not achieved you could try: change dev. set - change cost function..
 
-### Single number evaluation metric
+### Single Number Evaluation Metric
 
 - Its better and faster to set a Single number evaluation metric to your project before you start it.
 - Difference between precision and recall (In cat classification example):
   - Suppose we run the classifier on 10 images which are 5 cats and 5 non-cats. The classifier identifies that there are 4 cats. but he identified 1 wrong cat.
-
   - Confusion matrix:
 
-    - |             | Cat  | Non-Cat |
+      |             | Cat  | Non-Cat |
       | ----------- | ---- | ------- |
       | **Cat**     | 3    | 2       |
       | **Non-Cat** | 1    | 4       |
 
   - **Precision**: percentage of true cats in the recognized result. per = 3/4
-
   - **Recall**: percentage of true recognition in the whole dataset. rec = 3/5
-
   - **Accuracy**= 3/10
 - Using a precision/recall for evaluation is good in a lot of cases they doesn't tell you which is better. Ex:
 
@@ -95,7 +92,7 @@
 - A better thing is to merge precision and Recall together. There a something called `F1` score
   - You can think of `F1` score as average of Precision and Recall
     `F1 = 2/ ((1/Per) + (1/Rec))`
-- IF you have a lot of value as your metric  you should take the average.
+- If you have a lot of value as your metric  you should take the average.
 
 ### Satisfying and Optimizing metric
 
@@ -110,18 +107,18 @@
 - In this case we can solve that by Satisfying and Optimizing metric. Ex:
 
   ```
-  Maximize 		  F1						  # Optimizing metric
-  subject to 		Running time < 100ms		# Satisficing metric
+  Maximize    F1    # Optimizing metric
+  subject to    Running time < 100ms    # Satisficing metric
   ```
 
 - So as a general rule:
 
   ```
-  Maximize 		1					#Optimizing metric (One optimizing metric)
-  subject to 		N-1					#Satisficing metric (N-1 Satisficing metric)
+  Maximize    1   # Optimizing metric (One optimizing metric)
+  subject to    N-1   # Satisficing metric (N-1 Satisficing metric)
   ```
 
-### Train/Dev/Test distributions
+### Train/Dev/Test Distributions
 
 - Dev/Test set has to come from the same distribution.
 - Choose Dev/Test sets to reflect data you expect to get in the future and consider important to do well on.
@@ -134,7 +131,7 @@
 - In the modern deep learning you have if you have a million or more
   - 98% Training, 1% Dev, 1% Test
 
-### When to change Dev/Test sets and metrics
+### When to change Dev/Test sets and Metrics
 
 - Lets take an example. In a cat classification example we have these metric results:
 
@@ -142,23 +139,22 @@
   | ----------- | ---------------------------------------- |
   | Algorithm A | 3% error (But a lot of porn images is treated as cat images here) |
   | Algorithm B | 5% error                                 |
-  - In the last example if we choose the best algorithm by metric it would be "A", but if the users decide it will be "B"
 
+  - In the last example if we choose the best algorithm by metric it would be "A", but if the users decide it will be "B"
   - Thus here we want to change out metric.
   - `OldMetric = (1/m) * sum(y_pred[i] != y[i] ,m)`
     - Where m is the number of Dev set items.
   - `NewMetric = (1/sum(w[i])) * sum( w[i] * (y_pred[i] != y[i]) ,m)`
     - where:
-       - `w[i] = 1                   if x[i] is not porn`
-       - `w[i] = 10                 if x[i] is porn`
-
+       - `w[i] = 1      if x[i] is not porn`
+       - `w[i] = 10     if x[i] is porn`
 - Conclusion: If doing well on your metric + Dev/test set doesn't correspond to doing well in your application, change your metric and/or Dev/test set.
 
-### Why human-level performance?
+### Why Human-level Performance?
 
 - We compare to human-level performance because a lot of deep learning algorithms in the recent days are a lot better than human level.
 - After an algorithm reaches the human level performance it doesn't get better much.
-  - ![01- Why human-level performance](images/03/01-_Why_human-level_performance.png)
+  ![01- Why human-level performance](images/03/01-_Why_human-level_performance.png)
 - You won't surpass an error that's called "Bayes optimal error"
 - There aren't much error range between human-level error and Bayes optimal error.
 - Humans are quite good at lot of tasks. So as long as Machine learning is worse than humans, you can:
@@ -166,7 +162,7 @@
   - Gain insight from manual error analysis. (Why did a person get it right?)
   - Better analysis of bias/variance
 
-### Avoidable bias
+### Avoidable Bias
 
 - Suppose that the cat classification algorithm gives these percentages:
 
@@ -179,7 +175,7 @@
   - In the right example, if the human level error is 7.5% then we have to focus on the **variance**.
   - In the latest examples we have used the human level as a proxy form Bayes optimal error because humans vision is too good.
 
-### Understanding human-level performance
+### Understanding Human-level Performance
 
 - When choosing human-level performance, it has to be choose in the terms of what you want to achieve with the system.
 - You might have multiple human-level performance based on the human experience. Then the system you are trying to build will choose from these human levels as set it as proxy for Bayes error.
@@ -194,7 +190,7 @@
   3. Dev error
 - In a lot of problems Bayes error isn't zero that's why we need human level performance comparing.
 
-### Surpassing human-level performance
+### Surpassing Human-level Performance
 
 - In some problems, deep learning has surpassed human level performance. Like:
   - Online advertising.
@@ -203,7 +199,7 @@
 - The last examples are non natural perception task. Humans are far better in natural perception task like computer vision and speech recognition.
 - Its harder for machines to surpass human level in natural perception task.
 
-### Improving your model performance
+### Improving Your Model Performance
 
 - To improve your deep learning supervised system follow these guideline:
   1. Look at the difference between human level error and the training error.  ***Avoidable bias***
@@ -220,7 +216,7 @@
 
 ## ML Strategy 2
 
-### Carrying out error analysis
+### Carrying Out Error Analysis
 
 - Error analysis is to analysis why the accuracy of the system is like that. Example:
   - In the cat classification example, if you have 10% error on your Dev set and you want to solve the error.
@@ -235,8 +231,8 @@
 
   | Image        | Dog    | Great Cats | blurry  | Comments |
   | ------------ | ------ | ---------- | ------- | -------- |
-  | 1            | ✓      |            |         |          |
-  | 2            | ✓      |            | ✓       |          |
+  | 1            | ✓                   |         |          |
+  | 2            | ✓     |            | ✓       |          |
   | 3            |        |            |         |          |
   | 4            |        | ✓          |         |          |
   | ....         |        |            |         |          |
@@ -244,9 +240,9 @@
 
 - In the last example you will decide to work on great cats or blurry images to improve your performance.
 
-### Cleaning up incorrectly labeled data
+### Cleaning Up Incorrectly Labeled Data
 
-- Labeled data is incorrect when y of x is incorrect.
+- Labeled data is incorrect when y of `x` is incorrect.
 - If the incorrect labeled data is in the training set, Deep learning are quite robust to random error (Not systematic error). But its OK to go and fix these labels if you can.
 - If you want to check for mislabeled data in Dev/test set, you should also try error analysis with mislabeled column. Ex:
 
@@ -269,7 +265,7 @@
   - Consider examining examples your algorithm got right as well as ones it got wrong. (Not always done if you reached a good accuracy)
   - Train and (Dev/Test) data may now come from slightly different distributions
 
-### Build your first system quickly, then iterate
+### Build Your First System Quickly, Then Iterate
 
 - The steps you take to make your deep learning project:
   - Setup Dev/test set and metric
@@ -277,7 +273,7 @@
     - Using the training data.
   - Use Bias/Variance analysis & Error analysis to prioritize next steps.
 
-### Training and testing on different distributions
+### Training and Testing on Different Distributions
 
 - A lot of teams are working with deep learning applications that has training sets that are different from the Dev/test sets due to the hanger of deep learning to data.
 - There are some strategies to follow up when training set distribution differs from Dev/test sets distribution.
@@ -288,7 +284,7 @@
     - Advantages: The distribution you care about is your target now.
     - Disadvantage: the distributions are different. but you will get a better performance over a long time.
 
-### Bias and Variance with mismatched data distributions
+### Bias and Variance with Mismatched Data Distributions
 
 - Bias and Variance analysis changes when training and Dev/test set is from different distribution.
 - Example: Assume the cat classification example. Suppose you've worked in the example and reached this
@@ -324,7 +320,7 @@
   5. Test error
 - Unfortunately there aren't much systematic ways to deal with Data mismatch but the next section will try to give us some insights.
 
-### Addressing data mismatch
+### Addressing Data Mismatch
 
 - Carry out manual error analysis to try to understand difference between training and Dev/test sets.
 - Make training data more similar; or collect more data similar to Dev/test sets.
@@ -333,7 +329,7 @@
       - Ex. Generate cars using 3D in a car classification example.
     - Be careful with "Artificial data synthesis" because your NN might overfit these generated data.
 
-### Transfer learning
+### Transfer Learning
 
 - Apply the knowledge you took in a task and apply it in another task.
 - For example You have trained a cat classifier with a lot of data, you can use all the learning data or part of it to solve x-ray classification problem.
@@ -344,7 +340,7 @@
   - Task A and B has the same input X.   (Same type as input ex. image, audio)
   - Low level features from A could be helpful for learning B
 
-### Multi-task learning
+### Multi-task Learning
 
 - One NN do some tasks in the same time, and tasks can help each others.
 - Example:
@@ -362,8 +358,6 @@
 
   - And in this case it will do good with the missing data. but the loss function will be different:
     - `Loss = (1/m) sum(sum(L(Y_dash[i], Y[i]),for all i which Y[i] != ?) ,m)`
-
-
 - When Multi-task learning make sense:
   - Training on a set of tasks that could benefit from having shared lower-level features.
   - Usually amount of data you have for each task is quite similar.
@@ -371,7 +365,7 @@
 - If you have a big enough NN, the performance of the Multi-task learning compared to splitting the tasks is better.
 - Today Transfer learning is used more than Multi-task learning.
 
-### What is end-to-end deep learning?
+### What is End-to-end Deep Learning?
 
 - Some systems has multiple stages to implement. An end to end deep learning implements all these stages with a single NN.
 - Example:
@@ -388,7 +382,7 @@
   - Suppose you want to build a face recognition system:
 
     ```
-    Image->Image adjustments->Face detection->Face recognition->Matching	# System.
+    Image->Image adjustments->Face detection->Face recognition->Matching  # System.
     Image ----------------------------------->Face recognition->Matching  # End to end
     Image->Image adjustments->Face detection------------------->Matching  # Best imp for now
     ```
@@ -401,12 +395,12 @@
   - Suppose you want to build a machine translation system:
 
     ```
-    English --> Text analysis --> ......................... --> Fresh		# System.
-    English --------------------------------------------------> Fresh		# End to end
+    English --> Text analysis --> ......................... --> Fresh # System.
+    English --------------------------------------------------> Fresh # End to end
     ```
   - Here end to end deep leaning system works well because we have enough data to build it.
 
-### Whether to use end-to-end deep learning
+### Whether to use End-to-end Deep Learning
 
 - Here are some guidelines on Whether to use end-to-end deep learning.
 - Pros of end to end deep learning:
@@ -416,4 +410,4 @@
   - May need large amount of data.
   - Excludes potentially useful hand design components. (It helps more on small dataset)
 - Applying end to end deep learning:
-  - Do you have sufficient data to learn a function of the ***complexity*** needed to map x to y?
+  - Do you have sufficient data to learn a function of the ***complexity*** needed to map `x` to `y`?
