@@ -1,22 +1,34 @@
 # Deep Learning Notebook Compilation
 
-My personal self-taught Deep learning notebook compilation
+This is my personal notebook compilation of my self-taught Deep Learning subject. It covers how to use libraries like **Jupyter Notebook**, **NumPy**, **Keras** and **Tensorflow**, preferable language is **Python**.
 
-## Build Document (.md to .html)
+## Covering
 
-Install node module `docpress` to run globally,
+- Neural Networks & Deep Learning
+
+- Improving Deep Neural Networks
+  
+- Structuring Machine Learning Projects
+  
+- Convolutional Neural Networks
+  
+- Sequence Models
+
+## Build Document
+
+Install node module `docpress` globally,
 
 ```bash
 $ npm i -g docpress
 ```
 
-To compile document,
+To compile document (.md to .html),
 
 ```bash
 $ npm run build
 ```
 
-To serve as http,
+To serve as http (localhost:3000),
 
 ```bash
 $ npm run serve

@@ -16,40 +16,40 @@
           </div>
         </div>
         <div class="markdown-body"><h1 id="convolutional-neural-networks">Convolutional Neural Networks</h1>
-<h2 id="table-of-contents">Table of contents</h2>
+<h2 id="table-of-contents">Table of Contents</h2>
 <ul>
-<li><a href="#table-of-contents">Table of contents</a></li>
-<li><a href="#note">Note</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#summary">Summary</a></li>
 <li><a href="#foundations-of-cnns">Foundations of CNNs</a>
 <ul>
-<li><a href="#computer-vision">Computer vision</a></li>
-<li><a href="#edge-detection-example">Edge detection example</a></li>
+<li><a href="#computer-vision">Computer Vision</a></li>
+<li><a href="#edge-detection-example">Edge Detection Example</a></li>
 <li><a href="#padding">Padding</a></li>
-<li><a href="#strided-convolution">Strided convolution</a></li>
-<li><a href="#convolutions-over-volumes">Convolutions over volumes</a></li>
+<li><a href="#strided-convolution">Strided Convolution</a></li>
+<li><a href="#convolutions-over-volumes">Convolutions Over Volumes</a></li>
 <li><a href="#one-layer-of-a-convolutional-network">One Layer of a Convolutional Network</a></li>
-<li><a href="#a-simple-convolution-network-example">A simple convolution network example</a></li>
-<li><a href="#pooling-layers">Pooling layers</a></li>
-<li><a href="#convolutional-neural-network-example">Convolutional neural network example</a></li>
-<li><a href="#why-convolutions">Why convolutions?</a></li>
+<li><a href="#a-simple-convolution-network-example">A Simple Convolution Network Example</a></li>
+<li><a href="#pooling-layers">Pooling Layers</a></li>
+<li><a href="#convolutional-neural-network-example">Convolutional Neural Network Example</a></li>
+<li><a href="#why-convolutions">Why Convolutions?</a></li>
 </ul>
 </li>
-<li><a href="#deep-convolutional-models-case-studies">Deep convolutional models: case studies</a>
+<li><a href="#deep-convolutional-models-case-studies">Deep Convolutional Models: Case Studies</a>
 <ul>
-<li><a href="#why-look-at-case-studies">Why look at case studies?</a></li>
-<li><a href="#classic-networks">Classic networks</a></li>
+<li><a href="#why-look-at-case-studies">Why Look at Case Studies?</a></li>
+<li><a href="#classic-networks">Classic Networks</a></li>
 <li><a href="#residual-networks-resnets">Residual Networks (ResNets)</a></li>
-<li><a href="#why-resnets-work">Why ResNets work</a></li>
-<li><a href="#network-in-network-and-1-X-1-convolutions">Network in Network and 1&#xD7;1 convolutions</a></li>
-<li><a href="#inception-network-motivation">Inception network motivation</a></li>
-<li><a href="#inception-network-googlenet">Inception network (GoogleNet)</a></li>
+<li><a href="#why-resnets-work">Why ResNets Work</a></li>
+<li><a href="#network-in-network-and-1-X-1-convolutions">Network in Network and 1&#xD7;1 Convolutions</a></li>
+<li><a href="#inception-network-motivation">Inception Network Motivation</a></li>
+<li><a href="#inception-network-googlenet">Inception Network (GoogleNet)</a></li>
 <li><a href="#using-open-source-implementation">Using Open-Source Implementation</a></li>
 <li><a href="#transfer-learning">Transfer Learning</a></li>
 <li><a href="#data-augmentation">Data Augmentation</a></li>
 <li><a href="#state-of-computer-vision">State of Computer Vision</a></li>
 </ul>
 </li>
-<li><a href="#object-detection">Object detection</a>
+<li><a href="#object-detection">Object Detection</a>
 <ul>
 <li><a href="#object-localization">Object Localization</a></li>
 <li><a href="#landmark-detection">Landmark Detection</a></li>
@@ -63,11 +63,11 @@
 <li><a href="#region-proposals-r-cnn">Region Proposals (R-CNN)</a></li>
 </ul>
 </li>
-<li><a href="#special-applications-face-recognition--neural-style-transfer">Special applications: Face recognition &amp; Neural style transfer</a>
+<li><a href="#special-applications-face-recognition--neural-style-transfer">Special Applications: Face Recognition &amp; Neural Style Transfer</a>
 <ul>
 <li><a href="#face-recognition">Face Recognition</a>
 <ul>
-<li><a href="#what-is-face-recognition">What is face recognition?</a></li>
+<li><a href="#what-is-face-recognition">What is Face Recognition?</a></li>
 <li><a href="#one-shot-learning">One Shot Learning</a></li>
 <li><a href="#siamese-network">Siamese Network</a></li>
 <li><a href="#triplet-loss">Triplet Loss</a></li>
@@ -76,8 +76,8 @@
 </li>
 <li><a href="#neural-style-transfer">Neural Style Transfer</a>
 <ul>
-<li><a href="#what-is-neural-style-transfer">What is neural style transfer?</a></li>
-<li><a href="#what-are-deep-convnets-learning">What are deep ConvNets learning?</a></li>
+<li><a href="#what-is-neural-style-transfer">What is Neural Style Transfer?</a></li>
+<li><a href="#what-are-deep-convnets-learning">What Are Deep ConvNets Learning?</a></li>
 <li><a href="#cost-function">Cost Function</a></li>
 <li><a href="#content-cost-function">Content Cost Function</a></li>
 <li><a href="#style-cost-function">Style Cost Function</a></li>
@@ -92,7 +92,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="note">Note</h2>
+<h2 id="summary">Summary</h2>
 <blockquote>
 <p>How to build convolutional neural networks and apply it to image data. Thanks to deep learning, computer vision is working far better than just two years ago, and this is enabling numerous exciting applications ranging from safe autonomous driving, to accurate face recognition, to automatic reading of radiology images.</p>
 <ul>
@@ -106,13 +106,13 @@
 <blockquote>
 <p>Learn to implement the foundational layers of CNNs (pooling, convolutions) and to stack them properly in a deep network to solve multi-class image classification problems.</p>
 </blockquote>
-<h3 id="computer-vision">Computer vision</h3>
+<h3 id="computer-vision">Computer Vision</h3>
 <ul>
 <li>Computer vision is from the applications that are rapidly active thanks to deep learning.</li>
 <li>One of the applications of computer vision that are using deep learning includes:
 <ul>
-<li>Self driving cars.</li>
-<li>Face recognition.</li>
+<li>Self driving cars</li>
+<li>Face recognition</li>
 </ul>
 </li>
 <li>Deep learning also is making new arts to be created to in computer vision as we will see.</li>
@@ -124,15 +124,15 @@
 </li>
 <li>Examples of a computer vision problems includes:
 <ul>
-<li>Image classification.</li>
-<li>Object detection.
+<li>Image classification</li>
+<li>Object detection
 <ul>
-<li>Detect object and localize them.</li>
+<li>Detect object and localize them</li>
 </ul>
 </li>
 <li>Neural style transfer
 <ul>
-<li>Changes the style of an image using another image.</li>
+<li>Changes the style of an image using another image</li>
 </ul>
 </li>
 </ul>
@@ -144,7 +144,7 @@
 </li>
 <li>On of the solutions is to build this using <strong>convolution layers</strong> instead of the <strong>fully connected layers</strong>.</li>
 </ul>
-<h3 id="edge-detection-example">Edge detection example</h3>
+<h3 id="edge-detection-example">Edge Detection Example</h3>
 <ul>
 <li>
 <p>The convolution operation is one of the fundamentals blocks of a CNN. One of the examples about convolution is the image edge detection operation.</p>
@@ -159,10 +159,7 @@
 <p>Vertical edge detection:</p>
 <ul>
 <li>An example of convolution operation to detect vertical edges:
-<ul>
-<li><img src="images/04/01.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/01.png" alt=""></li>
 <li>In the last example a <code>6x6</code> matrix convolved with <code>3x3</code> filter/kernel gives us a <code>4x4</code> matrix.</li>
 <li>If you make the convolution operation in TensorFlow you will find the function <code>tf.nn.conv2d</code>. In keras you will find <code>Conv2d</code> function.</li>
 <li>The vertical edge detection filter will find a <code>3x3</code> place in an image where there are a bright region followed by a dark region.</li>
@@ -244,7 +241,7 @@
 <p>In computer vision f is usually odd. Some of the reasons is that its have a center value.</p>
 </li>
 </ul>
-<h3 id="strided-convolution">Strided convolution</h3>
+<h3 id="strided-convolution">Strided Convolution</h3>
 <ul>
 <li>
 <p>Strided convolution is another piece that are used in CNNs.</p>
@@ -274,7 +271,7 @@ When s = 1 ==&gt; P = (f-1) / 2
 </code></pre>
 </li>
 </ul>
-<h3 id="convolutions-over-volumes">Convolutions over volumes</h3>
+<h3 id="convolutions-over-volumes">Convolutions Over Volumes</h3>
 <ul>
 <li>We see how convolution works with 2D images, now lets see if we want to convolve 3D images (RGB image)</li>
 <li>We will convolve an image of height, width, # of channels with a filter of a height, width, same # of channels. Hint that the image number channels and the filter number of channels are the same.</li>
@@ -339,7 +336,7 @@ bias:  (1, 1, 1, nc[l])
 </code></pre>
 </li>
 </ul>
-<h3 id="a-simple-convolution-network-example">A simple convolution network example</h3>
+<h3 id="a-simple-convolution-network-example">A Simple Convolution Network Example</h3>
 <ul>
 <li>Lets build a big example.
 <ul>
@@ -392,18 +389,18 @@ bias:  (1, 1, 1, nc[l])
 <li>In the last example you seen that the image are getting smaller after each layer and thats the trend now.</li>
 <li>Types of layer in a convolutional network:
 <ul>
-<li>Convolution. 		<code>#Conv</code></li>
-<li>Pooling      <code>#Pool</code></li>
-<li>Fully connected     <code>#FC</code></li>
+<li>Convolution.  <code>#Conv</code></li>
+<li>Pooling <code>#Pool</code></li>
+<li>Fully connected <code>#FC</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="pooling-layers">Pooling layers</h3>
+<h3 id="pooling-layers">Pooling Layers</h3>
 <ul>
 <li>Other than the conv layers, CNNs often uses pooling layers to reduce the size of the inputs, speed up computation, and to make some of the features it detects more robust.</li>
 <li>Max pooling example:
+<img src="images/04/02.png" alt="">
 <ul>
-<li><img src="images/04/02.png" alt=""></li>
 <li>This example has <code>f = 2</code>, <code>s = 2</code>, and <code>p = 0</code> hyperparameters</li>
 </ul>
 </li>
@@ -428,7 +425,7 @@ bias:  (1, 1, 1, nc[l])
 </ul>
 </li>
 </ul>
-<h3 id="convolutional-neural-network-example">Convolutional neural network example</h3>
+<h3 id="convolutional-neural-network-example">Convolutional Neural Network Example</h3>
 <ul>
 <li>Now we will deal with a full CNN example. This example is something like the <strong><em>LeNet-5</em></strong> that was invented by Yann Lecun.
 <ul>
@@ -437,7 +434,7 @@ bias:  (1, 1, 1, nc[l])
 <li><code>n0 = 32</code> and <code>nc0 = 3</code></li>
 </ul>
 </li>
-<li>First layer (Conv layer):        <code>#Conv1</code>
+<li>First layer (Conv layer): <code>#Conv1</code>
 <ul>
 <li><code>f1 = 5</code>, <code>s1 = 1</code>, and <code>p1 = 0</code></li>
 <li><code>number of filters = 6</code></li>
@@ -446,7 +443,7 @@ bias:  (1, 1, 1, nc[l])
 <li><code>n1 = 28</code> and <code>nc1 = 6</code></li>
 </ul>
 </li>
-<li>Then apply (Max pooling):         <code>#Pool1</code>
+<li>Then apply (Max pooling): <code>#Pool1</code>
 <ul>
 <li><code>f1p = 2</code>, and <code>s1p = 2</code></li>
 <li>The output are <code>a1 = 14x14x6</code></li>
@@ -463,7 +460,7 @@ bias:  (1, 1, 1, nc[l])
 <li><code>n2 = 10</code>, <code>nc2 = 16</code></li>
 </ul>
 </li>
-<li>Then apply (Max pooling):         <code>#Pool2</code>
+<li>Then apply (Max pooling): <code>#Pool2</code>
 <ul>
 <li><code>f1p = 2</code>, and <code>s1p = 2</code></li>
 <li>The output are <code>a2 = 5x5x16</code></li>
@@ -471,13 +468,13 @@ bias:  (1, 1, 1, nc[l])
 </li>
 </ul>
 </li>
-<li>Third layer (Fully connected)   <code>#FC3</code>
+<li>Third layer (Fully connected) <code>#FC3</code>
 <ul>
 <li>Number of neurons are 120</li>
 <li>The output <code>a3 = 120 x 1</code> . 400 came from <code>5x5x16</code></li>
 </ul>
 </li>
-<li>Forth layer (Fully connected)  <code>#FC4</code>
+<li>Forth layer (Fully connected) <code>#FC4</code>
 <ul>
 <li>Number of neurons are 84</li>
 <li>The output <code>a4 = 84 x 1</code> .</li>
@@ -492,17 +489,14 @@ bias:  (1, 1, 1, nc[l])
 </li>
 <li>Hint a Conv1 and Pool1 is treated as one layer.</li>
 <li>Some statistics about the last example:
-<ul>
-<li><img src="images/04/03.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/03.png" alt=""></li>
 <li>Hyperparameters are a lot. For choosing the value of each you should follow the guideline that we will discuss later or check the literature and takes some ideas and numbers from it.</li>
 <li>Usually the input size decreases over layers while the number of filters increases.</li>
 <li>A CNN usually consists of one or more convolution (Not just one as the shown examples) followed by a pooling.</li>
 <li>Fully connected layers has the most parameters in the network.</li>
 <li>To consider using these blocks together you should look at other working examples firsts to get some intuitions.</li>
 </ul>
-<h3 id="why-convolutions">Why convolutions?</h3>
+<h3 id="why-convolutions">Why Convolutions?</h3>
 <ul>
 <li>Two main advantages of Convs are:
 <ul>
@@ -519,16 +513,13 @@ bias:  (1, 1, 1, nc[l])
 </ul>
 </li>
 <li>Putting it all together:
-<ul>
-<li><img src="images/04/04.png" alt=""></li>
+<img src="images/04/04.png" alt=""></li>
 </ul>
-</li>
-</ul>
-<h2 id="deep-convolutional-models:-case-studies">Deep convolutional models: case studies</h2>
+<h2 id="deep-convolutional-models:-case-studies">Deep Convolutional Models: Case Studies</h2>
 <blockquote>
 <p>Learn about the practical tricks and methods used in deep CNNs straight from the research papers.</p>
 </blockquote>
-<h3 id="why-look-at-case-studies">Why look at case studies?</h3>
+<h3 id="why-look-at-case-studies">Why Look at Case Studies?</h3>
 <ul>
 <li>We learned about Conv layer, pooling layer, and fully connected layers. It turns out that computer vision researchers spent the past few years on how to put these layers together.</li>
 <li>To get some intuitions you have to see the examples that has been made.</li>
@@ -544,7 +535,7 @@ bias:  (1, 1, 1, nc[l])
 <li>There are also an architecture called <strong>Inception</strong> that was made by Google that are very useful to learn and apply to your tasks.</li>
 <li>Reading and trying the mentioned models can boost you and give you a lot of ideas to solve your task.</li>
 </ul>
-<h3 id="classic-networks">Classic networks</h3>
+<h3 id="classic-networks">Classic Networks</h3>
 <ul>
 <li>
 <p>In this section we will talk about classic networks which are <strong>LeNet-5</strong>, <strong>AlexNet</strong>, and <strong>VGG</strong>.</p>
@@ -552,8 +543,8 @@ bias:  (1, 1, 1, nc[l])
 <li>
 <p><strong>LeNet-5</strong></p>
 <ul>
-<li>The goal for this model was to identify handwritten digits in a <code>32x32x1</code> gray image. Here are the drawing of it:</li>
-<li><img src="images/04/05.png" alt=""></li>
+<li>The goal for this model was to identify handwritten digits in a <code>32x32x1</code> gray image. Here are the drawing of it:
+<img src="images/04/05.png" alt=""></li>
 <li>This model was published in 1998. The last layer wasn&apos;t using softmax back then.</li>
 <li>It has 60k parameters.</li>
 <li>The dimensions of the image decreases as the number of channels increases.</li>
@@ -569,10 +560,8 @@ bias:  (1, 1, 1, nc[l])
 <p>Named after Alex Krizhevsky who was the first author of this paper. The other authors includes Jeoffery Hinton.</p>
 </li>
 <li>
-<p>The goal for the model was the ImageNet challenge which classifies images into 1000 classes. Here are the drawing of the model:</p>
-</li>
-<li>
-<p><img src="images/04/06.png" alt=""></p>
+<p>The goal for the model was the ImageNet challenge which classifies images into 1000 classes. Here are the drawing of the model:
+<img src="images/04/06.png" alt=""></p>
 </li>
 <li>
 <p>Summary:</p>
@@ -615,10 +604,7 @@ bias:  (1, 1, 1, nc[l])
 </ul>
 </li>
 <li>Here are the architecture:
-<ul>
-<li><img src="images/04/07.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/07.png" alt=""></li>
 <li>This network is large even by modern standards. It has around 138 million parameters.
 <ul>
 <li>Most of the parameters are in the fully connected layers.</li>
@@ -641,10 +627,10 @@ bias:  (1, 1, 1, nc[l])
 <ul>
 <li>Very, very deep NNs are difficult to train because of vanishing and exploding gradients problems.</li>
 <li>In this section we will learn about skip connection which makes you take the activation from one layer and suddenly feed it to another layer even much deeper in NN which allows you to train large NNs even with layers greater than 100.</li>
-<li><strong>Residual block</strong>
+<li><strong>Residual Block</strong>
 <ul>
-<li>ResNets are built out of some Residual blocks.</li>
-<li><img src="images/04/08.png" alt=""></li>
+<li>ResNets are built out of some Residual blocks.
+<img src="images/04/08.png" alt=""></li>
 <li>They add a shortcut/skip connection before the second activation.</li>
 <li>The authors of this block find that you can train a deeper NNs using stacking this block.</li>
 <li><a href="https://arxiv.org/abs/1512.03385">[He et al., 2015. Deep residual networks for image recognition]</a></li>
@@ -652,10 +638,10 @@ bias:  (1, 1, 1, nc[l])
 </li>
 <li><strong>Residual Network</strong>
 <ul>
-<li>Are a NN that consists of some Residual blocks.</li>
-<li><img src="images/04/09.png" alt=""></li>
-<li>These networks can go deeper without hurting the performance. In the normal NN - Plain networks - the theory tell us that if we go deeper we will get a better solution to our problem, but because of the vanishing and exploding gradients problems the performance of the network suffers as it goes deeper. Thanks to Residual Network we can go deeper as we want now.</li>
-<li><img src="images/04/10.png" alt=""></li>
+<li>Are a NN that consists of some Residual blocks.
+<img src="images/04/09.png" alt=""></li>
+<li>These networks can go deeper without hurting the performance. In the normal NN - Plain networks - the theory tell us that if we go deeper we will get a better solution to our problem, but because of the vanishing and exploding gradients problems the performance of the network suffers as it goes deeper. Thanks to Residual Network we can go deeper as we want now.
+<img src="images/04/10.png" alt=""></li>
 <li>On the left is the normal NN and on the right are the ResNet. As you can see the performance of ResNet increases as the network goes deeper.</li>
 <li>In some cases going deeper won&apos;t effect the performance and that depends on the problem on your hand.</li>
 <li>Some people are trying to train 1000 layer now which isn&apos;t used in practice.</li>
@@ -663,31 +649,46 @@ bias:  (1, 1, 1, nc[l])
 </ul>
 </li>
 </ul>
-<h3 id="why-resnets-work">Why ResNets work</h3>
+<h3 id="why-resnets-work">Why ResNets Work</h3>
 <ul>
 <li>Lets see some example that illustrates why resNet work.
 <ul>
-<li>We have a big NN as the following:
+<li>
+<p>We have a big NN as the following:</p>
 <ul>
 <li><code>X --&gt; Big NN --&gt; a[l]</code></li>
 </ul>
 </li>
-<li>Lets add two layers to this network as a residual block:
+<li>
+<p>Lets add two layers to this network as a residual block:</p>
 <ul>
 <li><code>X --&gt; Big NN --&gt; a[l] --&gt; Layer1 --&gt; Layer2 --&gt; a[l+2]</code></li>
 <li>And a<code>[l]</code> has a direct connection to <code>a[l+2]</code></li>
 </ul>
 </li>
-<li>Suppose we are using RELU activations.</li>
-<li>Then:<pre><code>a[l+2] = g( z[l+2] + a[l] )
+<li>
+<p>Suppose we are using RELU activations.</p>
+</li>
+<li>
+<p>Then:</p>
+<pre><code>a[l+2] = g( z[l+2] + a[l] )
 	   = g( W[l+2] a[l+1] + b[l+2] + a[l] )
 </code></pre>
 </li>
-<li>Then if we are using L2 regularization for example, <code>W[l+2]</code> will be zero. Lets say that <code>b[l+2]</code> will be zero too.</li>
-<li>Then <code>a[l+2] = g( a[l] ) = a[l]</code> with no negative values.</li>
-<li>This show that identity function is easy for a residual block to learn. And that why it can train deeper NNs.</li>
-<li>Also that the two layers we added doesn&apos;t hurt the performance of big NN we made.</li>
-<li>Hint: dimensions of z[l+2] and a[l] have to be the same in resNets. In case they have different dimensions what we put a matrix parameters (Which can be learned or fixed)
+<li>
+<p>Then if we are using L2 regularization for example, <code>W[l+2]</code> will be zero. Lets say that <code>b[l+2]</code> will be zero too.</p>
+</li>
+<li>
+<p>Then <code>a[l+2] = g( a[l] ) = a[l]</code> with no negative values.</p>
+</li>
+<li>
+<p>This show that identity function is easy for a residual block to learn. And that why it can train deeper NNs.</p>
+</li>
+<li>
+<p>Also that the two layers we added doesn&apos;t hurt the performance of big NN we made.</p>
+</li>
+<li>
+<p>Hint: dimensions of z[l+2] and a[l] have to be the same in resNets. In case they have different dimensions what we put a matrix parameters (Which can be learned or fixed)</p>
 <ul>
 <li><code>a[l+2] = g( z[l+2] + ws * a[l] ) # The added Ws should make the dimentions equal</code></li>
 <li>ws also can be a zero padding.</li>
@@ -698,8 +699,8 @@ bias:  (1, 1, 1, nc[l])
 <li>Using a skip-connection helps the gradient to backpropagate and thus helps you to train deeper networks</li>
 <li>Lets take a look at ResNet on images.
 <ul>
-<li>Here are the architecture of <strong>ResNet-34</strong>:</li>
-<li><img src="images/04/resNet.jpg" alt=""></li>
+<li>Here are the architecture of <strong>ResNet-34</strong>:
+<img src="images/04/resNet.jpg" alt=""></li>
 <li>All the 3x3 Conv are same Convs.</li>
 <li>Keep it simple in design of the network.</li>
 <li>spatial size /2 =&gt; # filters x2</li>
@@ -709,30 +710,27 @@ bias:  (1, 1, 1, nc[l])
 </ul>
 </li>
 <li>Useful concept (<strong>Spectrum of Depth</strong>):
-<ul>
-<li><img src="images/04/12.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/12.png" alt=""></li>
 <li>Residual blocks types:
 <ul>
 <li>Identity block:
+<img src="images/04/16.png" alt="">
 <ul>
-<li><img src="images/04/16.png" alt=""></li>
 <li>Hint the conv is followed by a batch norm <code>BN</code> before <code>RELU</code>. Dimensions here are same.</li>
 <li>This skip is over 2 layers. The skip connection can jump n connections where n&gt;2</li>
 <li>This drawing represents <a href="https://keras.io/">Keras</a> layers.</li>
 </ul>
 </li>
 <li>The convolutional block:
+<img src="images/04/17.png" alt="">
 <ul>
-<li><img src="images/04/17.png" alt=""></li>
 <li>The conv can be bottleneck 1 x 1 conv</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="network-in-network-and-1-x-1-convolutions">Network in Network and 1 X 1 convolutions</h3>
+<h3 id="network-in-network-and-1-x-1-convolutions">Network in Network and 1 X 1 Convolutions</h3>
 <ul>
 <li>A 1 x 1 convolution  - We also call it Network in Network- is so useful in many CNN models.</li>
 <li>What does a 1 X 1 convolution do? Isn&apos;t it just multiplying by a number?
@@ -740,14 +738,14 @@ bias:  (1, 1, 1, nc[l])
 <li>Lets first consider an example:
 <ul>
 <li>Input: <code>6x6x1</code></li>
-<li>Conv: <code>1x1x1</code> one filter.        <code># The 1 x 1 Conv</code></li>
+<li>Conv: <code>1x1x1</code> one filter. <code># The 1 x 1 Conv</code></li>
 <li>Output: <code>6x6x1</code></li>
 </ul>
 </li>
 <li>Another example:
 <ul>
 <li>Input: <code>6x6x32</code></li>
-<li>Conv: <code>1x1x32</code> 5 filters.     <code># The 1 x 1 Conv</code></li>
+<li>Conv: <code>1x1x32</code> 5 filters. <code># The 1 x 1 Conv</code></li>
 <li>Output: <code>6x6x5</code></li>
 </ul>
 </li>
@@ -777,13 +775,13 @@ bias:  (1, 1, 1, nc[l])
 </li>
 <li><a href="https://arxiv.org/abs/1312.4400">[Lin et al., 2013. Network in network]</a></li>
 </ul>
-<h3 id="inception-network-motivation">Inception network motivation</h3>
+<h3 id="inception-network-motivation">Inception Network Motivation</h3>
 <ul>
 <li>When you design a CNN you have to decide all the layers yourself. Will you pick a 3 x 3 Conv or 5 x 5 Conv or maybe a max pooling layer. You have so many choices.</li>
 <li>What <strong>inception</strong> tells us is, Why not use all of them at once?</li>
-<li><strong>Inception module</strong>, naive version:
+<li><strong>Inception Module</strong>, naive version:
+<img src="images/04/13.png" alt="">
 <ul>
-<li><img src="images/04/13.png" alt=""></li>
 <li>Hint that max-pool are same here.</li>
 <li>Input to the inception module are 28 x 28 x 192 and the output are 28 x 28 x 256</li>
 <li>We have done all the Convs and pools we might want and will let the NN learn and decide which it want to use most.</li>
@@ -832,25 +830,16 @@ bias:  (1, 1, 1, nc[l])
 <li>A 1 x 1 Conv here is called Bottleneck <code>BN</code>.</li>
 <li>It turns out that the 1 x 1 Conv won&apos;t hurt the performance.</li>
 <li><strong>Inception module</strong>, dimensions reduction version:
-<ul>
-<li><img src="images/04/14.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/14.png" alt=""></li>
 <li>Example of inception model in Keras:
-<ul>
-<li><img src="images/04/inception_block1a.png" alt=""></li>
+<img src="images/04/inception_block1a.png" alt=""></li>
 </ul>
-</li>
-</ul>
-<h3 id="inception-network-(googlenet)">Inception network (GoogleNet)</h3>
+<h3 id="inception-network-(googlenet)">Inception Network (GoogleNet)</h3>
 <ul>
 <li>The inception network consist of concatenated blocks of the Inception module.</li>
 <li>The name inception was taken from a <em>meme</em> image which was taken from <strong>Inception movie</strong></li>
 <li>Here are the full model:
-<ul>
-<li><img src="images/04/15.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/15.png" alt=""></li>
 <li>Some times a Max-Pool block is used before the inception module to reduce the dimensions of the inputs.</li>
 <li>There are a 3 Sofmax branches at different positions to push the network toward its goal. and helps to ensure that the intermediate features are good enough to the network to learn and it turns out that softmax0 and sofmax1 gives regularization effect.</li>
 <li>Since the development of the Inception module, the authors and the others have built another versions of this network. Like inception v2, v3, and v4. Also there are a network that has used the inception module and the ResNet together.</li>
@@ -861,8 +850,8 @@ bias:  (1, 1, 1, nc[l])
 <li>We have learned a lot of NNs and ConvNets architectures.</li>
 <li>It turns out that a lot of these NN are difficult to replicated. because there are some details that may not presented on its papers. There are some other reasons like:
 <ul>
-<li>Learning decay.</li>
-<li>Parameter tuning.</li>
+<li>Learning decay</li>
+<li>Parameter tuning</li>
 </ul>
 </li>
 <li>A lot of deep learning researchers are opening sourcing their code into Internet on sites like <strong><a href="http://Github.com">Github.com</a></strong>.</li>
@@ -974,7 +963,7 @@ bias:  (1, 1, 1, nc[l])
 </ul>
 </li>
 </ul>
-<h2 id="object-detection">Object detection</h2>
+<h2 id="object-detection">Object Detection</h2>
 <blockquote>
 <p>Learn how to apply your knowledge of CNNs to one of the toughest but hottest field of computer vision: Object detection.</p>
 </blockquote>
@@ -992,13 +981,13 @@ bias:  (1, 1, 1, nc[l])
 <li><img src="images/04/Classification.jpg" alt=""></li>
 </ul>
 </li>
-<li><strong>Classification with localization</strong>:
+<li><strong>Classification With Localization</strong>:
 <ul>
 <li>Given an image we want to learn the class of the image and where are the class location in the image. We need to detect a class and a rectangle of where that object is. Usually only one object is presented.</li>
 <li><img src="images/04/ClassificationLoc.jpg" alt=""></li>
 </ul>
 </li>
-<li><strong>Object detection</strong>:
+<li><strong>Object Detection</strong>:
 <ul>
 <li>Given an image we want to detect all the object in the image that belong to a specific classes and give their location. An image can contain more than one object with different classes.</li>
 <li><img src="images/04/ObjectDetection.png" alt=""></li>
@@ -1113,10 +1102,7 @@ bias:  (1, 1, 1, nc[l])
 <li>We will use a Conv net to solve the object detection problem using a technique called the sliding windows detection algorithm.</li>
 <li>For example lets say we are working on Car object detection.</li>
 <li>The first thing, we will a Conv net on a cropped car objects and non car images.
-<ul>
-<li><img src="images/04/18.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/18.png" alt=""></li>
 <li>After we finish training of this Conv net we will then use it with the sliding windows technique.</li>
 <li>Sliding windows detection algorithm:
 <ol>
@@ -1136,56 +1122,40 @@ bias:  (1, 1, 1, nc[l])
 <h3 id="convolutional-implementation-of-sliding-windows">Convolutional Implementation of Sliding Windows</h3>
 <ul>
 <li>Turning FC layer into convolutional layers (predict image class from four classes):
+<img src="images/04/19.png" alt="">
 <ul>
-<li><img src="images/04/19.png" alt=""></li>
 <li>As you can see in the above image, we turned the FC layer into a Conv layer using a convolution with the width and height of the filter is the same as the with and height of the input.</li>
 </ul>
 </li>
 <li><strong>Convolution implementation of sliding windows</strong>:
 <ul>
 <li>First lets consider that the Conv net you trained in like this (No FC all is conv layers):
-<ul>
-<li><img src="images/04/20.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/20.png" alt=""></li>
 <li>Say now we have a 16 x 16 x 3 image that we need to apply the sliding windows in. By the normal implementation that have been mentioned in the section before this, we could run this Conv net four times each rectangle size will be 16 x 16.</li>
 <li>The convolution implementation will be as follows:
-<ul>
-<li><img src="images/04/21.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/21.png" alt=""></li>
 <li>Simply we have feed the image into the same Conv net we have trained.</li>
 <li>The left cell of the result &quot;The blue one&quot; will represent the the first sliding window of the normal implementation. The other cells will represent the others.</li>
 <li>Its more efficient because it now shares the computations of the four times needed.</li>
 <li>Another example would be:
-<ul>
-<li><img src="images/04/22.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/22.png" alt=""></li>
 <li>This example has a total of 16 sliding windows that shares the computation together.</li>
 <li><a href="https://arxiv.org/abs/1312.6229">[Sermanet et al., 2014, OverFeat: Integrated recognition, localization and detection using convolutional networks]</a></li>
 </ul>
 </li>
 <li>The weakness of the algorithm is that the position of the rectangle wont be so accurate. Maybe none of the rectangles is exactly on the object you want to recognize.
+<img src="images/04/23.png" alt="">
 <ul>
-<li><img src="images/04/23.png" alt=""></li>
 <li>In red the rectangle we want in blue the best car rectangle.</li>
 </ul>
 </li>
 </ul>
 <h3 id="bounding-box-predictions">Bounding Box Predictions</h3>
 <ul>
-<li>
-<p>A better algorithm than the one described in the last section is the <a href="https://arxiv.org/abs/1506.02640">YOLO algorithm</a>.</p>
-</li>
-<li>
-<p>YOLO stands for <em>you only look once</em> and was developed back in 2015.</p>
-</li>
-<li>
-<p>Yolo Algorithm:</p>
-<ul>
-<li><img src="images/04/24.png" alt=""></li>
-</ul>
+<li>A better algorithm than the one described in the last section is the <a href="https://arxiv.org/abs/1506.02640">YOLO algorithm</a>.</li>
+<li>YOLO stands for <em>you only look once</em> and was developed back in 2015.</li>
+<li>Yolo Algorithm:
+<img src="images/04/24.png" alt="">
 <ol>
 <li>Lets say we have an image of 100 X 100</li>
 <li>Place a  3 x 3 grid on the image. For more smother results you should use 19 x 19 for the 100 x 100</li>
@@ -1194,19 +1164,11 @@ bias:  (1, 1, 1, nc[l])
 <li>Merging the results using predicted localization mid point.</li>
 </ol>
 </li>
-<li>
-<p>We have a problem if we have found more than one object in one grid box.</p>
-</li>
-<li>
-<p>One of the best advantages that makes the YOLO algorithm popular is that it has a great speed and a Conv net implementation.</p>
-</li>
-<li>
-<p>How is YOLO different from other Object detectors?  YOLO uses a single CNN
-network for both classification and localizing the object using bounding boxes.</p>
-</li>
-<li>
-<p>In the next sections we will see some ideas that can make the YOLO algorithm better.</p>
-</li>
+<li>We have a problem if we have found more than one object in one grid box.</li>
+<li>One of the best advantages that makes the YOLO algorithm popular is that it has a great speed and a Conv net implementation.</li>
+<li>How is YOLO different from other Object detectors?  YOLO uses a single CNN
+network for both classification and localizing the object using bounding boxes.</li>
+<li>In the next sections we will see some ideas that can make the YOLO algorithm better.</li>
 </ul>
 <h3 id="intersection-over-union">Intersection Over Union</h3>
 <ul>
@@ -1214,8 +1176,8 @@ network for both classification and localizing the object using bounding boxes.<
 <li>It computes size of intersection and divide it by the union. More generally, <em>IoU</em>
 <em>is a measure of the overlap between two bounding boxes</em>.</li>
 <li>For example:
+<img src="images/04/25.png" alt="">
 <ul>
-<li><img src="images/04/25.png" alt=""></li>
 <li>The red is the labeled output and the purple is the predicted output.</li>
 <li>To compute Intersection Over Union we first compute the union area of the two rectangles which is &quot;the first rectangle + second rectangle&quot; Then compute the intersection area between these two rectangles.</li>
 <li>Finally <code>IOU = intersection area / Union area</code></li>
@@ -1229,8 +1191,8 @@ network for both classification and localizing the object using bounding boxes.<
 <li>One of the problems we have addressed in YOLO is that it can detect an object multiple times.</li>
 <li>Non-max Suppression is a way to make sure that YOLO detects the object just once.</li>
 <li>For example:
+<img src="images/04/26.png" alt="">
 <ul>
-<li><img src="images/04/26.png" alt=""></li>
 <li>Each car has two or more detections with different probabilities. This came from some of the grids that thinks that this is the center point of the object.</li>
 </ul>
 </li>
@@ -1252,8 +1214,8 @@ network for both classification and localizing the object using bounding boxes.<
 <h3 id="anchor-boxes">Anchor Boxes</h3>
 <ul>
 <li>In YOLO, a grid only detects on object. What if a grid cell wants to detect multiple object?
+<img src="images/04/27.png" alt="">
 <ul>
-<li><img src="images/04/27.png" alt=""></li>
 <li>Car and person grid is same here.</li>
 <li>In practice this happens rarely.</li>
 </ul>
@@ -1263,17 +1225,14 @@ network for both classification and localizing the object using bounding boxes.<
 <ul>
 <li>Y = <code>[Pc, bx, by, bh, bw, c1, c2, c3, Pc, bx, by, bh, bw, c1, c2, c3]</code>  We simply have repeated  the one anchor Y.</li>
 <li>The two anchor boxes you choose should be known as a shape:
-<ul>
-<li><img src="images/04/28.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/28.png" alt=""></li>
 </ul>
 </li>
 <li>So Previously, each object in training image is assigned to grid cell that contains that object&apos;s midpoint.</li>
 <li>With two anchor boxes, Each object in training image is assigned to grid cell that contains object&apos;s midpoint and anchor box for the grid cell with <u>highest IoU</u>. You have to check where your object should be based on its rectangle closest to which anchor box.</li>
 <li>Example of data:
+<img src="images/04/29.png" alt="">
 <ul>
-<li><img src="images/04/29.png" alt=""></li>
 <li>Where the car was near the anchor 2 than anchor 1.</li>
 </ul>
 </li>
@@ -1317,10 +1276,7 @@ network for both classification and localizing the object using bounding boxes.<
 <p>Your dataset could be an image with a multiple labels and a rectangle for each label, we should go to your dataset and make the shape and values of Y like we agreed.</p>
 <ul>
 <li>An example:
-<ul>
-<li><img src="images/04/30.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/30.png" alt=""></li>
 <li>We first initialize all of them to zeros and ?, then for each label and rectangle choose its closest grid point then the shape to fill it and then the best anchor point based on the IOU. so that the shape of Y for one image should be <code>[HeightOfGrid, WidthOfGrid,16]</code></li>
 </ul>
 </li>
@@ -1331,21 +1287,15 @@ network for both classification and localizing the object using bounding boxes.<
 <p>To make predictions, run the Conv net on an image and run Non-max suppression algorithm for each class you have in our case there are 3 classes.</p>
 <ul>
 <li>You could get something like that:
+<img src="images/04/31.png" alt="">
 <ul>
-<li><img src="images/04/31.png" alt=""></li>
 <li>Total number of generated boxes are grid_width * grid_height * no_of_anchors = 3 x 3 x 2</li>
 </ul>
 </li>
 <li>By removing the low probability predictions you should have:
-<ul>
-<li><img src="images/04/32.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/32.png" alt=""></li>
 <li>Then get the best probability followed by the IOU filtering:
-<ul>
-<li><img src="images/04/33.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/33.png" alt=""></li>
 </ul>
 </li>
 <li>
@@ -1354,7 +1304,9 @@ network for both classification and localizing the object using bounding boxes.<
 <li>
 <p><a href="https://arxiv.org/abs/1612.08242">YOLO9000 Better, faster, stronger</a></p>
 <ul>
-<li>Summary:<pre><code>________________________________________________________________________________________
+<li>
+<p>Summary:</p>
+<pre><code>________________________________________________________________________________________
 Layer (type)                     Output Shape          Param #     Connected to                
 ========================================================================================
 input_1 (InputLayer)             (None, 608, 608, 3)   0                                 
@@ -1587,12 +1539,12 @@ ________________________________________________________________________________
 </ul>
 </li>
 </ul>
-<h2 id="special-applications:-face-recognition-and-neural-style-transfer">Special applications: Face recognition &amp; Neural style transfer</h2>
+<h2 id="special-applications:-face-recognition-and-neural-style-transfer">Special Applications: Face Recognition &amp; Neural Style Transfer</h2>
 <blockquote>
 <p>Discover how CNNs can be applied to multiple fields, including art generation and face recognition. Implement your own algorithm to generate art and recognize faces!</p>
 </blockquote>
 <h3 id="face-recognition">Face Recognition</h3>
-<h4 id="what-is-face-recognition">What is face recognition?</h4>
+<h4 id="what-is-face-recognition">What is Face Recognition?</h4>
 <ul>
 <li>Face recognition system identifies a persons face. It can work on both images or videos.</li>
 <li><strong><u>Liveness detection</u></strong> within a video face recognition system prevents the network from identifying a real  picture in an image. It can be learned by supervised deep learning using a dataset for live human and in-live human and sequence learning.</li>
@@ -1639,8 +1591,8 @@ ________________________________________________________________________________
 <ul>
 <li>We will implement the similarity function using a type of NNs called Siamease Network in which we can pass multiple inputs to the two or more networks with the same architecture and parameters.</li>
 <li>Siamese network architecture are as the following:
+<img src="images/04/35.png" alt="">
 <ul>
-<li><img src="images/04/35.png" alt=""></li>
 <li>We make 2 identical conv nets which encodes an input image into a vector. In the above image the vector shape is (128, )</li>
 <li>The loss function will be <code>d(x1, x2) = || f(x1) - f(x2) ||2</code></li>
 <li>If <code>X1</code>, <code>X2</code> are the same person, we want d to be low. If they are different persons, we want d to be high.</li>
@@ -1707,8 +1659,8 @@ ________________________________________________________________________________
 <ul>
 <li>Triplet loss is one way to learn the parameters of a conv net for face recognition there&apos;s another way to learn these parameters as a straight binary classification problem.</li>
 <li>Learning the similarity function another way:
+<img src="images/04/36.png" alt="">
 <ul>
-<li><img src="images/04/36.png" alt=""></li>
 <li>The final layer is a sigmoid layer.</li>
 <li><code>Y&apos; = wi * Sigmoid ( f(x(i)) - f(x(j)) ) + b</code> where the subtraction is the Manhattan distance between f(x(i)) and f(x(j))</li>
 <li>Some other similarities can be Euclidean and Ki square similarity.</li>
@@ -1732,11 +1684,11 @@ ________________________________________________________________________________
 </li>
 </ul>
 <h3 id="neural-style-transfer">Neural Style Transfer</h3>
-<h4 id="what-is-neural-style-transfer">What is neural style transfer?</h4>
+<h4 id="what-is-neural-style-transfer">What is Neural Style Transfer?</h4>
 <ul>
 <li>Neural style transfer is one of the application of Conv nets.</li>
-<li>Neural style transfer takes a content image <code>C</code> and a style image <code>S</code> and generates the content image <code>G</code> with the style of style image.</li>
-<li><img src="images/04/37.png" alt=""></li>
+<li>Neural style transfer takes a content image <code>C</code> and a style image <code>S</code> and generates the content image <code>G</code> with the style of style image.
+<img src="images/04/37.png" alt=""></li>
 <li>In order to implement this you need to look at the features extracted by the Conv net at the shallower and deeper layers.</li>
 <li>It uses a previously trained convolutional network like VGG, and builds on top of that. The idea of using a network trained on a different task and applying it to a new task is called transfer learning.</li>
 </ul>
@@ -1745,10 +1697,7 @@ ________________________________________________________________________________
 <li>Visualizing what a deep network is learning:
 <ul>
 <li>Given this AlexNet like Conv net:
-<ul>
-<li><img src="images/04/38.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/38.png" alt=""></li>
 <li>Pick a unit in layer l. Find the nine image patches that maximize the unit&apos;s activation.
 <ul>
 <li>Notice that a hidden unit in layer one will see relatively small portion of NN, so if you plotted it it will match a small image in the shallower layers while it will get larger image in deeper layers.</li>
@@ -1759,15 +1708,12 @@ ________________________________________________________________________________
 </ul>
 </li>
 <li>You will find out that each layer are learning more complex representations.
-<ul>
-<li><img src="images/04/39.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/39.png" alt=""></li>
 <li>The first layer was created using the weights of the first layer. Other images are generated using the receptive field in the image that triggered the neuron to be max.</li>
 <li><a href="https://arxiv.org/abs/1311.2901">[Zeiler and Fergus., 2013, Visualizing and understanding convolutional networks]</a></li>
 <li>A good explanation on how to get <strong>receptive field</strong> given a layer:
+<img src="images/04/receptiveField.png" alt="">
 <ul>
-<li><img src="images/04/receptiveField.png" alt=""></li>
 <li>From <a href="https://medium.com/@nikasa1889/a-guide-to-receptive-field-arithmetic-for-convolutional-neural-networks-e0f514068807">A guide to receptive field arithmetic for Convolutional Neural Networks</a></li>
 </ul>
 </li>
@@ -1800,15 +1746,9 @@ ________________________________________________________________________________
 <li>The iterations might be as following image:
 <ul>
 <li>To Generate this:
-<ul>
-<li><img src="images/04/40.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/40.png" alt=""></li>
 <li>You will go through this:
-<ul>
-<li><img src="images/04/41.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/41.png" alt=""></li>
 </ul>
 </li>
 </ul>
@@ -1837,10 +1777,7 @@ ________________________________________________________________________________
 <li>Define style as correlation between <strong>activations</strong> across <strong>channels</strong>.
 <ul>
 <li>That means given an activation like this:
-<ul>
-<li><img src="images/04/42.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/42.png" alt=""></li>
 <li>How correlate is the orange channel with the yellow channel?</li>
 <li>Correlated means if a value appeared in a specific channel a specific value will appear too (Depends on each other).</li>
 <li>Uncorrelated means if a value appeared in a specific channel doesn&apos;t mean that another value will appear (Not depend on each other)</li>
@@ -1860,8 +1797,8 @@ ________________________________________________________________________________
 </ul>
 </li>
 <li>To populate the matrix we use these equations to compute style matrix of the style image and the generated image.
+<img src="images/04/43.png" alt="">
 <ul>
-<li><img src="images/04/43.png" alt=""></li>
 <li>As it appears its the sum of the multiplication of each member in the matrix.</li>
 </ul>
 </li>
@@ -1920,10 +1857,7 @@ ________________________________________________________________________________
 <li>1D data comes from a lot of resources such as waves, sounds, heartbeat signals.</li>
 <li>In most of the applications that uses 1D data we use Recurrent Neural Network RNN.</li>
 <li>3D data also are available in some applications like CT scan:
-<ul>
-<li><img src="images/04/44.png" alt=""></li>
-</ul>
-</li>
+<img src="images/04/44.png" alt=""></li>
 <li>Example of 3D convolution:
 <ul>
 <li>Input shape (14, 14,14, 1)</li>
@@ -2019,49 +1953,49 @@ ________________________________________________________________________________
               <ul class="submenu">
                 <li class="menu-item -level-2"><a href="chapter-4.html" class="link title -active link-chapter-4">Convolutional Neural Networks</a>
                   <ul class="headings heading-list">
-                    <li class="heading-item -depth-2"><a href="#table-of-contents" class="hlink link-table-of-contents">Table of contents</a>
+                    <li class="heading-item -depth-2"><a href="#table-of-contents" class="hlink link-table-of-contents">Table of Contents</a>
                     </li>
-                    <li class="heading-item -depth-2"><a href="#note" class="hlink link-note">Note</a>
+                    <li class="heading-item -depth-2"><a href="#summary" class="hlink link-summary">Summary</a>
                     </li>
                     <li class="heading-item -depth-2"><a href="#foundations-of-cnns" class="hlink link-foundations-of-cnns">Foundations of CNNs</a>
                       <ul class="heading-list -depth-2">
-                        <li class="heading-item -depth-3"><a href="#computer-vision" class="hlink link-computer-vision">Computer vision</a>
+                        <li class="heading-item -depth-3"><a href="#computer-vision" class="hlink link-computer-vision">Computer Vision</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#edge-detection-example" class="hlink link-edge-detection-example">Edge detection example</a>
+                        <li class="heading-item -depth-3"><a href="#edge-detection-example" class="hlink link-edge-detection-example">Edge Detection Example</a>
                         </li>
                         <li class="heading-item -depth-3"><a href="#padding" class="hlink link-padding">Padding</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#strided-convolution" class="hlink link-strided-convolution">Strided convolution</a>
+                        <li class="heading-item -depth-3"><a href="#strided-convolution" class="hlink link-strided-convolution">Strided Convolution</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#convolutions-over-volumes" class="hlink link-convolutions-over-volumes">Convolutions over volumes</a>
+                        <li class="heading-item -depth-3"><a href="#convolutions-over-volumes" class="hlink link-convolutions-over-volumes">Convolutions Over Volumes</a>
                         </li>
                         <li class="heading-item -depth-3"><a href="#one-layer-of-a-convolutional-network" class="hlink link-one-layer-of-a-convolutional-network">One Layer of a Convolutional Network</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#a-simple-convolution-network-example" class="hlink link-a-simple-convolution-network-example">A simple convolution network example</a>
+                        <li class="heading-item -depth-3"><a href="#a-simple-convolution-network-example" class="hlink link-a-simple-convolution-network-example">A Simple Convolution Network Example</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#pooling-layers" class="hlink link-pooling-layers">Pooling layers</a>
+                        <li class="heading-item -depth-3"><a href="#pooling-layers" class="hlink link-pooling-layers">Pooling Layers</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#convolutional-neural-network-example" class="hlink link-convolutional-neural-network-example">Convolutional neural network example</a>
+                        <li class="heading-item -depth-3"><a href="#convolutional-neural-network-example" class="hlink link-convolutional-neural-network-example">Convolutional Neural Network Example</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#why-convolutions" class="hlink link-why-convolutions">Why convolutions?</a>
+                        <li class="heading-item -depth-3"><a href="#why-convolutions" class="hlink link-why-convolutions">Why Convolutions?</a>
                         </li>
                       </ul>
                     </li>
-                    <li class="heading-item -depth-2"><a href="#deep-convolutional-models:-case-studies" class="hlink link-deep-convolutional-models:-case-studies">Deep convolutional models: case studies</a>
+                    <li class="heading-item -depth-2"><a href="#deep-convolutional-models:-case-studies" class="hlink link-deep-convolutional-models:-case-studies">Deep Convolutional Models: Case Studies</a>
                       <ul class="heading-list -depth-2">
-                        <li class="heading-item -depth-3"><a href="#why-look-at-case-studies" class="hlink link-why-look-at-case-studies">Why look at case studies?</a>
+                        <li class="heading-item -depth-3"><a href="#why-look-at-case-studies" class="hlink link-why-look-at-case-studies">Why Look at Case Studies?</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#classic-networks" class="hlink link-classic-networks">Classic networks</a>
+                        <li class="heading-item -depth-3"><a href="#classic-networks" class="hlink link-classic-networks">Classic Networks</a>
                         </li>
                         <li class="heading-item -depth-3"><a href="#residual-networks-(resnets)" class="hlink link-residual-networks-(resnets)">Residual Networks (ResNets)</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#why-resnets-work" class="hlink link-why-resnets-work">Why ResNets work</a>
+                        <li class="heading-item -depth-3"><a href="#why-resnets-work" class="hlink link-why-resnets-work">Why ResNets Work</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#network-in-network-and-1-x-1-convolutions" class="hlink link-network-in-network-and-1-x-1-convolutions">Network in Network and 1 X 1 convolutions</a>
+                        <li class="heading-item -depth-3"><a href="#network-in-network-and-1-x-1-convolutions" class="hlink link-network-in-network-and-1-x-1-convolutions">Network in Network and 1 X 1 Convolutions</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#inception-network-motivation" class="hlink link-inception-network-motivation">Inception network motivation</a>
+                        <li class="heading-item -depth-3"><a href="#inception-network-motivation" class="hlink link-inception-network-motivation">Inception Network Motivation</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#inception-network-(googlenet)" class="hlink link-inception-network-(googlenet)">Inception network (GoogleNet)</a>
+                        <li class="heading-item -depth-3"><a href="#inception-network-(googlenet)" class="hlink link-inception-network-(googlenet)">Inception Network (GoogleNet)</a>
                         </li>
                         <li class="heading-item -depth-3"><a href="#using-open-source-implementation" class="hlink link-using-open-source-implementation">Using Open-Source Implementation</a>
                         </li>
@@ -2073,7 +2007,7 @@ ________________________________________________________________________________
                         </li>
                       </ul>
                     </li>
-                    <li class="heading-item -depth-2"><a href="#object-detection" class="hlink link-object-detection">Object detection</a>
+                    <li class="heading-item -depth-2"><a href="#object-detection" class="hlink link-object-detection">Object Detection</a>
                       <ul class="heading-list -depth-2">
                         <li class="heading-item -depth-3"><a href="#object-localization" class="hlink link-object-localization">Object Localization</a>
                         </li>
@@ -2097,7 +2031,7 @@ ________________________________________________________________________________
                         </li>
                       </ul>
                     </li>
-                    <li class="heading-item -depth-2"><a href="#special-applications:-face-recognition-and-neural-style-transfer" class="hlink link-special-applications:-face-recognition-and-neural-style-transfer">Special applications: Face recognition &amp; Neural style transfer</a>
+                    <li class="heading-item -depth-2"><a href="#special-applications:-face-recognition-and-neural-style-transfer" class="hlink link-special-applications:-face-recognition-and-neural-style-transfer">Special Applications: Face Recognition &amp; Neural Style Transfer</a>
                       <ul class="heading-list -depth-2">
                         <li class="heading-item -depth-3"><a href="#face-recognition" class="hlink link-face-recognition">Face Recognition</a>
                         </li>

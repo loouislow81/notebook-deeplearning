@@ -16,11 +16,11 @@
           </div>
         </div>
         <div class="markdown-body"><h1 id="improving-deep-neural-networks:-hyperparameter-tuning-regularization-and-optimization">Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization</h1>
-<h2 id="table-of-contents">Table of contents</h2>
+<h2 id="table-of-contents">Table of Contents</h2>
 <ul>
-<li><a href="#table-of-contents">Table of contents</a></li>
-<li><a href="#note">Note</a></li>
-<li><a href="#practical-aspects-of-deep-learning">Practical aspects of Deep Learning</a>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#practical-aspects-of-deep-learning">Practical Aspects of Deep Learning</a>
 <ul>
 <li><a href="#train--dev--test-sets">Train / Dev / Test sets</a></li>
 <li><a href="#bias--variance">Bias / Variance</a></li>
@@ -28,46 +28,46 @@
 <li><a href="#regularization">Regularization</a></li>
 <li><a href="#dropout-regularization">Dropout Regularization</a></li>
 <li><a href="#understanding-dropout">Understanding Dropout</a></li>
-<li><a href="#other-regularization-methods">Other regularization methods</a></li>
-<li><a href="#normalizing-inputs">Normalizing inputs</a></li>
-<li><a href="#vanishing--exploding-gradients">Vanishing / Exploding gradients</a></li>
+<li><a href="#other-regularization-methods">Other Regularization Methods</a></li>
+<li><a href="#normalizing-inputs">Normalizing Inputs</a></li>
+<li><a href="#vanishing--exploding-gradients">Vanishing / Exploding Gradients</a></li>
 <li><a href="#weight-initialization-for-deep-networks">Weight Initialization for Deep Networks</a></li>
-<li><a href="#numerical-approximation-of-gradients">Numerical approximation of gradients</a></li>
-<li><a href="#gradient-checking-implementation-notes">Gradient checking implementation notes</a></li>
+<li><a href="#numerical-approximation-of-gradients">Numerical Approximation of Gradients</a></li>
+<li><a href="#gradient-checking-implementation-notes">Gradient Checking Implementation Notes</a></li>
 </ul>
 </li>
-<li><a href="#optimization-algorithms">Optimization algorithms</a>
+<li><a href="#optimization-algorithms">Optimization Algorithms</a>
 <ul>
-<li><a href="#mini-batch-gradient-descent">Mini-batch gradient descent</a></li>
-<li><a href="#understanding-mini-batch-gradient-descent">Understanding mini-batch gradient descent</a></li>
-<li><a href="#exponentially-weighted-averages">Exponentially weighted averages</a></li>
-<li><a href="#understanding-exponentially-weighted-averages">Understanding exponentially weighted averages</a></li>
-<li><a href="#bias-correction-in-exponentially-weighted-averages">Bias correction in exponentially weighted averages</a></li>
-<li><a href="#gradient-descent-with-momentum">Gradient descent with momentum</a></li>
+<li><a href="#mini-batch-gradient-descent">Mini-batch Gradient Descent</a></li>
+<li><a href="#understanding-mini-batch-gradient-descent">Understanding Mini-batch Gradient Descent</a></li>
+<li><a href="#exponentially-weighted-averages">Exponentially Weighted Averages</a></li>
+<li><a href="#understanding-exponentially-weighted-averages">Understanding Exponentially Weighted Averages</a></li>
+<li><a href="#bias-correction-in-exponentially-weighted-averages">Bias Correction in Exponentially Weighted Averages</a></li>
+<li><a href="#gradient-descent-with-momentum">Gradient Descent with Momentum</a></li>
 <li><a href="#rmsprop">RMSprop</a></li>
-<li><a href="#adam-optimization-algorithm">Adam optimization algorithm</a></li>
-<li><a href="#learning-rate-decay">Learning rate decay</a></li>
-<li><a href="#the-problem-of-local-optima">The problem of local optima</a></li>
+<li><a href="#adam-optimization-algorithm">Adam Optimization Algorithm</a></li>
+<li><a href="#learning-rate-decay">Learning Rate Decay</a></li>
+<li><a href="#the-problem-of-local-optima">The Problem of Local Optima</a></li>
 </ul>
 </li>
-<li><a href="#hyperparameter-tuning-batch-normalization-and-programming-frameworks">Hyperparameter tuning, Batch Normalization and Programming Frameworks</a>
+<li><a href="#hyperparameter-tuning-batch-normalization-and-programming-frameworks">Hyperparameter Tuning, Batch Normalization and Programming Frameworks</a>
 <ul>
-<li><a href="#tuning-process">Tuning process</a></li>
-<li><a href="#using-an-appropriate-scale-to-pick-hyperparameters">Using an appropriate scale to pick hyperparameters</a></li>
-<li><a href="#hyperparameters-tuning-in-practice-pandas-vs-caviar">Hyperparameters tuning in practice: Pandas vs. Caviar</a></li>
-<li><a href="#normalizing-activations-in-a-network">Normalizing activations in a network</a></li>
-<li><a href="#fitting-batch-normalization-into-a-neural-network">Fitting Batch Normalization into a neural network</a></li>
-<li><a href="#why-does-batch-normalization-work">Why does Batch normalization work</a></li>
+<li><a href="#tuning-process">Tuning Process</a></li>
+<li><a href="#using-an-appropriate-scale-to-pick-hyperparameters">Using An Appropriate Scale To Pick Hyperparameters</a></li>
+<li><a href="#hyperparameters-tuning-in-practice-pandas-vs-caviar">Hyperparameters Tuning in Practice: Pandas vs. Caviar</a></li>
+<li><a href="#normalizing-activations-in-a-network">Normalizing Activations in a Network</a></li>
+<li><a href="#fitting-batch-normalization-into-a-neural-network">Fitting Batch Normalization into a Neural Network</a></li>
+<li><a href="#why-does-batch-normalization-work">Why Does Batch Normalization Work</a></li>
 <li><a href="#batch-normalization-at-test-time">Batch normalization at test time</a></li>
 <li><a href="#softmax-regression">Softmax Regression</a></li>
-<li><a href="#training-a-softmax-classifier">Training a Softmax classifier</a></li>
-<li><a href="#deep-learning-frameworks">Deep learning frameworks</a></li>
+<li><a href="#training-a-softmax-classifier">Training a Softmax Classifier</a></li>
+<li><a href="#deep-learning-frameworks">Deep Learning Frameworks</a></li>
 <li><a href="#tensorflow">TensorFlow</a></li>
 </ul>
 </li>
 <li><a href="#extra-notes">Extra Notes</a></li>
 </ul>
-<h2 id="note">Note</h2>
+<h2 id="summary">Summary</h2>
 <blockquote>
 <p>The &quot;magic&quot; of getting deep learning to work well. Rather than the deep learning process being a black box, understand what drives performance, and be able to more systematically get good results. Learn TensorFlow.</p>
 <ul>
@@ -78,7 +78,7 @@
 <li>Be able to implement a neural network in TensorFlow.</li>
 </ul>
 </blockquote>
-<h2 id="practical-aspects-of-deep-learning">Practical aspects of Deep Learning</h2>
+<h2 id="practical-aspects-of-deep-learning">Practical Aspects of Deep Learning</h2>
 <h3 id="train-dev-test-sets">Train / Dev / Test sets</h3>
 <ul>
 <li>Its impossible to get all your hyperparameters right on a new application from the first time.</li>
@@ -158,16 +158,16 @@
 <li>If your algorithm has a high bias:
 <ul>
 <li>Try to make your NN bigger (Size of Hidden units, Number of layers)</li>
-<li>Try a different model that are suitable for your data.</li>
-<li>Try to run it longer.</li>
-<li>Different optimization algorithm.</li>
+<li>Try a different model that are suitable for your data</li>
+<li>Try to run it longer</li>
+<li>Different optimization algorithm</li>
 </ul>
 </li>
 <li>If your algorithm has a high variance:
 <ul>
-<li>More data.</li>
-<li>Try regularization.</li>
-<li>Try a different model that are suitable for your data.</li>
+<li>More data</li>
+<li>Try regularization</li>
+<li>Try a different model that are suitable for your data</li>
 </ul>
 </li>
 <li>You should try the previous two points until you have a low bias / low variance.</li>
@@ -179,12 +179,12 @@
 <li>Adding Regularization to NN will help it reduce variance (Overfitting)</li>
 <li>L1 matrix Norm:
 <ul>
-<li><code>||W|| = Sum(|W[i,j]|)		# Sum of all Ws with abs</code></li>
+<li><code>||W|| = Sum(|W[i,j]|) # Sum of all Ws with abs</code></li>
 </ul>
 </li>
 <li>L2 matrix Norm sometimes its called Frobenius norm:
 <ul>
-<li><code>||W||2 = Sum(|W[i,j]|^2)	#Sum of all Ws squared</code></li>
+<li><code>||W||2 = Sum(|W[i,j]|^2) #Sum of all Ws squared</code></li>
 <li>Also can be calculated using<code>||W||2 = W.T * W</code></li>
 </ul>
 </li>
@@ -201,8 +201,6 @@
 <li><code>Lmda</code> here is the Regularization parameter (Hyperparameter)</li>
 </ul>
 </li>
-</ul>
-<ul>
 <li>Regularization For NN:
 <ul>
 <li>The normal cost function that we want to minimize is:
@@ -255,7 +253,7 @@
 <li>
 <p>Code for Inverse dropout:</p>
 <pre><code>keep_prob = 0.8
-l = 3          # This code will work only on layer 3
+l = 3     # This code will work only on layer 3
 
 # the generated number that are less than 0.8 will be dropped. 80% stay, 20% dropped
 d3 = np.random.randn(a[l].shape[0], a[l].shape[1]) &lt; keep_prob
@@ -265,7 +263,7 @@ a3 = np.multiply(a3,d3)   #Keeps only the values in d3
 # Maximize a3 again to gain the loss (The expected value of a3 is the same) - To solve the
 
 # scaling problem
-a3 = a3 / keep_prob       
+a3 = a3 / keep_prob
 </code></pre>
 </li>
 <li>
@@ -284,9 +282,9 @@ a3 = a3 / keep_prob
 </ul>
 </li>
 </ul>
-<h3 id="other-regularization-methods">Other regularization methods</h3>
+<h3 id="other-regularization-methods">Other Regularization Methods</h3>
 <ul>
-<li><strong>Data augmentation</strong>:
+<li><strong>Data Augmentation</strong>:
 <ul>
 <li>For example in a computer vision data:
 <ul>
@@ -298,15 +296,12 @@ a3 = a3 / keep_prob
 <li>This technique&apos;s new data aren&apos;t good as the real independent data, but still can be used as a Regularization technique.</li>
 </ul>
 </li>
-<li><strong>Early stopping</strong>:
+<li><strong>Early Stopping</strong>:
 <ul>
 <li>In this technique we plot the training data and the Dev data cost together. In some steps the Dev data cost will stay still.</li>
 <li>We will pick the point at which the training data graph and Dev data graph are best at.</li>
 <li>We will take these parameters as the best parameters.
-<ul>
-<li><img src="images/02/02-_Early_stopping.png" alt=""></li>
-</ul>
-</li>
+<img src="images/02/02-_Early_stopping.png" alt=""></li>
 <li>This technique is not recommended because it makes us think about something else more than optimize W&apos;s and b&apos;s.</li>
 <li>But its advantage is that you don&apos;t need to modify a Hyperparameter like in Regularization.</li>
 </ul>
@@ -325,7 +320,7 @@ a3 = a3 / keep_prob
 </ul>
 </li>
 </ul>
-<h3 id="normalizing-inputs">Normalizing inputs</h3>
+<h3 id="normalizing-inputs">Normalizing Inputs</h3>
 <ul>
 <li>If you normalize your inputs this will speed up the training process a lot.</li>
 <li>Normalization are going on these steps:
@@ -348,7 +343,7 @@ a3 = a3 / keep_prob
 </ul>
 </li>
 </ul>
-<h3 id="vanishing-exploding-gradients">Vanishing / Exploding gradients</h3>
+<h3 id="vanishing-exploding-gradients">Vanishing / Exploding Gradients</h3>
 <ul>
 <li>
 <p>The Vanishing / Exploding gradients occurs when your derivatives become very small or very big.</p>
@@ -398,12 +393,12 @@ a3 = a3 / keep_prob
 </li>
 <li>
 <p>So lets say when we initialize <code>W</code>&apos;s we initialize like this (For Tanh its better to use this):</p>
-<pre><code>np.random.rand(shape)*np.sqrt(1/n[l-1])               #n[l-1] In the multiple layers.
+<pre><code>np.random.rand(shape)*np.sqrt(1/n[l-1])     #n[l-1] In the multiple layers.
 </code></pre>
 </li>
 <li>
 <p>Setting this to <code>2/n[l-1]</code> especially for RELU is better:</p>
-<pre><code>np.random.rand(shape)*np.sqrt(2/n[l-1])               #n[l-1] In the multiple layers.
+<pre><code>np.random.rand(shape)*np.sqrt(2/n[l-1])     #n[l-1] In the multiple layers.
 </code></pre>
 </li>
 <li>
@@ -413,14 +408,11 @@ a3 = a3 / keep_prob
 <p>The initialization in this video is called &quot;He Initialization / Xavier Initialization&quot; and has been published in 2015 paper.</p>
 </li>
 </ul>
-<h3 id="numerical-approximation-of-gradients">Numerical approximation of gradients</h3>
+<h3 id="numerical-approximation-of-gradients">Numerical Approximation of Gradients</h3>
 <ul>
 <li>There is an implementation called gradient check which tells if your implementation of back prob. is right.</li>
 <li>There&apos;s a numerical way to calculate the derivative
-<ul>
-<li><img src="images/02/03-_Numerical_approximation_of_gradients.png" alt=""></li>
-</ul>
-</li>
+<img src="images/02/03-_Numerical_approximation_of_gradients.png" alt=""></li>
 <li>This checking is so helpful at finding the errors in your back prob. algorithm but its slower than gradient descent.</li>
 <li>Implementation of this is so simple.</li>
 <li>Gradient checking:
@@ -450,7 +442,7 @@ for i in len(Ceta):
 </ul>
 </li>
 </ul>
-<h3 id="gradient-checking-implementation-notes">Gradient checking implementation notes</h3>
+<h3 id="gradient-checking-implementation-notes">Gradient Checking Implementation Notes</h3>
 <ul>
 <li>Don&apos;t use the gradient-checking algorithm for all the calculation because its a much slow algorithm</li>
 <li>The gradient-checking is for debugging.</li>
@@ -463,8 +455,8 @@ for i in len(Ceta):
 </li>
 <li>Run gradient checking at random initialization and train the network for a while maybe there&apos;s a bug that are not on the first iteration.</li>
 </ul>
-<h2 id="optimization-algorithms">Optimization algorithms</h2>
-<h3 id="mini-batch-gradient-descent">Mini-batch gradient descent</h3>
+<h2 id="optimization-algorithms">Optimization Algorithms</h2>
+<h3 id="mini-batch-gradient-descent">Mini-batch Gradient Descent</h3>
 <ul>
 <li>
 <p>Training NN with a large data is slow. So to find an optimization algorithm that runs faster is a good idea.</p>
@@ -501,7 +493,7 @@ for i in len(Ceta):
 </li>
 <li>
 <p>Mini-Batch algorithm pseudo code:</p>
-<pre><code>for t = 1:No_of_batches                                     #This is called on epoch
+<pre><code>for t = 1:No_of_batches     #This is called on epoch
 	AL, caches = forward_prop(X{t}, Y{t})
 	Cost = compute_cost(AL, Y{t})
 	grads = backward_prop(AL, caches)
@@ -515,20 +507,17 @@ for i in len(Ceta):
 <p>This works much faster in the large datasets.</p>
 </li>
 </ul>
-<h3 id="understanding-mini-batch-gradient-descent">Understanding mini-batch gradient descent</h3>
+<h3 id="understanding-mini-batch-gradient-descent">Understanding Mini-batch Gradient Descent</h3>
 <ul>
 <li>In mini batch algorithm, the cost won&apos;t go down with each step as batch algorithm do. It could contain some ups and downs but at whole it has to go down.
-<ul>
-<li><img src="images/02/04-_batch_vs_mini_batch_cost.png" alt=""></li>
-</ul>
-</li>
+<img src="images/02/04-_batch_vs_mini_batch_cost.png" alt=""></li>
 <li>Choosing mini-batch size
 <ul>
-<li>If (<code>mini batch size = m</code>)     ==&gt;    Batch gradient descent
+<li>If (<code>mini batch size = m</code>)  ==&gt; Batch gradient descent
 <ul>
-<li>If (<code>mini batch size = 1</code>)  ==&gt;    Stochastic gradient descent</li>
+<li>If (<code>mini batch size = 1</code>)  ==&gt; Stochastic gradient descent</li>
 <li>Might be faster than standard in big data <code>&gt; 10^7</code></li>
-<li>If (<code>mini batch size = between 1 and m</code>) ==&gt;    Mini Batch gradient descent</li>
+<li>If (<code>mini batch size = between 1 and m</code>) ==&gt;  Mini Batch gradient descent</li>
 </ul>
 </li>
 </ul>
@@ -544,7 +533,7 @@ for i in len(Ceta):
 </li>
 <li>Mini batch size is a Hyperparameter.</li>
 </ul>
-<h3 id="exponentially-weighted-averages">Exponentially weighted averages</h3>
+<h3 id="exponentially-weighted-averages">Exponentially Weighted Averages</h3>
 <ul>
 <li>
 <p>There are optimization algorithms that are better than <strong>gradient descent</strong>. but you should first learn about Exponentially weighted averages.</p>
@@ -575,10 +564,8 @@ V3 = 0.9 * V2 + 0.1 * t(3) = 12.15
 <p>If we plot this it will represent averages.</p>
 </li>
 <li>
-<p>Another imagery example:</p>
-<ul>
-<li><img src="images/02/Nasdaq1_small.png" alt=""></li>
-</ul>
+<p>Another imagery example:
+<img src="images/02/Nasdaq1_small.png" alt=""></p>
 </li>
 <li>
 <p>General equation</p>
@@ -598,13 +585,11 @@ V3 = 0.9 * V2 + 0.1 * t(3) = 12.15
 <p>Best beta average for our case is between 0.9 and 0.98</p>
 </li>
 </ul>
-<h3 id="understanding-exponentially-weighted-averages">Understanding exponentially weighted averages</h3>
+<h3 id="understanding-exponentially-weighted-averages">Understanding Exponentially Weighted Averages</h3>
 <ul>
 <li>
-<p>Intuitions:</p>
-<ul>
-<li><img src="images/02/05-_exponentially_weighted_averages_intuitions.png" alt=""></li>
-</ul>
+<p>Intuitions:
+<img src="images/02/05-_exponentially_weighted_averages_intuitions.png" alt=""></p>
 </li>
 <li>
 <p>We can implement this algorithm with more accurate results if we make a moving window. But the code is more efficient and faster using the exponentially weighted averages algorithm.</p>
@@ -620,7 +605,7 @@ Repeat
 </code></pre>
 </li>
 </ul>
-<h3 id="bias-correction-in-exponentially-weighted-averages">Bias correction in exponentially weighted averages</h3>
+<h3 id="bias-correction-in-exponentially-weighted-averages">Bias Correction in Exponentially Weighted Averages</h3>
 <ul>
 <li>
 <p>The bias correction helps making the exponentially weighted averages more accurate.</p>
@@ -637,7 +622,7 @@ Repeat
 <p>As you see the as t became larger the <code>(1 - beta^t)</code> became <code>1</code></p>
 </li>
 </ul>
-<h3 id="gradient-descent-with-momentum">Gradient descent with momentum</h3>
+<h3 id="gradient-descent-with-momentum">Gradient Descent with Momentum</h3>
 <ul>
 <li>
 <p>The momentum algorithm works faster than standard Gradient descent.</p>
@@ -694,10 +679,8 @@ on iteration t:
 </code></pre>
 </li>
 <li>
-<p>This algorithm will make the cost function move on the vertical direction slow and the horizontal direction fast.</p>
-<ul>
-<li><img src="images/02/06-_RMSprop.png" alt=""></li>
-</ul>
+<p>This algorithm will make the cost function move on the vertical direction slow and the horizontal direction fast.
+<img src="images/02/06-_RMSprop.png" alt=""></p>
 </li>
 <li>
 <p>Ensure that <code>SdW</code> is not zero by adding a small value to it epsilon
@@ -707,7 +690,7 @@ on iteration t:
 <p>With this algorithm you can increase your learning rate.</p>
 </li>
 </ul>
-<h3 id="adam-optimization-algorithm">Adam optimization algorithm</h3>
+<h3 id="adam-optimization-algorithm">Adam Optimization Algorithm</h3>
 <ul>
 <li>
 <p>Stands for <strong>Adaptive Momentum Estimation</strong>.</p>
@@ -752,7 +735,7 @@ on iteration t:
 </ul>
 </li>
 </ul>
-<h3 id="learning-rate-decay">Learning rate decay</h3>
+<h3 id="learning-rate-decay">Learning Rate Decay</h3>
 <ul>
 <li>Slowly reduce learning rate.</li>
 <li>In mini batch algorithm, we said that the minimization of the cost won&apos;t reach optimum point. But by making the learning rate decays with iterations it will reach it as the steps beside the optimum is small.</li>
@@ -770,7 +753,7 @@ on iteration t:
 <li>Some people is making changing the learning rate manually.</li>
 <li>Learning rate decay has less priority</li>
 </ul>
-<h3 id="the-problem-of-local-optima">The problem of local optima</h3>
+<h3 id="the-problem-of-local-optima">The Problem of Local Optima</h3>
 <ul>
 <li>The normal local optima is not likely to appear in a deep neural network.</li>
 <li>You are unlikely to get stuck in a bad local optima in high dimensions.</li>
@@ -781,8 +764,8 @@ on iteration t:
 </ul>
 </li>
 </ul>
-<h2 id="hyperparameter-tuning-batch-normalization-and-programming-frameworks">Hyperparameter tuning, Batch Normalization and Programming Frameworks</h2>
-<h3 id="tuning-process">Tuning process</h3>
+<h2 id="hyperparameter-tuning-batch-normalization-and-programming-frameworks">Hyperparameter Tuning, Batch Normalization and Programming Frameworks</h2>
+<h3 id="tuning-process">Tuning Process</h3>
 <ul>
 <li>We need some steps to tune our Hyperparameters to get the best out of them.</li>
 <li>So far the Hyperparameters importance are:
@@ -807,15 +790,15 @@ on iteration t:
 </li>
 <li>This methods can be automated!</li>
 </ul>
-<h3 id="using-an-appropriate-scale-to-pick-hyperparameters">Using an appropriate scale to pick hyperparameters</h3>
+<h3 id="using-an-appropriate-scale-to-pick-hyperparameters">Using an appropriate scale to pick Hyperparameters</h3>
 <ul>
 <li>
 <p>If you have a specific range for a hyper parameter lets say from &quot;a&quot; to &quot;b&quot;. Lets demonstrate the logarithmic scale, this will give you a good random points:</p>
 <ul>
 <li>
-<p>Calculate: <code>aLog = log(a)</code>                   <code># Ex. a = 0.0001 then aLog = -4</code></p>
+<p>Calculate: <code>aLog = log(a)</code>      <code># Ex. a = 0.0001 then aLog = -4</code></p>
 <ul>
-<li>Calculate: <code>bLog = log(b)</code>                 <code># Ex. b = 1 then bLog = 0</code></li>
+<li>Calculate: <code>bLog = log(b)</code>      <code># Ex. b = 1 then bLog = 0</code></li>
 </ul>
 </li>
 <li>
@@ -836,7 +819,7 @@ result = 10^r
 </ul>
 </li>
 </ul>
-<h3 id="hyperparameters-tuning-in-practice:-pandas-vs.-caviar">Hyperparameters tuning in practice: Pandas vs. Caviar</h3>
+<h3 id="hyperparameters-tuning-in-practice:-pandas-vs.-caviar">Hyperparameters Tuning in Practice: Pandas vs. Caviar</h3>
 <ul>
 <li>If you don&apos;t have a much computational resources you will go thought &quot;The baby sit model&quot;
 <ul>
@@ -852,7 +835,7 @@ result = 10^r
 </ul>
 </li>
 </ul>
-<h3 id="normalizing-activations-in-a-network">Normalizing activations in a network</h3>
+<h3 id="normalizing-activations-in-a-network">Normalizing Activations in a Network</h3>
 <ul>
 <li>In the current evolution of deep learning an algorithm called <strong>Batch Normalization</strong> is so important.
 <ul>
@@ -882,13 +865,10 @@ result = 10^r
 </ul>
 </li>
 </ul>
-<h3 id="fitting-batch-normalization-into-a-neural-network">Fitting Batch Normalization into a neural network</h3>
+<h3 id="fitting-batch-normalization-into-a-neural-network">Fitting Batch Normalization into a Neural Network</h3>
 <ul>
 <li>Using batch norm in 3 hidden layers NN:
-<ul>
-<li><img src="images/02/bn.png" alt=""></li>
-</ul>
-</li>
+<img src="images/02/bn.png" alt=""></li>
 <li>Our NN parameters will be:
 <ul>
 <li><code>W[1]</code>, <code>b[1]</code>, <code>W[2]</code>, <code>b[2]</code>, <code>W[3]</code>, <code>b[3]</code>, <code>beta[1]</code>, <code>alpha[1]</code>, <code>beta[2]</code>, <code>alpha[2]</code>, <code>beta[3]</code>, <code>alpha[3]</code></li>
@@ -910,16 +890,16 @@ result = 10^r
 <li>So the parameter will be Ws, betas, and alphas.</li>
 <li>Shapes:
 <ul>
-<li><code>Z[l]</code>				<code>#(n[l], m)</code>
+<li><code>Z[l]</code>      <code>#(n[l], m)</code>
 <ul>
-<li><code>alpha[l]</code>      	        <code>#(n[l], m)</code></li>
-<li><code>beta[l]</code>                <code>#(n[l], m)</code></li>
+<li><code>alpha[l]</code>      <code>#(n[l], m)</code></li>
+<li><code>beta[l]</code>     <code>#(n[l], m)</code></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="why-does-batch-normalization-work">Why does Batch normalization work</h3>
+<h3 id="why-does-batch-normalization-work">Why Does Batch Normalization Work</h3>
 <ul>
 <li>The first reason is the same reason as why we normalize X.</li>
 <li>The second reason is that batch normalization reduces the problem of input values changing.</li>
@@ -933,7 +913,7 @@ result = 10^r
 <li>To reduce this regularization effect you can make your mini batch bigger.</li>
 <li>If you need regularization you cant just relay on that slight regularization you&apos;ll need to add your regularization (L2 or dropout)</li>
 </ul>
-<h3 id="batch-normalization-at-test-time">Batch normalization at test time</h3>
+<h3 id="batch-normalization-at-test-time">Batch Normalization at Test Time</h3>
 <ul>
 <li>When we train a NN with Batch normalization, we compute the mean and the variance of the size of mini-batch.</li>
 <li>In testing we have to test one by one example. The mean and the variance of one example doesn&apos;t make sense!</li>
@@ -983,7 +963,7 @@ A[L] = e^(Z[L]) / sum(t, C)       # shape(C, m)
 </code></pre>
 </li>
 </ul>
-<h3 id="training-a-softmax-classifier">Training a Softmax classifier</h3>
+<h3 id="training-a-softmax-classifier">Training a Softmax Classifier</h3>
 <ul>
 <li>
 <p>There&apos;s an activation which is called hard max, which gets 1 for the maximum value and zeros for the others.</p>
@@ -1018,13 +998,11 @@ A[L] = e^(Z[L]) / sum(t, C)       # shape(C, m)
 </code></pre>
 </li>
 <li>
-<p>Example:</p>
-<ul>
-<li><img src="images/02/07-_softmax.png" alt=""></li>
-</ul>
+<p>Example:
+<img src="images/02/07-_softmax.png" alt=""></p>
 </li>
 </ul>
-<h3 id="deep-learning-frameworks">Deep learning frameworks</h3>
+<h3 id="deep-learning-frameworks">Deep Learning Frameworks</h3>
 <ul>
 <li>Its not practical to implement everything from scratch. Out last implementations was to know how NN works.</li>
 <li>There are many good deep learning frameworks.</li>
@@ -1185,11 +1163,11 @@ b1 = tf.get_variable(&quot;b1&quot;, [25,1], initializer = tf.zeros_initializer(
               <ul class="submenu">
                 <li class="menu-item -level-2"><a href="chapter-2.html" class="link title -active link-chapter-2">Improving Deep Neural Networks</a>
                   <ul class="headings heading-list">
-                    <li class="heading-item -depth-2"><a href="#table-of-contents" class="hlink link-table-of-contents">Table of contents</a>
+                    <li class="heading-item -depth-2"><a href="#table-of-contents" class="hlink link-table-of-contents">Table of Contents</a>
                     </li>
-                    <li class="heading-item -depth-2"><a href="#note" class="hlink link-note">Note</a>
+                    <li class="heading-item -depth-2"><a href="#summary" class="hlink link-summary">Summary</a>
                     </li>
-                    <li class="heading-item -depth-2"><a href="#practical-aspects-of-deep-learning" class="hlink link-practical-aspects-of-deep-learning">Practical aspects of Deep Learning</a>
+                    <li class="heading-item -depth-2"><a href="#practical-aspects-of-deep-learning" class="hlink link-practical-aspects-of-deep-learning">Practical Aspects of Deep Learning</a>
                       <ul class="heading-list -depth-2">
                         <li class="heading-item -depth-3"><a href="#train-dev-test-sets" class="hlink link-train-dev-test-sets">Train / Dev / Test sets</a>
                         </li>
@@ -1203,65 +1181,65 @@ b1 = tf.get_variable(&quot;b1&quot;, [25,1], initializer = tf.zeros_initializer(
                         </li>
                         <li class="heading-item -depth-3"><a href="#understanding-dropout" class="hlink link-understanding-dropout">Understanding Dropout</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#other-regularization-methods" class="hlink link-other-regularization-methods">Other regularization methods</a>
+                        <li class="heading-item -depth-3"><a href="#other-regularization-methods" class="hlink link-other-regularization-methods">Other Regularization Methods</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#normalizing-inputs" class="hlink link-normalizing-inputs">Normalizing inputs</a>
+                        <li class="heading-item -depth-3"><a href="#normalizing-inputs" class="hlink link-normalizing-inputs">Normalizing Inputs</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#vanishing-exploding-gradients" class="hlink link-vanishing-exploding-gradients">Vanishing / Exploding gradients</a>
+                        <li class="heading-item -depth-3"><a href="#vanishing-exploding-gradients" class="hlink link-vanishing-exploding-gradients">Vanishing / Exploding Gradients</a>
                         </li>
                         <li class="heading-item -depth-3"><a href="#weight-initialization-for-deep-networks" class="hlink link-weight-initialization-for-deep-networks">Weight Initialization for Deep Networks</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#numerical-approximation-of-gradients" class="hlink link-numerical-approximation-of-gradients">Numerical approximation of gradients</a>
+                        <li class="heading-item -depth-3"><a href="#numerical-approximation-of-gradients" class="hlink link-numerical-approximation-of-gradients">Numerical Approximation of Gradients</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#gradient-checking-implementation-notes" class="hlink link-gradient-checking-implementation-notes">Gradient checking implementation notes</a>
+                        <li class="heading-item -depth-3"><a href="#gradient-checking-implementation-notes" class="hlink link-gradient-checking-implementation-notes">Gradient Checking Implementation Notes</a>
                         </li>
                       </ul>
                     </li>
-                    <li class="heading-item -depth-2"><a href="#optimization-algorithms" class="hlink link-optimization-algorithms">Optimization algorithms</a>
+                    <li class="heading-item -depth-2"><a href="#optimization-algorithms" class="hlink link-optimization-algorithms">Optimization Algorithms</a>
                       <ul class="heading-list -depth-2">
-                        <li class="heading-item -depth-3"><a href="#mini-batch-gradient-descent" class="hlink link-mini-batch-gradient-descent">Mini-batch gradient descent</a>
+                        <li class="heading-item -depth-3"><a href="#mini-batch-gradient-descent" class="hlink link-mini-batch-gradient-descent">Mini-batch Gradient Descent</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#understanding-mini-batch-gradient-descent" class="hlink link-understanding-mini-batch-gradient-descent">Understanding mini-batch gradient descent</a>
+                        <li class="heading-item -depth-3"><a href="#understanding-mini-batch-gradient-descent" class="hlink link-understanding-mini-batch-gradient-descent">Understanding Mini-batch Gradient Descent</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#exponentially-weighted-averages" class="hlink link-exponentially-weighted-averages">Exponentially weighted averages</a>
+                        <li class="heading-item -depth-3"><a href="#exponentially-weighted-averages" class="hlink link-exponentially-weighted-averages">Exponentially Weighted Averages</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#understanding-exponentially-weighted-averages" class="hlink link-understanding-exponentially-weighted-averages">Understanding exponentially weighted averages</a>
+                        <li class="heading-item -depth-3"><a href="#understanding-exponentially-weighted-averages" class="hlink link-understanding-exponentially-weighted-averages">Understanding Exponentially Weighted Averages</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#bias-correction-in-exponentially-weighted-averages" class="hlink link-bias-correction-in-exponentially-weighted-averages">Bias correction in exponentially weighted averages</a>
+                        <li class="heading-item -depth-3"><a href="#bias-correction-in-exponentially-weighted-averages" class="hlink link-bias-correction-in-exponentially-weighted-averages">Bias Correction in Exponentially Weighted Averages</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#gradient-descent-with-momentum" class="hlink link-gradient-descent-with-momentum">Gradient descent with momentum</a>
+                        <li class="heading-item -depth-3"><a href="#gradient-descent-with-momentum" class="hlink link-gradient-descent-with-momentum">Gradient Descent with Momentum</a>
                         </li>
                         <li class="heading-item -depth-3"><a href="#rmsprop" class="hlink link-rmsprop">RMSprop</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#adam-optimization-algorithm" class="hlink link-adam-optimization-algorithm">Adam optimization algorithm</a>
+                        <li class="heading-item -depth-3"><a href="#adam-optimization-algorithm" class="hlink link-adam-optimization-algorithm">Adam Optimization Algorithm</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#learning-rate-decay" class="hlink link-learning-rate-decay">Learning rate decay</a>
+                        <li class="heading-item -depth-3"><a href="#learning-rate-decay" class="hlink link-learning-rate-decay">Learning Rate Decay</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#the-problem-of-local-optima" class="hlink link-the-problem-of-local-optima">The problem of local optima</a>
+                        <li class="heading-item -depth-3"><a href="#the-problem-of-local-optima" class="hlink link-the-problem-of-local-optima">The Problem of Local Optima</a>
                         </li>
                       </ul>
                     </li>
-                    <li class="heading-item -depth-2"><a href="#hyperparameter-tuning-batch-normalization-and-programming-frameworks" class="hlink link-hyperparameter-tuning-batch-normalization-and-programming-frameworks">Hyperparameter tuning, Batch Normalization and Programming Frameworks</a>
+                    <li class="heading-item -depth-2"><a href="#hyperparameter-tuning-batch-normalization-and-programming-frameworks" class="hlink link-hyperparameter-tuning-batch-normalization-and-programming-frameworks">Hyperparameter Tuning, Batch Normalization and Programming Frameworks</a>
                       <ul class="heading-list -depth-2">
-                        <li class="heading-item -depth-3"><a href="#tuning-process" class="hlink link-tuning-process">Tuning process</a>
+                        <li class="heading-item -depth-3"><a href="#tuning-process" class="hlink link-tuning-process">Tuning Process</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#using-an-appropriate-scale-to-pick-hyperparameters" class="hlink link-using-an-appropriate-scale-to-pick-hyperparameters">Using an appropriate scale to pick hyperparameters</a>
+                        <li class="heading-item -depth-3"><a href="#using-an-appropriate-scale-to-pick-hyperparameters" class="hlink link-using-an-appropriate-scale-to-pick-hyperparameters">Using an appropriate scale to pick Hyperparameters</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#hyperparameters-tuning-in-practice:-pandas-vs.-caviar" class="hlink link-hyperparameters-tuning-in-practice:-pandas-vs.-caviar">Hyperparameters tuning in practice: Pandas vs. Caviar</a>
+                        <li class="heading-item -depth-3"><a href="#hyperparameters-tuning-in-practice:-pandas-vs.-caviar" class="hlink link-hyperparameters-tuning-in-practice:-pandas-vs.-caviar">Hyperparameters Tuning in Practice: Pandas vs. Caviar</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#normalizing-activations-in-a-network" class="hlink link-normalizing-activations-in-a-network">Normalizing activations in a network</a>
+                        <li class="heading-item -depth-3"><a href="#normalizing-activations-in-a-network" class="hlink link-normalizing-activations-in-a-network">Normalizing Activations in a Network</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#fitting-batch-normalization-into-a-neural-network" class="hlink link-fitting-batch-normalization-into-a-neural-network">Fitting Batch Normalization into a neural network</a>
+                        <li class="heading-item -depth-3"><a href="#fitting-batch-normalization-into-a-neural-network" class="hlink link-fitting-batch-normalization-into-a-neural-network">Fitting Batch Normalization into a Neural Network</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#why-does-batch-normalization-work" class="hlink link-why-does-batch-normalization-work">Why does Batch normalization work</a>
+                        <li class="heading-item -depth-3"><a href="#why-does-batch-normalization-work" class="hlink link-why-does-batch-normalization-work">Why Does Batch Normalization Work</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#batch-normalization-at-test-time" class="hlink link-batch-normalization-at-test-time">Batch normalization at test time</a>
+                        <li class="heading-item -depth-3"><a href="#batch-normalization-at-test-time" class="hlink link-batch-normalization-at-test-time">Batch Normalization at Test Time</a>
                         </li>
                         <li class="heading-item -depth-3"><a href="#softmax-regression" class="hlink link-softmax-regression">Softmax Regression</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#training-a-softmax-classifier" class="hlink link-training-a-softmax-classifier">Training a Softmax classifier</a>
+                        <li class="heading-item -depth-3"><a href="#training-a-softmax-classifier" class="hlink link-training-a-softmax-classifier">Training a Softmax Classifier</a>
                         </li>
-                        <li class="heading-item -depth-3"><a href="#deep-learning-frameworks" class="hlink link-deep-learning-frameworks">Deep learning frameworks</a>
+                        <li class="heading-item -depth-3"><a href="#deep-learning-frameworks" class="hlink link-deep-learning-frameworks">Deep Learning Frameworks</a>
                         </li>
                         <li class="heading-item -depth-3"><a href="#tensorflow" class="hlink link-tensorflow">TensorFlow</a>
                         </li>

@@ -17,32 +17,32 @@
             "slug": "chapter-1",
             "headings": [
               {
-                "title": "Table of contents",
+                "title": "Table of Contents",
                 "depth": 2,
                 "id": "table-of-contents"
               },
               {
-                "title": "Note",
+                "title": "Summary",
                 "depth": 2,
-                "id": "note"
+                "id": "summary"
               },
               {
-                "title": "Introduction to deep learning",
+                "title": "Introduction to Deep Learning",
                 "depth": 2,
                 "id": "introduction-to-deep-learning",
                 "headings": [
                   {
-                    "title": "What is a (Neural Network) NN?",
+                    "title": "What is a Neural Network or NN?",
                     "depth": 3,
-                    "id": "what-is-a-(neural-network)-nn"
+                    "id": "what-is-a-neural-network-or-nn"
                   },
                   {
-                    "title": "Supervised learning with neural networks",
+                    "title": "Supervised Learning with Neural Networks",
                     "depth": 3,
                     "id": "supervised-learning-with-neural-networks"
                   },
                   {
-                    "title": "Why is deep learning taking off?",
+                    "title": "Why is Deep Learning taking off?",
                     "depth": 3,
                     "id": "why-is-deep-learning-taking-off"
                   }
@@ -54,17 +54,17 @@
                 "id": "neural-networks-basics",
                 "headings": [
                   {
-                    "title": "Binary classification",
+                    "title": "Binary Classification",
                     "depth": 3,
                     "id": "binary-classification"
                   },
                   {
-                    "title": "Logistic regression",
+                    "title": "Logistic Regression",
                     "depth": 3,
                     "id": "logistic-regression"
                   },
                   {
-                    "title": "Logistic regression cost function",
+                    "title": "Logistic Regression Cost Function",
                     "depth": 3,
                     "id": "logistic-regression-cost-function"
                   },
@@ -79,12 +79,12 @@
                     "id": "derivatives"
                   },
                   {
-                    "title": "More Derivatives examples",
+                    "title": "More Derivatives Examples",
                     "depth": 3,
                     "id": "more-derivatives-examples"
                   },
                   {
-                    "title": "Computation graph",
+                    "title": "Computation Graph",
                     "depth": 3,
                     "id": "computation-graph"
                   },
@@ -99,7 +99,7 @@
                     "id": "logistic-regression-gradient-descent"
                   },
                   {
-                    "title": "Gradient Descent on m Examples",
+                    "title": "Gradient Descent on `m` Examples",
                     "depth": 3,
                     "id": "gradient-descent-on-m-examples"
                   },
@@ -126,7 +126,7 @@
                 ]
               },
               {
-                "title": "Shallow neural networks",
+                "title": "Shallow Neural Networks",
                 "depth": 2,
                 "id": "shallow-neural-networks",
                 "headings": [
@@ -146,27 +146,27 @@
                     "id": "computing-a-neural-network's-output"
                   },
                   {
-                    "title": "Vectorizing across multiple examples",
+                    "title": "Vectorizing Across Multiple Examples",
                     "depth": 3,
                     "id": "vectorizing-across-multiple-examples"
                   },
                   {
-                    "title": "Activation functions",
+                    "title": "Activation Functions",
                     "depth": 3,
                     "id": "activation-functions"
                   },
                   {
-                    "title": "Why do you need non-linear activation functions?",
+                    "title": "Why Do You Need Non-Linear Activation Functions?",
                     "depth": 3,
                     "id": "why-do-you-need-non-linear-activation-functions"
                   },
                   {
-                    "title": "Derivatives of activation functions",
+                    "title": "Derivatives of Activation Functions",
                     "depth": 3,
                     "id": "derivatives-of-activation-functions"
                   },
                   {
-                    "title": "Gradient descent for Neural Networks",
+                    "title": "Gradient Descent for Neural Networks",
                     "depth": 3,
                     "id": "gradient-descent-for-neural-networks"
                   },
@@ -183,7 +183,7 @@
                 "id": "deep-neural-networks",
                 "headings": [
                   {
-                    "title": "Deep L-layer neural network",
+                    "title": "Deep L-layer Neural Network",
                     "depth": 3,
                     "id": "deep-l-layer-neural-network"
                   },
@@ -198,12 +198,12 @@
                     "id": "getting-your-matrix-dimensions-right"
                   },
                   {
-                    "title": "Why deep representations?",
+                    "title": "Why Deep Representations?",
                     "depth": 3,
                     "id": "why-deep-representations"
                   },
                   {
-                    "title": "Building blocks of deep neural networks",
+                    "title": "Building Blocks of Deep Neural Networks",
                     "depth": 3,
                     "id": "building-blocks-of-deep-neural-networks"
                   },
@@ -218,7 +218,7 @@
                     "id": "parameters-vs-hyperparameters"
                   },
                   {
-                    "title": "What does this have to do with the brain",
+                    "title": "What Does This Have To Do With The Brain",
                     "depth": 3,
                     "id": "what-does-this-have-to-do-with-the-brain"
                   }
@@ -238,17 +238,17 @@
             "slug": "chapter-2",
             "headings": [
               {
-                "title": "Table of contents",
+                "title": "Table of Contents",
                 "depth": 2,
                 "id": "table-of-contents"
               },
               {
-                "title": "Note",
+                "title": "Summary",
                 "depth": 2,
-                "id": "note"
+                "id": "summary"
               },
               {
-                "title": "Practical aspects of Deep Learning",
+                "title": "Practical Aspects of Deep Learning",
                 "depth": 2,
                 "id": "practical-aspects-of-deep-learning",
                 "headings": [
@@ -283,17 +283,17 @@
                     "id": "understanding-dropout"
                   },
                   {
-                    "title": "Other regularization methods",
+                    "title": "Other Regularization Methods",
                     "depth": 3,
                     "id": "other-regularization-methods"
                   },
                   {
-                    "title": "Normalizing inputs",
+                    "title": "Normalizing Inputs",
                     "depth": 3,
                     "id": "normalizing-inputs"
                   },
                   {
-                    "title": "Vanishing / Exploding gradients",
+                    "title": "Vanishing / Exploding Gradients",
                     "depth": 3,
                     "id": "vanishing-exploding-gradients"
                   },
@@ -303,49 +303,49 @@
                     "id": "weight-initialization-for-deep-networks"
                   },
                   {
-                    "title": "Numerical approximation of gradients",
+                    "title": "Numerical Approximation of Gradients",
                     "depth": 3,
                     "id": "numerical-approximation-of-gradients"
                   },
                   {
-                    "title": "Gradient checking implementation notes",
+                    "title": "Gradient Checking Implementation Notes",
                     "depth": 3,
                     "id": "gradient-checking-implementation-notes"
                   }
                 ]
               },
               {
-                "title": "Optimization algorithms",
+                "title": "Optimization Algorithms",
                 "depth": 2,
                 "id": "optimization-algorithms",
                 "headings": [
                   {
-                    "title": "Mini-batch gradient descent",
+                    "title": "Mini-batch Gradient Descent",
                     "depth": 3,
                     "id": "mini-batch-gradient-descent"
                   },
                   {
-                    "title": "Understanding mini-batch gradient descent",
+                    "title": "Understanding Mini-batch Gradient Descent",
                     "depth": 3,
                     "id": "understanding-mini-batch-gradient-descent"
                   },
                   {
-                    "title": "Exponentially weighted averages",
+                    "title": "Exponentially Weighted Averages",
                     "depth": 3,
                     "id": "exponentially-weighted-averages"
                   },
                   {
-                    "title": "Understanding exponentially weighted averages",
+                    "title": "Understanding Exponentially Weighted Averages",
                     "depth": 3,
                     "id": "understanding-exponentially-weighted-averages"
                   },
                   {
-                    "title": "Bias correction in exponentially weighted averages",
+                    "title": "Bias Correction in Exponentially Weighted Averages",
                     "depth": 3,
                     "id": "bias-correction-in-exponentially-weighted-averages"
                   },
                   {
-                    "title": "Gradient descent with momentum",
+                    "title": "Gradient Descent with Momentum",
                     "depth": 3,
                     "id": "gradient-descent-with-momentum"
                   },
@@ -355,59 +355,59 @@
                     "id": "rmsprop"
                   },
                   {
-                    "title": "Adam optimization algorithm",
+                    "title": "Adam Optimization Algorithm",
                     "depth": 3,
                     "id": "adam-optimization-algorithm"
                   },
                   {
-                    "title": "Learning rate decay",
+                    "title": "Learning Rate Decay",
                     "depth": 3,
                     "id": "learning-rate-decay"
                   },
                   {
-                    "title": "The problem of local optima",
+                    "title": "The Problem of Local Optima",
                     "depth": 3,
                     "id": "the-problem-of-local-optima"
                   }
                 ]
               },
               {
-                "title": "Hyperparameter tuning, Batch Normalization and Programming Frameworks",
+                "title": "Hyperparameter Tuning, Batch Normalization and Programming Frameworks",
                 "depth": 2,
                 "id": "hyperparameter-tuning-batch-normalization-and-programming-frameworks",
                 "headings": [
                   {
-                    "title": "Tuning process",
+                    "title": "Tuning Process",
                     "depth": 3,
                     "id": "tuning-process"
                   },
                   {
-                    "title": "Using an appropriate scale to pick hyperparameters",
+                    "title": "Using an appropriate scale to pick Hyperparameters",
                     "depth": 3,
                     "id": "using-an-appropriate-scale-to-pick-hyperparameters"
                   },
                   {
-                    "title": "Hyperparameters tuning in practice: Pandas vs. Caviar",
+                    "title": "Hyperparameters Tuning in Practice: Pandas vs. Caviar",
                     "depth": 3,
                     "id": "hyperparameters-tuning-in-practice:-pandas-vs.-caviar"
                   },
                   {
-                    "title": "Normalizing activations in a network",
+                    "title": "Normalizing Activations in a Network",
                     "depth": 3,
                     "id": "normalizing-activations-in-a-network"
                   },
                   {
-                    "title": "Fitting Batch Normalization into a neural network",
+                    "title": "Fitting Batch Normalization into a Neural Network",
                     "depth": 3,
                     "id": "fitting-batch-normalization-into-a-neural-network"
                   },
                   {
-                    "title": "Why does Batch normalization work",
+                    "title": "Why Does Batch Normalization Work",
                     "depth": 3,
                     "id": "why-does-batch-normalization-work"
                   },
                   {
-                    "title": "Batch normalization at test time",
+                    "title": "Batch Normalization at Test Time",
                     "depth": 3,
                     "id": "batch-normalization-at-test-time"
                   },
@@ -417,12 +417,12 @@
                     "id": "softmax-regression"
                   },
                   {
-                    "title": "Training a Softmax classifier",
+                    "title": "Training a Softmax Classifier",
                     "depth": 3,
                     "id": "training-a-softmax-classifier"
                   },
                   {
-                    "title": "Deep learning frameworks",
+                    "title": "Deep Learning Frameworks",
                     "depth": 3,
                     "id": "deep-learning-frameworks"
                   },
@@ -447,14 +447,14 @@
             "slug": "chapter-3",
             "headings": [
               {
-                "title": "Table of contents",
+                "title": "Table of Contents",
                 "depth": 2,
                 "id": "table-of-contents"
               },
               {
-                "title": "Note",
+                "title": "Summary",
                 "depth": 2,
-                "id": "note"
+                "id": "summary"
               },
               {
                 "title": "ML Strategy 1",
@@ -472,7 +472,7 @@
                     "id": "orthogonalization"
                   },
                   {
-                    "title": "Single number evaluation metric",
+                    "title": "Single Number Evaluation Metric",
                     "depth": 3,
                     "id": "single-number-evaluation-metric"
                   },
@@ -482,7 +482,7 @@
                     "id": "satisfying-and-optimizing-metric"
                   },
                   {
-                    "title": "Train/Dev/Test distributions",
+                    "title": "Train/Dev/Test Distributions",
                     "depth": 3,
                     "id": "traindevtest-distributions"
                   },
@@ -492,32 +492,32 @@
                     "id": "size-of-the-dev-and-test-sets"
                   },
                   {
-                    "title": "When to change Dev/Test sets and metrics",
+                    "title": "When to change Dev/Test sets and Metrics",
                     "depth": 3,
                     "id": "when-to-change-devtest-sets-and-metrics"
                   },
                   {
-                    "title": "Why human-level performance?",
+                    "title": "Why Human-level Performance?",
                     "depth": 3,
                     "id": "why-human-level-performance"
                   },
                   {
-                    "title": "Avoidable bias",
+                    "title": "Avoidable Bias",
                     "depth": 3,
                     "id": "avoidable-bias"
                   },
                   {
-                    "title": "Understanding human-level performance",
+                    "title": "Understanding Human-level Performance",
                     "depth": 3,
                     "id": "understanding-human-level-performance"
                   },
                   {
-                    "title": "Surpassing human-level performance",
+                    "title": "Surpassing Human-level Performance",
                     "depth": 3,
                     "id": "surpassing-human-level-performance"
                   },
                   {
-                    "title": "Improving your model performance",
+                    "title": "Improving Your Model Performance",
                     "depth": 3,
                     "id": "improving-your-model-performance"
                   }
@@ -529,52 +529,52 @@
                 "id": "ml-strategy-2",
                 "headings": [
                   {
-                    "title": "Carrying out error analysis",
+                    "title": "Carrying Out Error Analysis",
                     "depth": 3,
                     "id": "carrying-out-error-analysis"
                   },
                   {
-                    "title": "Cleaning up incorrectly labeled data",
+                    "title": "Cleaning Up Incorrectly Labeled Data",
                     "depth": 3,
                     "id": "cleaning-up-incorrectly-labeled-data"
                   },
                   {
-                    "title": "Build your first system quickly, then iterate",
+                    "title": "Build Your First System Quickly, Then Iterate",
                     "depth": 3,
                     "id": "build-your-first-system-quickly-then-iterate"
                   },
                   {
-                    "title": "Training and testing on different distributions",
+                    "title": "Training and Testing on Different Distributions",
                     "depth": 3,
                     "id": "training-and-testing-on-different-distributions"
                   },
                   {
-                    "title": "Bias and Variance with mismatched data distributions",
+                    "title": "Bias and Variance with Mismatched Data Distributions",
                     "depth": 3,
                     "id": "bias-and-variance-with-mismatched-data-distributions"
                   },
                   {
-                    "title": "Addressing data mismatch",
+                    "title": "Addressing Data Mismatch",
                     "depth": 3,
                     "id": "addressing-data-mismatch"
                   },
                   {
-                    "title": "Transfer learning",
+                    "title": "Transfer Learning",
                     "depth": 3,
                     "id": "transfer-learning"
                   },
                   {
-                    "title": "Multi-task learning",
+                    "title": "Multi-task Learning",
                     "depth": 3,
                     "id": "multi-task-learning"
                   },
                   {
-                    "title": "What is end-to-end deep learning?",
+                    "title": "What is End-to-end Deep Learning?",
                     "depth": 3,
                     "id": "what-is-end-to-end-deep-learning"
                   },
                   {
-                    "title": "Whether to use end-to-end deep learning",
+                    "title": "Whether to use End-to-end Deep Learning",
                     "depth": 3,
                     "id": "whether-to-use-end-to-end-deep-learning"
                   }
@@ -594,14 +594,14 @@
             "slug": "chapter-4",
             "headings": [
               {
-                "title": "Table of contents",
+                "title": "Table of Contents",
                 "depth": 2,
                 "id": "table-of-contents"
               },
               {
-                "title": "Note",
+                "title": "Summary",
                 "depth": 2,
-                "id": "note"
+                "id": "summary"
               },
               {
                 "title": "Foundations of CNNs",
@@ -609,12 +609,12 @@
                 "id": "foundations-of-cnns",
                 "headings": [
                   {
-                    "title": "Computer vision",
+                    "title": "Computer Vision",
                     "depth": 3,
                     "id": "computer-vision"
                   },
                   {
-                    "title": "Edge detection example",
+                    "title": "Edge Detection Example",
                     "depth": 3,
                     "id": "edge-detection-example"
                   },
@@ -624,12 +624,12 @@
                     "id": "padding"
                   },
                   {
-                    "title": "Strided convolution",
+                    "title": "Strided Convolution",
                     "depth": 3,
                     "id": "strided-convolution"
                   },
                   {
-                    "title": "Convolutions over volumes",
+                    "title": "Convolutions Over Volumes",
                     "depth": 3,
                     "id": "convolutions-over-volumes"
                   },
@@ -639,39 +639,39 @@
                     "id": "one-layer-of-a-convolutional-network"
                   },
                   {
-                    "title": "A simple convolution network example",
+                    "title": "A Simple Convolution Network Example",
                     "depth": 3,
                     "id": "a-simple-convolution-network-example"
                   },
                   {
-                    "title": "Pooling layers",
+                    "title": "Pooling Layers",
                     "depth": 3,
                     "id": "pooling-layers"
                   },
                   {
-                    "title": "Convolutional neural network example",
+                    "title": "Convolutional Neural Network Example",
                     "depth": 3,
                     "id": "convolutional-neural-network-example"
                   },
                   {
-                    "title": "Why convolutions?",
+                    "title": "Why Convolutions?",
                     "depth": 3,
                     "id": "why-convolutions"
                   }
                 ]
               },
               {
-                "title": "Deep convolutional models: case studies",
+                "title": "Deep Convolutional Models: Case Studies",
                 "depth": 2,
                 "id": "deep-convolutional-models:-case-studies",
                 "headings": [
                   {
-                    "title": "Why look at case studies?",
+                    "title": "Why Look at Case Studies?",
                     "depth": 3,
                     "id": "why-look-at-case-studies"
                   },
                   {
-                    "title": "Classic networks",
+                    "title": "Classic Networks",
                     "depth": 3,
                     "id": "classic-networks"
                   },
@@ -681,22 +681,22 @@
                     "id": "residual-networks-(resnets)"
                   },
                   {
-                    "title": "Why ResNets work",
+                    "title": "Why ResNets Work",
                     "depth": 3,
                     "id": "why-resnets-work"
                   },
                   {
-                    "title": "Network in Network and 1 X 1 convolutions",
+                    "title": "Network in Network and 1 X 1 Convolutions",
                     "depth": 3,
                     "id": "network-in-network-and-1-x-1-convolutions"
                   },
                   {
-                    "title": "Inception network motivation",
+                    "title": "Inception Network Motivation",
                     "depth": 3,
                     "id": "inception-network-motivation"
                   },
                   {
-                    "title": "Inception network (GoogleNet)",
+                    "title": "Inception Network (GoogleNet)",
                     "depth": 3,
                     "id": "inception-network-(googlenet)"
                   },
@@ -723,7 +723,7 @@
                 ]
               },
               {
-                "title": "Object detection",
+                "title": "Object Detection",
                 "depth": 2,
                 "id": "object-detection",
                 "headings": [
@@ -780,7 +780,7 @@
                 ]
               },
               {
-                "title": "Special applications: Face recognition & Neural style transfer",
+                "title": "Special Applications: Face Recognition & Neural Style Transfer",
                 "depth": 2,
                 "id": "special-applications:-face-recognition-and-neural-style-transfer",
                 "headings": [
@@ -822,14 +822,14 @@
             "slug": "chapter-5",
             "headings": [
               {
-                "title": "Table of contents",
+                "title": "Table of Contents",
                 "depth": 2,
                 "id": "table-of-contents"
               },
               {
-                "title": "Note",
+                "title": "Summary",
                 "depth": 2,
-                "id": "note"
+                "id": "summary"
               },
               {
                 "title": "Recurrent Neural Networks",
@@ -837,7 +837,7 @@
                 "id": "recurrent-neural-networks",
                 "headings": [
                   {
-                    "title": "Why sequence models",
+                    "title": "Why Sequence Models",
                     "depth": 3,
                     "id": "why-sequence-models"
                   },
@@ -852,7 +852,7 @@
                     "id": "recurrent-neural-network-model"
                   },
                   {
-                    "title": "Backpropagation through time",
+                    "title": "Backpropagation Through Time",
                     "depth": 3,
                     "id": "backpropagation-through-time"
                   },
@@ -862,17 +862,17 @@
                     "id": "different-types-of-rnns"
                   },
                   {
-                    "title": "Language model and sequence generation",
+                    "title": "Language Model and Sequence Generation",
                     "depth": 3,
                     "id": "language-model-and-sequence-generation"
                   },
                   {
-                    "title": "Sampling novel sequences",
+                    "title": "Sampling Novel Sequences",
                     "depth": 3,
                     "id": "sampling-novel-sequences"
                   },
                   {
-                    "title": "Vanishing gradients with RNNs",
+                    "title": "Vanishing Gradients with RNNs",
                     "depth": 3,
                     "id": "vanishing-gradients-with-rnns"
                   },
@@ -897,7 +897,7 @@
                     "id": "deep-rnns"
                   },
                   {
-                    "title": "Back propagation with RNNs",
+                    "title": "Back Propagation with RNNs",
                     "depth": 3,
                     "id": "back-propagation-with-rnns"
                   }
@@ -926,17 +926,17 @@
                 ]
               },
               {
-                "title": "Sequence models & Attention mechanism",
+                "title": "Sequence Models & Attention Mechanism",
                 "depth": 2,
                 "id": "sequence-models-and-attention-mechanism",
                 "headings": [
                   {
-                    "title": "Various sequence to sequence architectures",
+                    "title": "Various Sequence to Sequence Architectures",
                     "depth": 3,
                     "id": "various-sequence-to-sequence-architectures"
                   },
                   {
-                    "title": "Speech recognition - Audio data",
+                    "title": "Speech Recognition - Audio Data",
                     "depth": 3,
                     "id": "speech-recognition-audio-data"
                   }
@@ -948,7 +948,7 @@
                 "id": "extras",
                 "headings": [
                   {
-                    "title": "Machine translation attention model (From notebooks)",
+                    "title": "Machine Translation Attention Model (From notebooks)",
                     "depth": 3,
                     "id": "machine-translation-attention-model-(from-notebooks)"
                   }
@@ -972,32 +972,32 @@
       "slug": "chapter-1",
       "headings": [
         {
-          "title": "Table of contents",
+          "title": "Table of Contents",
           "depth": 2,
           "id": "table-of-contents"
         },
         {
-          "title": "Note",
+          "title": "Summary",
           "depth": 2,
-          "id": "note"
+          "id": "summary"
         },
         {
-          "title": "Introduction to deep learning",
+          "title": "Introduction to Deep Learning",
           "depth": 2,
           "id": "introduction-to-deep-learning",
           "headings": [
             {
-              "title": "What is a (Neural Network) NN?",
+              "title": "What is a Neural Network or NN?",
               "depth": 3,
-              "id": "what-is-a-(neural-network)-nn"
+              "id": "what-is-a-neural-network-or-nn"
             },
             {
-              "title": "Supervised learning with neural networks",
+              "title": "Supervised Learning with Neural Networks",
               "depth": 3,
               "id": "supervised-learning-with-neural-networks"
             },
             {
-              "title": "Why is deep learning taking off?",
+              "title": "Why is Deep Learning taking off?",
               "depth": 3,
               "id": "why-is-deep-learning-taking-off"
             }
@@ -1009,17 +1009,17 @@
           "id": "neural-networks-basics",
           "headings": [
             {
-              "title": "Binary classification",
+              "title": "Binary Classification",
               "depth": 3,
               "id": "binary-classification"
             },
             {
-              "title": "Logistic regression",
+              "title": "Logistic Regression",
               "depth": 3,
               "id": "logistic-regression"
             },
             {
-              "title": "Logistic regression cost function",
+              "title": "Logistic Regression Cost Function",
               "depth": 3,
               "id": "logistic-regression-cost-function"
             },
@@ -1034,12 +1034,12 @@
               "id": "derivatives"
             },
             {
-              "title": "More Derivatives examples",
+              "title": "More Derivatives Examples",
               "depth": 3,
               "id": "more-derivatives-examples"
             },
             {
-              "title": "Computation graph",
+              "title": "Computation Graph",
               "depth": 3,
               "id": "computation-graph"
             },
@@ -1054,7 +1054,7 @@
               "id": "logistic-regression-gradient-descent"
             },
             {
-              "title": "Gradient Descent on m Examples",
+              "title": "Gradient Descent on `m` Examples",
               "depth": 3,
               "id": "gradient-descent-on-m-examples"
             },
@@ -1081,7 +1081,7 @@
           ]
         },
         {
-          "title": "Shallow neural networks",
+          "title": "Shallow Neural Networks",
           "depth": 2,
           "id": "shallow-neural-networks",
           "headings": [
@@ -1101,27 +1101,27 @@
               "id": "computing-a-neural-network's-output"
             },
             {
-              "title": "Vectorizing across multiple examples",
+              "title": "Vectorizing Across Multiple Examples",
               "depth": 3,
               "id": "vectorizing-across-multiple-examples"
             },
             {
-              "title": "Activation functions",
+              "title": "Activation Functions",
               "depth": 3,
               "id": "activation-functions"
             },
             {
-              "title": "Why do you need non-linear activation functions?",
+              "title": "Why Do You Need Non-Linear Activation Functions?",
               "depth": 3,
               "id": "why-do-you-need-non-linear-activation-functions"
             },
             {
-              "title": "Derivatives of activation functions",
+              "title": "Derivatives of Activation Functions",
               "depth": 3,
               "id": "derivatives-of-activation-functions"
             },
             {
-              "title": "Gradient descent for Neural Networks",
+              "title": "Gradient Descent for Neural Networks",
               "depth": 3,
               "id": "gradient-descent-for-neural-networks"
             },
@@ -1138,7 +1138,7 @@
           "id": "deep-neural-networks",
           "headings": [
             {
-              "title": "Deep L-layer neural network",
+              "title": "Deep L-layer Neural Network",
               "depth": 3,
               "id": "deep-l-layer-neural-network"
             },
@@ -1153,12 +1153,12 @@
               "id": "getting-your-matrix-dimensions-right"
             },
             {
-              "title": "Why deep representations?",
+              "title": "Why Deep Representations?",
               "depth": 3,
               "id": "why-deep-representations"
             },
             {
-              "title": "Building blocks of deep neural networks",
+              "title": "Building Blocks of Deep Neural Networks",
               "depth": 3,
               "id": "building-blocks-of-deep-neural-networks"
             },
@@ -1173,7 +1173,7 @@
               "id": "parameters-vs-hyperparameters"
             },
             {
-              "title": "What does this have to do with the brain",
+              "title": "What Does This Have To Do With The Brain",
               "depth": 3,
               "id": "what-does-this-have-to-do-with-the-brain"
             }
@@ -1187,17 +1187,17 @@
       "slug": "chapter-2",
       "headings": [
         {
-          "title": "Table of contents",
+          "title": "Table of Contents",
           "depth": 2,
           "id": "table-of-contents"
         },
         {
-          "title": "Note",
+          "title": "Summary",
           "depth": 2,
-          "id": "note"
+          "id": "summary"
         },
         {
-          "title": "Practical aspects of Deep Learning",
+          "title": "Practical Aspects of Deep Learning",
           "depth": 2,
           "id": "practical-aspects-of-deep-learning",
           "headings": [
@@ -1232,17 +1232,17 @@
               "id": "understanding-dropout"
             },
             {
-              "title": "Other regularization methods",
+              "title": "Other Regularization Methods",
               "depth": 3,
               "id": "other-regularization-methods"
             },
             {
-              "title": "Normalizing inputs",
+              "title": "Normalizing Inputs",
               "depth": 3,
               "id": "normalizing-inputs"
             },
             {
-              "title": "Vanishing / Exploding gradients",
+              "title": "Vanishing / Exploding Gradients",
               "depth": 3,
               "id": "vanishing-exploding-gradients"
             },
@@ -1252,49 +1252,49 @@
               "id": "weight-initialization-for-deep-networks"
             },
             {
-              "title": "Numerical approximation of gradients",
+              "title": "Numerical Approximation of Gradients",
               "depth": 3,
               "id": "numerical-approximation-of-gradients"
             },
             {
-              "title": "Gradient checking implementation notes",
+              "title": "Gradient Checking Implementation Notes",
               "depth": 3,
               "id": "gradient-checking-implementation-notes"
             }
           ]
         },
         {
-          "title": "Optimization algorithms",
+          "title": "Optimization Algorithms",
           "depth": 2,
           "id": "optimization-algorithms",
           "headings": [
             {
-              "title": "Mini-batch gradient descent",
+              "title": "Mini-batch Gradient Descent",
               "depth": 3,
               "id": "mini-batch-gradient-descent"
             },
             {
-              "title": "Understanding mini-batch gradient descent",
+              "title": "Understanding Mini-batch Gradient Descent",
               "depth": 3,
               "id": "understanding-mini-batch-gradient-descent"
             },
             {
-              "title": "Exponentially weighted averages",
+              "title": "Exponentially Weighted Averages",
               "depth": 3,
               "id": "exponentially-weighted-averages"
             },
             {
-              "title": "Understanding exponentially weighted averages",
+              "title": "Understanding Exponentially Weighted Averages",
               "depth": 3,
               "id": "understanding-exponentially-weighted-averages"
             },
             {
-              "title": "Bias correction in exponentially weighted averages",
+              "title": "Bias Correction in Exponentially Weighted Averages",
               "depth": 3,
               "id": "bias-correction-in-exponentially-weighted-averages"
             },
             {
-              "title": "Gradient descent with momentum",
+              "title": "Gradient Descent with Momentum",
               "depth": 3,
               "id": "gradient-descent-with-momentum"
             },
@@ -1304,59 +1304,59 @@
               "id": "rmsprop"
             },
             {
-              "title": "Adam optimization algorithm",
+              "title": "Adam Optimization Algorithm",
               "depth": 3,
               "id": "adam-optimization-algorithm"
             },
             {
-              "title": "Learning rate decay",
+              "title": "Learning Rate Decay",
               "depth": 3,
               "id": "learning-rate-decay"
             },
             {
-              "title": "The problem of local optima",
+              "title": "The Problem of Local Optima",
               "depth": 3,
               "id": "the-problem-of-local-optima"
             }
           ]
         },
         {
-          "title": "Hyperparameter tuning, Batch Normalization and Programming Frameworks",
+          "title": "Hyperparameter Tuning, Batch Normalization and Programming Frameworks",
           "depth": 2,
           "id": "hyperparameter-tuning-batch-normalization-and-programming-frameworks",
           "headings": [
             {
-              "title": "Tuning process",
+              "title": "Tuning Process",
               "depth": 3,
               "id": "tuning-process"
             },
             {
-              "title": "Using an appropriate scale to pick hyperparameters",
+              "title": "Using an appropriate scale to pick Hyperparameters",
               "depth": 3,
               "id": "using-an-appropriate-scale-to-pick-hyperparameters"
             },
             {
-              "title": "Hyperparameters tuning in practice: Pandas vs. Caviar",
+              "title": "Hyperparameters Tuning in Practice: Pandas vs. Caviar",
               "depth": 3,
               "id": "hyperparameters-tuning-in-practice:-pandas-vs.-caviar"
             },
             {
-              "title": "Normalizing activations in a network",
+              "title": "Normalizing Activations in a Network",
               "depth": 3,
               "id": "normalizing-activations-in-a-network"
             },
             {
-              "title": "Fitting Batch Normalization into a neural network",
+              "title": "Fitting Batch Normalization into a Neural Network",
               "depth": 3,
               "id": "fitting-batch-normalization-into-a-neural-network"
             },
             {
-              "title": "Why does Batch normalization work",
+              "title": "Why Does Batch Normalization Work",
               "depth": 3,
               "id": "why-does-batch-normalization-work"
             },
             {
-              "title": "Batch normalization at test time",
+              "title": "Batch Normalization at Test Time",
               "depth": 3,
               "id": "batch-normalization-at-test-time"
             },
@@ -1366,12 +1366,12 @@
               "id": "softmax-regression"
             },
             {
-              "title": "Training a Softmax classifier",
+              "title": "Training a Softmax Classifier",
               "depth": 3,
               "id": "training-a-softmax-classifier"
             },
             {
-              "title": "Deep learning frameworks",
+              "title": "Deep Learning Frameworks",
               "depth": 3,
               "id": "deep-learning-frameworks"
             },
@@ -1390,14 +1390,14 @@
       "slug": "chapter-3",
       "headings": [
         {
-          "title": "Table of contents",
+          "title": "Table of Contents",
           "depth": 2,
           "id": "table-of-contents"
         },
         {
-          "title": "Note",
+          "title": "Summary",
           "depth": 2,
-          "id": "note"
+          "id": "summary"
         },
         {
           "title": "ML Strategy 1",
@@ -1415,7 +1415,7 @@
               "id": "orthogonalization"
             },
             {
-              "title": "Single number evaluation metric",
+              "title": "Single Number Evaluation Metric",
               "depth": 3,
               "id": "single-number-evaluation-metric"
             },
@@ -1425,7 +1425,7 @@
               "id": "satisfying-and-optimizing-metric"
             },
             {
-              "title": "Train/Dev/Test distributions",
+              "title": "Train/Dev/Test Distributions",
               "depth": 3,
               "id": "traindevtest-distributions"
             },
@@ -1435,32 +1435,32 @@
               "id": "size-of-the-dev-and-test-sets"
             },
             {
-              "title": "When to change Dev/Test sets and metrics",
+              "title": "When to change Dev/Test sets and Metrics",
               "depth": 3,
               "id": "when-to-change-devtest-sets-and-metrics"
             },
             {
-              "title": "Why human-level performance?",
+              "title": "Why Human-level Performance?",
               "depth": 3,
               "id": "why-human-level-performance"
             },
             {
-              "title": "Avoidable bias",
+              "title": "Avoidable Bias",
               "depth": 3,
               "id": "avoidable-bias"
             },
             {
-              "title": "Understanding human-level performance",
+              "title": "Understanding Human-level Performance",
               "depth": 3,
               "id": "understanding-human-level-performance"
             },
             {
-              "title": "Surpassing human-level performance",
+              "title": "Surpassing Human-level Performance",
               "depth": 3,
               "id": "surpassing-human-level-performance"
             },
             {
-              "title": "Improving your model performance",
+              "title": "Improving Your Model Performance",
               "depth": 3,
               "id": "improving-your-model-performance"
             }
@@ -1472,52 +1472,52 @@
           "id": "ml-strategy-2",
           "headings": [
             {
-              "title": "Carrying out error analysis",
+              "title": "Carrying Out Error Analysis",
               "depth": 3,
               "id": "carrying-out-error-analysis"
             },
             {
-              "title": "Cleaning up incorrectly labeled data",
+              "title": "Cleaning Up Incorrectly Labeled Data",
               "depth": 3,
               "id": "cleaning-up-incorrectly-labeled-data"
             },
             {
-              "title": "Build your first system quickly, then iterate",
+              "title": "Build Your First System Quickly, Then Iterate",
               "depth": 3,
               "id": "build-your-first-system-quickly-then-iterate"
             },
             {
-              "title": "Training and testing on different distributions",
+              "title": "Training and Testing on Different Distributions",
               "depth": 3,
               "id": "training-and-testing-on-different-distributions"
             },
             {
-              "title": "Bias and Variance with mismatched data distributions",
+              "title": "Bias and Variance with Mismatched Data Distributions",
               "depth": 3,
               "id": "bias-and-variance-with-mismatched-data-distributions"
             },
             {
-              "title": "Addressing data mismatch",
+              "title": "Addressing Data Mismatch",
               "depth": 3,
               "id": "addressing-data-mismatch"
             },
             {
-              "title": "Transfer learning",
+              "title": "Transfer Learning",
               "depth": 3,
               "id": "transfer-learning"
             },
             {
-              "title": "Multi-task learning",
+              "title": "Multi-task Learning",
               "depth": 3,
               "id": "multi-task-learning"
             },
             {
-              "title": "What is end-to-end deep learning?",
+              "title": "What is End-to-end Deep Learning?",
               "depth": 3,
               "id": "what-is-end-to-end-deep-learning"
             },
             {
-              "title": "Whether to use end-to-end deep learning",
+              "title": "Whether to use End-to-end Deep Learning",
               "depth": 3,
               "id": "whether-to-use-end-to-end-deep-learning"
             }
@@ -1531,14 +1531,14 @@
       "slug": "chapter-4",
       "headings": [
         {
-          "title": "Table of contents",
+          "title": "Table of Contents",
           "depth": 2,
           "id": "table-of-contents"
         },
         {
-          "title": "Note",
+          "title": "Summary",
           "depth": 2,
-          "id": "note"
+          "id": "summary"
         },
         {
           "title": "Foundations of CNNs",
@@ -1546,12 +1546,12 @@
           "id": "foundations-of-cnns",
           "headings": [
             {
-              "title": "Computer vision",
+              "title": "Computer Vision",
               "depth": 3,
               "id": "computer-vision"
             },
             {
-              "title": "Edge detection example",
+              "title": "Edge Detection Example",
               "depth": 3,
               "id": "edge-detection-example"
             },
@@ -1561,12 +1561,12 @@
               "id": "padding"
             },
             {
-              "title": "Strided convolution",
+              "title": "Strided Convolution",
               "depth": 3,
               "id": "strided-convolution"
             },
             {
-              "title": "Convolutions over volumes",
+              "title": "Convolutions Over Volumes",
               "depth": 3,
               "id": "convolutions-over-volumes"
             },
@@ -1576,39 +1576,39 @@
               "id": "one-layer-of-a-convolutional-network"
             },
             {
-              "title": "A simple convolution network example",
+              "title": "A Simple Convolution Network Example",
               "depth": 3,
               "id": "a-simple-convolution-network-example"
             },
             {
-              "title": "Pooling layers",
+              "title": "Pooling Layers",
               "depth": 3,
               "id": "pooling-layers"
             },
             {
-              "title": "Convolutional neural network example",
+              "title": "Convolutional Neural Network Example",
               "depth": 3,
               "id": "convolutional-neural-network-example"
             },
             {
-              "title": "Why convolutions?",
+              "title": "Why Convolutions?",
               "depth": 3,
               "id": "why-convolutions"
             }
           ]
         },
         {
-          "title": "Deep convolutional models: case studies",
+          "title": "Deep Convolutional Models: Case Studies",
           "depth": 2,
           "id": "deep-convolutional-models:-case-studies",
           "headings": [
             {
-              "title": "Why look at case studies?",
+              "title": "Why Look at Case Studies?",
               "depth": 3,
               "id": "why-look-at-case-studies"
             },
             {
-              "title": "Classic networks",
+              "title": "Classic Networks",
               "depth": 3,
               "id": "classic-networks"
             },
@@ -1618,22 +1618,22 @@
               "id": "residual-networks-(resnets)"
             },
             {
-              "title": "Why ResNets work",
+              "title": "Why ResNets Work",
               "depth": 3,
               "id": "why-resnets-work"
             },
             {
-              "title": "Network in Network and 1 X 1 convolutions",
+              "title": "Network in Network and 1 X 1 Convolutions",
               "depth": 3,
               "id": "network-in-network-and-1-x-1-convolutions"
             },
             {
-              "title": "Inception network motivation",
+              "title": "Inception Network Motivation",
               "depth": 3,
               "id": "inception-network-motivation"
             },
             {
-              "title": "Inception network (GoogleNet)",
+              "title": "Inception Network (GoogleNet)",
               "depth": 3,
               "id": "inception-network-(googlenet)"
             },
@@ -1660,7 +1660,7 @@
           ]
         },
         {
-          "title": "Object detection",
+          "title": "Object Detection",
           "depth": 2,
           "id": "object-detection",
           "headings": [
@@ -1717,7 +1717,7 @@
           ]
         },
         {
-          "title": "Special applications: Face recognition & Neural style transfer",
+          "title": "Special Applications: Face Recognition & Neural Style Transfer",
           "depth": 2,
           "id": "special-applications:-face-recognition-and-neural-style-transfer",
           "headings": [
@@ -1753,14 +1753,14 @@
       "slug": "chapter-5",
       "headings": [
         {
-          "title": "Table of contents",
+          "title": "Table of Contents",
           "depth": 2,
           "id": "table-of-contents"
         },
         {
-          "title": "Note",
+          "title": "Summary",
           "depth": 2,
-          "id": "note"
+          "id": "summary"
         },
         {
           "title": "Recurrent Neural Networks",
@@ -1768,7 +1768,7 @@
           "id": "recurrent-neural-networks",
           "headings": [
             {
-              "title": "Why sequence models",
+              "title": "Why Sequence Models",
               "depth": 3,
               "id": "why-sequence-models"
             },
@@ -1783,7 +1783,7 @@
               "id": "recurrent-neural-network-model"
             },
             {
-              "title": "Backpropagation through time",
+              "title": "Backpropagation Through Time",
               "depth": 3,
               "id": "backpropagation-through-time"
             },
@@ -1793,17 +1793,17 @@
               "id": "different-types-of-rnns"
             },
             {
-              "title": "Language model and sequence generation",
+              "title": "Language Model and Sequence Generation",
               "depth": 3,
               "id": "language-model-and-sequence-generation"
             },
             {
-              "title": "Sampling novel sequences",
+              "title": "Sampling Novel Sequences",
               "depth": 3,
               "id": "sampling-novel-sequences"
             },
             {
-              "title": "Vanishing gradients with RNNs",
+              "title": "Vanishing Gradients with RNNs",
               "depth": 3,
               "id": "vanishing-gradients-with-rnns"
             },
@@ -1828,7 +1828,7 @@
               "id": "deep-rnns"
             },
             {
-              "title": "Back propagation with RNNs",
+              "title": "Back Propagation with RNNs",
               "depth": 3,
               "id": "back-propagation-with-rnns"
             }
@@ -1857,17 +1857,17 @@
           ]
         },
         {
-          "title": "Sequence models & Attention mechanism",
+          "title": "Sequence Models & Attention Mechanism",
           "depth": 2,
           "id": "sequence-models-and-attention-mechanism",
           "headings": [
             {
-              "title": "Various sequence to sequence architectures",
+              "title": "Various Sequence to Sequence Architectures",
               "depth": 3,
               "id": "various-sequence-to-sequence-architectures"
             },
             {
-              "title": "Speech recognition - Audio data",
+              "title": "Speech Recognition - Audio Data",
               "depth": 3,
               "id": "speech-recognition-audio-data"
             }
@@ -1879,7 +1879,7 @@
           "id": "extras",
           "headings": [
             {
-              "title": "Machine translation attention model (From notebooks)",
+              "title": "Machine Translation Attention Model (From notebooks)",
               "depth": 3,
               "id": "machine-translation-attention-model-(from-notebooks)"
             }
@@ -1904,9 +1904,7 @@
     "docs/images/02/07-_softmax.png": "images/02/07-_softmax.png",
     "docs/images/02/Nasdaq1_small.png": "images/02/Nasdaq1_small.png",
     "docs/images/02/bn.png": "images/02/bn.png",
-    "docs/images/03/01-_Why_human-level_performance.png": "images/03/01-_Why_human-level_performance.png",
     "docs/images/04/01.png": "images/04/01.png",
-    "docs/images/04/02.png": "images/04/02.png",
     "docs/images/04/03.png": "images/04/03.png",
     "docs/images/04/04.png": "images/04/04.png",
     "docs/images/04/05.png": "images/04/05.png",
@@ -1915,6 +1913,7 @@
     "docs/images/04/08.png": "images/04/08.png",
     "docs/images/04/09.png": "images/04/09.png",
     "docs/images/04/10.png": "images/04/10.png",
+    "docs/images/04/02.png": "images/04/02.png",
     "docs/images/04/11.png": "images/04/11.png",
     "docs/images/04/12.png": "images/04/12.png",
     "docs/images/04/13.png": "images/04/13.png",
@@ -1973,13 +1972,13 @@
     "docs/images/05/14.png": "images/05/14.png",
     "docs/images/05/15.png": "images/05/15.png",
     "docs/images/05/16.png": "images/05/16.png",
-    "docs/images/05/17.png": "images/05/17.png",
     "docs/images/05/18.png": "images/05/18.png",
     "docs/images/05/19.png": "images/05/19.png",
     "docs/images/05/20.png": "images/05/20.png",
     "docs/images/05/21.png": "images/05/21.png",
     "docs/images/05/22.png": "images/05/22.png",
     "docs/images/05/23.png": "images/05/23.png",
+    "docs/images/05/17.png": "images/05/17.png",
     "docs/images/05/24.png": "images/05/24.png",
     "docs/images/05/25.png": "images/05/25.png",
     "docs/images/05/26.png": "images/05/26.png",
@@ -2041,6 +2040,7 @@
     "docs/images/05/83.png": "images/05/83.png",
     "docs/images/05/84.png": "images/05/84.png",
     "docs/images/05/85.png": "images/05/85.png",
+    "docs/images/03/01-_Why_human-level_performance.png": "images/03/01-_Why_human-level_performance.png",
     "docs/images/01/02.png": "images/01/02.png",
     "docs/images/01/03.png": "images/01/03.png",
     "docs/images/01/04.png": "images/01/04.png",
