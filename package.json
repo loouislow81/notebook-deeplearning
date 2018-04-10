@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "true",
-    "build": "docpress b",
+    "build": "rm -rfv ./node_modules && npm i && docpress b",
     "serve": "docpress s",
     "compile": "mv ./_docpress ./html"
   },
