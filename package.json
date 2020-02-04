@@ -9,12 +9,14 @@
   },
   "scripts": {
     "test": "true",
-    "build": "rm -rfv ./node_modules && npm i && docpress b",
-    "serve": "docpress s",
+    "dev-up": "rm -rf ./node_modules && npm i && ",
+    "build": "node ./node_modules/docpress/bin/docpress b",
+    "serve": "node ./node_modules/docpress/bin/docpress s",
     "compile": "mv ./_docpress ./html"
   },
   "devDependencies": {
-    "docpress": "0.6.13",
-    "git-update-ghpages": "1.3.0"
-  }
+    "docpress": "^0.7.6",
+    "git-update-ghpages": "^1.3.0"
+  },
+  "dependencies": {}
 }

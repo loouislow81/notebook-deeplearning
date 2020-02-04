@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1b5c438e-76cc-4346-a708-0d05b0940013/deploy-status)](https://app.netlify.com/sites/deeplearning-notebook-97f73d/deploys)
+
 # Deep Learning Notebook Compilation
 
 This is my personal notebook compilation of my self-taught Deep Learning subject. It covers how to use libraries like **Jupyter Notebook**, **NumPy**, **Keras** and **Tensorflow**, preferable language is **Python**.
